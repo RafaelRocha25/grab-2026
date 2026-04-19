@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>INICÍO - GRAB Asa Branca</title>
+  <meta name="description" content="Grupo de Resistência Asa Branca – GRAB. ONG que defende os direitos LGBTI+ no Ceará há 34 anos.">
+  <link rel="icon" href="https://grab.net.br/wp-content/uploads/2024/02/cropped-cropped-cropped-Logo-GRAB-Horizontal-32x32.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ===========================
+       VARIÁVEIS & RESET
+    =========================== */
+    :root {
+      --primary:        #7B2D8B;
+      --primary-dark:   #5a1f67;
+      --secondary:      #E91E8C;
+      --secondary-dark: #c0186f;
+      --accent:         #F5A623;
+      --accent-dark:    #d48c10;
+      --gradient:       linear-gradient(135deg, #E91E8C 0%, #7B2D8B 100%);
+      --dark:           #0d0d1a;
+      --text:           #1a1a2e;
+      --text-muted:     #6b6b8a;
+      --bg:             #ffffff;
+      --bg-light:       #faf5ff;
+      --border:         #e8e0f0;
+      --radius:         16px;
+      --radius-sm:      8px;
+      --shadow:         0 8px 32px rgba(123,45,139,0.12);
+      --shadow-lg:      0 24px 64px rgba(123,45,139,0.2);
+      --nav-height:     76px;
+      --ease:           cubic-bezier(0.4, 0, 0.2, 1);
+      --t:              0.25s;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      line-height: 1.15;
+    }
+
+    /* ===========================
+       SKIP LINK
+    =========================== */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 0;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 20px;
+      z-index: 9999;
+      transition: top var(--t) var(--ease);
+      border-radius: 0 0 8px 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ===========================
+       HEADER / NAV
+    =========================== */
+    .site-header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-height);
+      background: var(--gradient);
+      transition: box-shadow var(--t) var(--ease);
+    }
+    .site-header.scrolled {
+      box-shadow: 0 4px 24px rgba(123,45,139,0.4);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1280px;
+      margin: 0 auto;
+      height: 100%;
+      padding: 0 28px;
+      gap: 20px;
+    }
+
+    .site-logo img { height: 42px; width: auto; }
+
+    .main-nav { display: flex; }
+
+    .main-nav > ul {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .main-nav a {
+      color: rgba(255,255,255,0.88);
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 8px 13px;
+      border-radius: 8px;
+      transition: all var(--t) var(--ease);
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: #fff;
+      background: rgba(255,255,255,0.16);
+    }
+
+    .nav-highlight a {
+      background: var(--accent) !important;
+      color: var(--dark) !important;
+      font-weight: 700;
+      padding: 8px 18px !important;
+      border-radius: 40px !important;
+    }
+    .nav-highlight a:hover {
+      background: var(--accent-dark) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px rgba(245,166,35,0.45);
+    }
+
+    /* Dropdown */
+    .has-dropdown { position: relative; }
+
+    .nav-dropdown-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-dropdown-btn svg {
+      transition: transform var(--t) var(--ease);
+      flex-shrink: 0;
+    }
+
+    .has-dropdown:hover .nav-dropdown-btn svg,
+    .has-dropdown.open .nav-dropdown-btn svg {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%) translateY(-6px);
+      background: #fff;
+      border-radius: var(--radius-sm);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+      min-width: 180px;
+      padding: 6px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
+      z-index: 200;
+    }
+
+    .has-dropdown:hover .dropdown-menu,
+    .has-dropdown:focus-within .dropdown-menu,
+    .has-dropdown.open .dropdown-menu {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: var(--text) !important;
+      background: none !important;
+      padding: 10px 14px !important;
+      border-radius: 6px;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      transition: background var(--t) var(--ease);
+    }
+
+    .dropdown-menu a:hover {
+      background: var(--bg-light) !important;
+      color: var(--primary) !important;
+    }
+
+    /* Arrow below header into dropdown */
+    .dropdown-menu::before {
+      content: '';
+      position: absolute;
+      top: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 6px solid transparent;
+      border-bottom-color: #fff;
+      border-top: none;
+    }
+
+    .header-socials {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .header-socials a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 14px;
+      transition: all var(--t) var(--ease);
+      cursor: pointer;
+    }
+    .header-socials a:hover {
+      background: rgba(255,255,255,0.28);
+      transform: translateY(-2px);
+    }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 8px;
+      transition: background var(--t);
+    }
+    .hamburger:hover { background: rgba(255,255,255,0.25); }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all var(--t) var(--ease);
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Mobile Nav */
+    .mobile-nav {
+      position: fixed;
+      top: var(--nav-height);
+      left: 0; right: 0;
+      z-index: 999;
+      background: var(--primary-dark);
+      padding: 8px 24px 24px;
+      transform: translateY(-110%);
+      transition: transform 0.35s var(--ease);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.3);
+    }
+    .mobile-nav.open { transform: translateY(0); }
+
+    .mobile-nav a {
+      display: block;
+      color: rgba(255,255,255,0.88);
+      font-size: 15px;
+      font-weight: 500;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: all var(--t) var(--ease);
+      cursor: pointer;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover { color: #fff; padding-left: 8px; }
+
+    .mobile-nav .mobile-subnav-label {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 0 6px;
+      border-bottom: none;
+      cursor: default;
+    }
+    .mobile-nav .mobile-subnav-label:hover { padding-left: 0; color: rgba(255,255,255,0.5); }
+
+    .mobile-nav .mobile-subitem {
+      padding-left: 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+    }
+
+    /* ===========================
+       PAGE CONTENT
+    =========================== */
+    .page-content { padding-top: var(--nav-height); }
+
+    /* ===========================
+       HERO SLIDER
+    =========================== */
+    .hero-slider {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+    .slider-track {
+      display: flex;
+      transition: transform 0.75s var(--ease);
+      will-change: transform;
+    }
+    .slide { min-width: 100%; position: relative; }
+    .slide img {
+      width: 100%;
+      max-height: 78vh;
+      object-fit: cover;
+      display: block;
+    }
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.92);
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      transition: all var(--t) var(--ease);
+    }
+    .slider-btn:hover {
+      background: #fff;
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    }
+    .slider-btn.prev { left: 20px; }
+    .slider-btn.next { right: 20px; }
+    .slider-dots {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 8px;
+      z-index: 10;
+    }
+    .slider-dot {
+      width: 10px; height: 10px;
+      border-radius: 5px;
+      border: none;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all var(--t) var(--ease);
+      padding: 0;
+    }
+    .slider-dot.active { background: #fff; width: 30px; }
+
+    /* ===========================
+       SECTIONS BASE
+    =========================== */
+    .section { padding: 84px 0; }
+
+    .section-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 10px;
+    }
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 28px; height: 2px;
+      background: var(--secondary);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 3.5vw, 44px);
+      color: var(--primary);
+      margin-bottom: 24px;
+      font-weight: 800;
+    }
+
+    /* ===========================
+       QUEM SOMOS
+    =========================== */
+    .about-section { background: var(--bg); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+    .about-text p strong { color: var(--text); font-weight: 600; }
+
+    .pull-quote {
+      margin: 28px 0;
+      padding: 20px 24px;
+      border-left: 4px solid var(--secondary);
+      background: linear-gradient(135deg, rgba(233,30,140,0.05), rgba(123,45,139,0.05));
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-style: italic;
+      color: var(--primary);
+      line-height: 1.65;
+    }
+
+    .about-img-wrapper { position: relative; }
+    .about-img-wrapper img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      display: block;
+    }
+
+    .img-badge {
+      position: absolute;
+      bottom: -22px; right: -22px;
+      background: var(--gradient);
+      color: #fff;
+      padding: 18px 22px;
+      border-radius: var(--radius);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 13px;
+      text-align: center;
+      line-height: 1.3;
+      box-shadow: var(--shadow);
+    }
+    .img-badge strong {
+      display: block;
+      font-size: 38px;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    /* Read More */
+    .read-more-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.55s var(--ease);
+    }
+    .read-more-content.expanded { max-height: 700px; }
+
+    .btn-read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 2px solid var(--secondary);
+      color: var(--secondary);
+      padding: 10px 22px;
+      border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--t) var(--ease);
+      margin-top: 20px;
+    }
+    .btn-read-more::after { content: 'Leia mais'; }
+    .btn-read-more.expanded::after { content: 'Leia menos'; }
+    .btn-read-more:hover {
+      background: var(--secondary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(233,30,140,0.3);
+    }
+
+    /* ===========================
+       LINHAS DE ATUAÇÃO
+    =========================== */
+    .areas-section {
+      background: var(--primary);
+      padding: 84px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .areas-section::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 360px; height: 360px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.04);
+      pointer-events: none;
+    }
+    .areas-section::after {
+      content: '';
+      position: absolute;
+      bottom: -100px; left: -60px;
+      width: 480px; height: 480px;
+      border-radius: 50%;
+      background: rgba(233,30,140,0.12);
+      pointer-events: none;
+    }
+    .areas-header {
+      text-align: center;
+      margin-bottom: 52px;
+      position: relative;
+      z-index: 1;
+    }
+    .areas-header .section-label { color: rgba(255,255,255,0.6); justify-content: center; }
+    .areas-header .section-label::before { background: rgba(255,255,255,0.35); }
+    .areas-header .section-title { color: #fff; }
+
+    .areas-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .area-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius);
+      padding: 44px 28px;
+      text-align: center;
+      transition: all var(--t) var(--ease);
+      cursor: default;
+      backdrop-filter: blur(8px);
+    }
+    .area-card:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 52px rgba(0,0,0,0.22);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .area-icon-wrap {
+      width: 72px; height: 72px;
+      border-radius: 20px;
+      background: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 28px rgba(245,166,35,0.4);
+      transition: transform var(--t) var(--ease);
+    }
+    .area-card:hover .area-icon-wrap { transform: scale(1.08); }
+    .area-icon-wrap svg { width: 32px; height: 32px; stroke: #1a1a2e; }
+    .area-card h3 { color: #fff; font-size: 16px; font-weight: 700; line-height: 1.45; }
+
+    /* ===========================
+       NOSSA HISTÓRIA
+    =========================== */
+    .history-section { background: var(--bg-light); }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .history-img-wrapper img {
+      width: 100%;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: block;
+    }
+    .history-img-caption {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      text-align: center;
+    }
+
+    .history-stats {
+      display: flex;
+      gap: 0;
+      margin-top: 36px;
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .stat-item {
+      flex: 1;
+      text-align: center;
+      padding: 24px 16px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: 'Syne', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    /* Botão história modal */
+    .btn-historia {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--t) var(--ease);
+      box-shadow: 0 6px 20px rgba(123,45,139,0.25);
+    }
+    .btn-historia:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(123,45,139,0.35);
+    }
+
+    /* ===========================
+       MODAL
+    =========================== */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      background: rgba(13,13,26,0.7);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--t) var(--ease);
+    }
+    .modal-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-box {
+      background: #fff;
+      border-radius: var(--radius);
+      max-width: 760px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      transform: translateY(20px);
+      transition: transform var(--t) var(--ease);
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0); }
+
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 16px;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,0.08);
+      color: var(--text);
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--t) var(--ease);
+      z-index: 10;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.15); }
+
+    .modal-img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+      border-radius: var(--radius) var(--radius) 0 0;
+    }
+
+    .modal-body {
+      padding: 36px 40px 40px;
+    }
+
+    .modal-body h2 {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .modal-body p {
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .modal-body p strong { color: var(--text); }
+
+    .modal-body h3 {
+      font-size: 18px;
+      color: var(--primary);
+      margin: 28px 0 12px;
+    }
+
+    /* ===========================
+       NOTÍCIAS
+    =========================== */
+    .news-section { background: var(--bg); }
+
+    .news-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 24px;
+    }
+
+    .news-featured {
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .news-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: all var(--t) var(--ease);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+    }
+    .news-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+      border-color: rgba(123,45,139,0.2);
+    }
+
+    .news-card-stripe {
+      height: 5px;
+      background: var(--gradient);
+      flex-shrink: 0;
+    }
+
+    .news-card-body {
+      padding: 20px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .news-featured .news-card-body { padding: 28px 32px 32px; }
+
+    .news-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--secondary);
+      margin-bottom: 12px;
+    }
+
+    .news-card-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: auto;
+      padding-bottom: 16px;
+    }
+
+    .news-featured .news-card-title { font-size: 22px; }
+
+    .news-card-date {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .news-cta {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-mais-noticias {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--t) var(--ease);
+    }
+    .btn-mais-noticias:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(123,45,139,0.25);
+    }
+
+    /* ===========================
+       CONTATO
+    =========================== */
+    .contact-section { background: var(--bg-light); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .contact-form-title {
+      font-size: 22px;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color var(--t) var(--ease), box-shadow var(--t) var(--ease);
+      width: 100%;
+    }
+
+    .form-group textarea {
+      min-height: 130px;
+      resize: vertical;
+      line-height: 1.6;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: #b0adc0; }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(123,45,139,0.1);
+    }
+
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--t) var(--ease);
+      box-shadow: 0 6px 20px rgba(123,45,139,0.25);
+    }
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(123,45,139,0.35);
+    }
+
+    .form-success {
+      display: none;
+      margin-top: 20px;
+      padding: 16px 20px;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      border-radius: var(--radius-sm);
+      color: #059669;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .form-success.show { display: flex; align-items: center; gap: 10px; }
+
+    /* Info cards */
+    .contact-info-stack { display: flex; flex-direction: column; gap: 16px; }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px;
+    }
+
+    .info-card-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      margin-bottom: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .info-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .info-item:first-of-type { padding-top: 0; }
+
+    .info-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .info-text strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .info-text p,
+    .info-text a {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .info-text a:hover { color: var(--secondary); }
+
+    .info-socials { display: flex; gap: 10px; margin-top: 4px; }
+
+    .info-social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 600;
+      background: rgba(123,45,139,0.08);
+      color: var(--primary);
+      transition: all var(--t) var(--ease);
+      cursor: pointer;
+    }
+    .info-social-btn:hover { background: var(--primary); color: #fff; }
+
+    /* ===========================
+       ANIMATIONS
+    =========================== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .fade-up.delay-1 { transition-delay: 0.1s; }
+    .fade-up.delay-2 { transition-delay: 0.2s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1; transform: none; transition: none; }
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .site-footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.75);
+    }
+
+    .footer-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 72px 28px 52px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 56px;
+    }
+
+    .footer-col h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--secondary);
+      margin-bottom: 16px;
+    }
+
+    .footer-col p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .footer-col a {
+      display: block;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+      transition: all var(--t) var(--ease);
+      cursor: pointer;
+    }
+    .footer-col a:hover { color: #fff; padding-left: 4px; }
+
+    .footer-socials {
+      display: flex;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    /* FIX: override display:block from .footer-col a */
+    .footer-socials a.social-link {
+      display: flex;
+      margin-bottom: 0;
+      padding-left: 0 !important;
+    }
+    .footer-socials a.social-link:hover { padding-left: 0 !important; }
+
+    .social-link {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.07);
+      color: rgba(255,255,255,0.7) !important;
+      font-size: 15px;
+      align-items: center;
+      justify-content: center;
+      transition: all var(--t) var(--ease);
+      cursor: pointer;
+    }
+    .social-link:hover {
+      background: var(--secondary) !important;
+      color: #fff !important;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(233,30,140,0.4);
+    }
+
+    .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); }
+
+    .footer-bottom {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 20px 28px;
+      text-align: center;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* ===========================
+       BACK TO TOP
+    =========================== */
+    .back-to-top {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 500;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: var(--gradient);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(16px);
+      transition: all var(--t) var(--ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 1100px) {
+      .main-nav { display: none; }
+      .hamburger { display: flex; }
+      .header-socials { display: none; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --nav-height: 68px; }
+
+      .about-grid,
+      .history-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .areas-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .news-grid { grid-template-columns: 1fr; }
+      .news-featured { grid-row: span 1; }
+
+      .contact-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        gap: 36px;
+        padding-top: 52px;
+        padding-bottom: 36px;
+      }
+
+      .img-badge { right: 0; bottom: -16px; }
+      .section { padding: 64px 0; }
+      .history-stats { flex-direction: column; }
+      .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
+      .stat-item:last-child { border-bottom: none; }
+
+      .modal-body { padding: 24px 24px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      .slider-btn { width: 40px; height: 40px; }
+      .slider-btn.prev { left: 12px; }
+      .slider-btn.next { right: 12px; }
+      .img-badge { display: none; }
+      .section-inner { padding: 0 20px; }
+      .header-inner { padding: 0 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#content">Ir para o conteúdo</a>
+
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index_2.html" aria-label="GRAB Asa Branca — Início">
+        <img src="https://grab.net.br/wp-content/uploads/2024/02/cropped-cropped-cropped-Logo-GRAB-Horizontal.png"
+          alt="GRAB Asa Branca" height="42">
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index_2.html" class="active">Início</a></li>
+          <li><a href="prevencao-combinada.html">Prevenção Combinada</a></li>
+          <li><a href="parada.html">24ª Parada pela Diversidade</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
+              Projetos
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu" id="dropdown-projetos" role="menu">
+              <a href="traves-ti.html" role="menuitem">TRAVES-TI</a>
+              <a href="#" role="menuitem">Rede</a>
+            </div>
+          </li>
+          <li class="nav-highlight"><a href="#contato">Entre em Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-socials">
+        <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+    <a href="index_2.html">Início</a>
+    <a href="prevencao-combinada.html">Prevenção Combinada</a>
+    <a href="parada.html">24ª Parada pela Diversidade Sexual do Ceará</a>
+    <span class="mobile-subnav-label">Projetos</span>
+    <a href="traves-ti.html" class="mobile-subitem">TRAVES-TI</a>
+    <a href="#" class="mobile-subitem">Rede</a>
+    <a href="#contato">Entre em Contato</a>
+  </nav>
+
+  <!-- PAGE CONTENT -->
+  <main class="page-content" id="content">
+
+    <!-- HERO SLIDER -->
+    <section class="hero-slider" aria-label="Destaques">
+      <div class="slider-track" id="slider-track">
+        <div class="slide">
+          <img src="https://grab.net.br/wp-content/uploads/2025/07/CAPA-SITE-scaled.png"
+            alt="GRAB Asa Branca" loading="eager">
+        </div>
+        <div class="slide">
+          <img src="https://grab.net.br/wp-content/uploads/2024/02/BG-Projeto.png" alt="Projetos GRAB">
+        </div>
+        <div class="slide">
+          <img src="https://grab.net.br/wp-content/uploads/2025/02/capasite_TravesTI.png" alt="Projeto TRAVES-TI">
+        </div>
+      </div>
+      <button class="slider-btn prev" id="slider-prev" aria-label="Slide anterior">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </button>
+      <button class="slider-btn next" id="slider-next" aria-label="Próximo slide">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </button>
+      <div class="slider-dots" role="tablist" id="slider-dots">
+        <button class="slider-dot active" role="tab" aria-label="Slide 1" data-index="0"></button>
+        <button class="slider-dot" role="tab" aria-label="Slide 2" data-index="1"></button>
+        <button class="slider-dot" role="tab" aria-label="Slide 3" data-index="2"></button>
+      </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section class="section about-section" id="about">
+      <div class="section-inner">
+        <div class="about-grid">
+          <div class="about-text fade-up">
+            <span class="section-label">Nossa Organização</span>
+            <h2 class="section-title">Quem Somos</h2>
+            <p>
+              O <strong>Grupo de Resistência Asa Branca – GRAB</strong> é uma organização não governamental, sem fins
+              lucrativos, reconhecida de utilidade pública municipal, que defende a livre orientação sexual e a defesa
+              das identidades de gênero e desenvolve há 34 anos diversas ações comunitárias, advocacy e controle social
+              em prol da cidadania de Lésbicas, Gays, Bissexuais, Travestis, Transexuais e Intersexo – LGBTI+ nas áreas
+              da Cultura, Saúde, Educação e Direitos Humanos.
+            </p>
+            <p>
+              Atualmente, participa do Conselho Municipal dos Direitos LGBT de Fortaleza – CMPDLGBT; do Conselho
+              Estadual de Combate à Discriminação LGBT do Ceará – CECDLGBT; e da Comissão Interinstitucional de Educação
+              em Direitos Humanos, Gênero e Sexualidade – CIEDHGS.
+            </p>
+            <div class="read-more-content" id="quem-somos-more">
+              <p>
+                O GRAB foi fundado em Fortaleza, Ceará, Brasil, em <strong>17 de março de 1989</strong>, em um contexto
+                de violência e discriminação contra a população de homossexuais e travestis na época.
+              </p>
+              <blockquote class="pull-quote">
+                "Melhorar a qualidade de vida de Gays, Lésbicas, Travestis, Transexuais, Bissexuais e pessoas vivendo
+                com HIV/Aids."
+              </blockquote>
+              <p>
+                Ao longo das últimas três décadas, o GRAB tem desenvolvido diversas ações de mobilização social em
+                defesa dos Direitos Humanos da População LGBTI+, como as Paradas pela Diversidade Sexual do Ceará, com
+                mais de 23 edições realizadas.
+              </p>
+            </div>
+            <button class="btn-read-more" id="btn-read-more"
+              aria-expanded="false" aria-controls="quem-somos-more"></button>
+          </div>
+          <div class="about-img-wrapper fade-up delay-1">
+            <img src="https://grab.net.br/wp-content/uploads/2024/02/img-2.jpg"
+              alt="Membros do GRAB" loading="lazy">
+            <div class="img-badge">
+              <strong>34</strong>
+              anos de<br>resistência
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LINHAS DE ATUAÇÃO -->
+    <section class="areas-section" aria-labelledby="areas-heading">
+      <div class="section-inner">
+        <div class="areas-header">
+          <span class="section-label">Nossa Atuação</span>
+          <h2 class="section-title" id="areas-heading">Linhas de Atuação</h2>
+        </div>
+        <div class="areas-grid">
+          <div class="area-card fade-up">
+            <div class="area-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Ativismo, Cidadania e Direitos Humanos</h3>
+          </div>
+          <div class="area-card fade-up delay-1">
+            <div class="area-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+              </svg>
+            </div>
+            <h3>Educação e Cultura</h3>
+          </div>
+          <div class="area-card fade-up delay-2">
+            <div class="area-icon-wrap" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <h3>Promoção da Saúde e Prevenção ao HIV/Aids</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSSA HISTÓRIA -->
+    <section class="section history-section" id="history">
+      <div class="section-inner">
+        <div class="history-grid">
+          <div class="history-img-wrapper fade-up">
+            <img src="http://grab.net.br/wp-content/uploads/2024/02/parada-pela-diversidade-sexual-do-ceara-2022-acontece-no-domingo-7-scaled-1-1024x608.webp"
+              alt="Parada pela Diversidade Sexual do Ceará" loading="lazy">
+            <p class="history-img-caption">Foto: Reprodução</p>
+          </div>
+          <div class="about-text fade-up delay-1">
+            <span class="section-label">Desde 1989</span>
+            <h2 class="section-title">Nossa História</h2>
+            <p>
+              Com o impacto da Aids sobre a comunidade de Gays, Bissexuais e Travestis na década de 1990, o apoio aos
+              direitos das pessoas vivendo com HIV/Aids – PVHA tornou-se também uma das bandeiras de luta do GRAB.
+            </p>
+            <p>
+              O GRAB, ao longo do tempo realizou diversas ações comunitárias junto à juventude LGBTI+ das periferias
+              para qualificação profissional, prevenção ao HIV/aids, formação de lideranças no contexto do nordeste
+              brasileiro.
+            </p>
+            <p>
+              Ao longo dos <strong>34 anos de existência</strong>, o GRAB se coloca no contexto brasileiro como a
+              segunda organização da sociedade civil organizada do segmento LGBTI+ em funcionamento.
+            </p>
+            <div class="history-stats" role="list" aria-label="Números do GRAB">
+              <div class="stat-item" role="listitem">
+                <div class="stat-number">34</div>
+                <div class="stat-label">Anos de história</div>
+              </div>
+              <div class="stat-item" role="listitem">
+                <div class="stat-number">+23</div>
+                <div class="stat-label">Paradas realizadas</div>
+              </div>
+              <div class="stat-item" role="listitem">
+                <div class="stat-number">2ª</div>
+                <div class="stat-label">ONG LGBTI+ do Brasil</div>
+              </div>
+            </div>
+            <button class="btn-historia" id="btn-historia-modal" aria-controls="historia-modal">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+              Conheça mais sobre nossa história
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOTÍCIAS -->
+    <section class="section news-section" id="noticias">
+      <div class="section-inner">
+        <div class="news-header">
+          <div>
+            <span class="section-label">Fique por Dentro</span>
+            <h2 class="section-title" style="margin-bottom:0;">Últimas Notícias</h2>
+          </div>
+        </div>
+        <div class="news-grid">
+
+          <!-- Notícia em destaque -->
+          <div class="news-card news-featured fade-up">
+            <div class="news-card-stripe"></div>
+            <div class="news-card-body">
+              <span class="news-tag">Destaque</span>
+              <h3 class="news-card-title">GRAB realiza 24ª Parada pela Diversidade Sexual do Ceará com recorde de público</h3>
+              <div class="news-card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                15 de março de 2025
+              </div>
+            </div>
+          </div>
+
+          <!-- Demais notícias -->
+          <div class="news-card fade-up delay-1">
+            <div class="news-card-stripe"></div>
+            <div class="news-card-body">
+              <span class="news-tag">Projetos</span>
+              <h3 class="news-card-title">Projeto TRAVES-TI amplia atendimento à população trans no Ceará</h3>
+              <div class="news-card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                02 de fevereiro de 2025
+              </div>
+            </div>
+          </div>
+
+          <div class="news-card fade-up delay-2">
+            <div class="news-card-stripe"></div>
+            <div class="news-card-body">
+              <span class="news-tag">Institucional</span>
+              <h3 class="news-card-title">GRAB participa de conferência nacional de direitos LGBTI+</h3>
+              <div class="news-card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                20 de janeiro de 2025
+              </div>
+            </div>
+          </div>
+
+          <div class="news-card fade-up delay-1">
+            <div class="news-card-stripe"></div>
+            <div class="news-card-body">
+              <span class="news-tag">Saúde</span>
+              <h3 class="news-card-title">Prevenção Combinada: nova fase do projeto chega ao interior do Ceará</h3>
+              <div class="news-card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                10 de dezembro de 2024
+              </div>
+            </div>
+          </div>
+
+          <div class="news-card fade-up delay-2">
+            <div class="news-card-stripe"></div>
+            <div class="news-card-body">
+              <span class="news-tag">Direitos Humanos</span>
+              <h3 class="news-card-title">GRAB debate políticas públicas no Fórum Estadual de Saúde do Ceará</h3>
+              <div class="news-card-date">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                28 de novembro de 2024
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="news-cta">
+          <button class="btn-mais-noticias" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+            Mais notícias
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="section contact-section" id="contato" aria-labelledby="contato-heading">
+      <div class="section-inner">
+        <div style="margin-bottom: 48px;">
+          <span class="section-label">Fale Conosco</span>
+          <h2 class="section-title" id="contato-heading">Entre em Contato</h2>
+        </div>
+        <div class="contact-grid">
+
+          <!-- FORMULÁRIO -->
+          <div class="fade-up">
+            <h3 class="contact-form-title">Envie sua mensagem</h3>
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="nome">Nome</label>
+                  <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+                </div>
+                <div class="form-group">
+                  <label for="sobrenome">Sobrenome</label>
+                  <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+              </div>
+              <div class="form-group">
+                <label for="assunto">Assunto</label>
+                <input type="text" id="assunto" name="assunto" placeholder="Assunto da mensagem" required>
+              </div>
+              <div class="form-group">
+                <label for="mensagem">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+              </div>
+              <button type="submit" class="btn-submit">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                </svg>
+                Enviar mensagem
+              </button>
+            </form>
+            <div class="form-success" id="form-success" role="alert">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              Agradecemos a sua mensagem. Responderemos em breve.
+            </div>
+          </div>
+
+          <!-- INFO CARDS -->
+          <div class="contact-info-stack fade-up delay-1">
+            <div class="info-card">
+              <p class="info-card-title">Informações de Contato</p>
+
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <strong>Endereço</strong>
+                  <p>Rua K (Ipê Amarelo), 1022, Itaperi<br>Fortaleza – CE</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                    <polyline points="22,6 12,13 2,6"/>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <strong>E-mail</strong>
+                  <a href="mailto:grab@grab.net.br">grab@grab.net.br</a>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon" aria-hidden="true">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polyline points="12 6 12 12 16 14"/>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <strong>Funcionamento</strong>
+                  <p>Segunda a Sexta-feira<br>9h – 17h</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="info-card">
+              <p class="info-card-title">Siga nas Redes Sociais</p>
+              <div class="info-socials">
+                <a class="info-social-btn" href="https://www.facebook.com/profile.php?id=100011182606894"
+                  target="_blank" rel="noopener" aria-label="Facebook">
+                  <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
+                </a>
+                <a class="info-social-btn" href="https://www.instagram.com/grabasabranca"
+                  target="_blank" rel="noopener" aria-label="Instagram">
+                  <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>GRAB Asa Branca</h4>
+        <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
+        <div class="footer-socials">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894"
+            target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/grabasabranca"
+            target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index_2.html">Início</a>
+        <a href="prevencao-combinada.html">Prevenção Combinada</a>
+        <a href="parada.html">24ª Parada pela Diversidade</a>
+        <a href="traves-ti.html">TRAVES-TI</a>
+        <a href="#contato">Entre em Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Sede</h4>
+        <p>Rua K (Ipê Amarelo), 1022, Itaperi<br>Fortaleza – CE</p>
+        <br>
+        <h4>Contato</h4>
+        <a href="mailto:grab@grab.net.br">grab@grab.net.br</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2024 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p>
+    </div>
+  </footer>
+
+  <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- MODAL: Nossa História -->
+  <div class="modal-overlay" id="historia-modal" role="dialog" aria-modal="true"
+    aria-labelledby="modal-historia-title" aria-hidden="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modal-close" aria-label="Fechar modal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+      <img class="modal-img"
+        src="http://grab.net.br/wp-content/uploads/2024/02/parada-pela-diversidade-sexual-do-ceara-2022-acontece-no-domingo-7-scaled-1-1024x608.webp"
+        alt="Parada pela Diversidade Sexual do Ceará">
+      <div class="modal-body">
+        <h2 id="modal-historia-title">Nossa História</h2>
+
+        <p>
+          O <strong>Grupo de Resistência Asa Branca – GRAB</strong> foi fundado em Fortaleza, Ceará, em
+          <strong>17 de março de 1989</strong>, em um contexto de intensa violência e discriminação contra a
+          população homossexual e travesti. Desde então, tornou-se uma das organizações LGBTI+ mais longevas e
+          atuantes do Brasil.
+        </p>
+
+        <h3>Origens e Contexto</h3>
+        <p>
+          [Texto a ser preenchido pelo GRAB — descrever o contexto político, social e cultural da fundação,
+          os fundadores e os primeiros anos de atuação.]
+        </p>
+
+        <h3>A Luta contra a Aids</h3>
+        <p>
+          Com o impacto da epidemia de HIV/Aids sobre a comunidade de Gays, Bissexuais e Travestis ao longo
+          da década de 1990, o apoio às pessoas vivendo com HIV/Aids – PVHA tornou-se uma das principais
+          bandeiras do GRAB. [Texto a ser completado.]
+        </p>
+
+        <h3>Décadas de Mobilização</h3>
+        <p>
+          Ao longo dos <strong>34 anos de existência</strong>, o GRAB organizou mais de 23 edições da Parada
+          pela Diversidade Sexual do Ceará, desenvolveu projetos de qualificação profissional para juventude
+          LGBTI+ das periferias e formou lideranças no contexto do Nordeste brasileiro. [Texto a ser completado.]
+        </p>
+
+        <h3>Reconhecimento e Representatividade</h3>
+        <p>
+          Reconhecido como utilidade pública municipal, o GRAB integra o Conselho Municipal dos Direitos LGBT
+          de Fortaleza, o Conselho Estadual de Combate à Discriminação LGBT do Ceará e a Comissão
+          Interinstitucional de Educação em Direitos Humanos, Gênero e Sexualidade. [Texto a ser completado.]
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* === SLIDER === */
+    const track = document.getElementById('slider-track');
+    const dots  = document.querySelectorAll('.slider-dot');
+    const TOTAL = 3;
+    let current = 0, autoTimer;
+
+    function goTo(idx) {
+      current = ((idx % TOTAL) + TOTAL) % TOTAL;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    function startAuto() { autoTimer = setInterval(() => goTo(current + 1), 5000); }
+    function resetAuto() { clearInterval(autoTimer); startAuto(); }
+
+    document.getElementById('slider-prev').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+    document.getElementById('slider-next').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+    dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.index); resetAuto(); }));
+    document.querySelector('.hero-slider').addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') { goTo(current - 1); resetAuto(); }
+      if (e.key === 'ArrowRight') { goTo(current + 1); resetAuto(); }
+    });
+    startAuto();
+
+    /* === HAMBURGER === */
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobile-nav');
+
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+    });
+    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }));
+
+    /* === DROPDOWN PROJETOS === */
+    const dropdownBtn = document.getElementById('dropdown-projetos-btn');
+    const dropdownParent = dropdownBtn.closest('.has-dropdown');
+
+    dropdownBtn.addEventListener('click', e => {
+      e.preventDefault();
+      const open = dropdownParent.classList.toggle('open');
+      dropdownBtn.setAttribute('aria-expanded', String(open));
+    });
+
+    document.addEventListener('click', e => {
+      if (!dropdownParent.contains(e.target)) {
+        dropdownParent.classList.remove('open');
+        dropdownBtn.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    /* === SCROLL EVENTS === */
+    const siteHeader = document.getElementById('site-header');
+    const backToTop  = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      siteHeader.classList.toggle('scrolled', window.scrollY > 60);
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    /* === INTERSECTION OBSERVER === */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    /* === READ MORE === */
+    const btnReadMore     = document.getElementById('btn-read-more');
+    const readMoreContent = document.getElementById('quem-somos-more');
+
+    btnReadMore.addEventListener('click', () => {
+      const expanded = readMoreContent.classList.toggle('expanded');
+      btnReadMore.classList.toggle('expanded', expanded);
+      btnReadMore.setAttribute('aria-expanded', String(expanded));
+    });
+
+    /* === MODAL HISTÓRIA === */
+    const modal       = document.getElementById('historia-modal');
+    const modalClose  = document.getElementById('modal-close');
+    const btnHistoria = document.getElementById('btn-historia-modal');
+
+    function openModal() {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    }
+    function closeModal() {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      btnHistoria.focus();
+    }
+
+    btnHistoria.addEventListener('click', openModal);
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+
+    /* === FORMULÁRIO === */
+    const form = document.getElementById('contact-form');
+    const formSuccess = document.getElementById('form-success');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = form.querySelector('.btn-submit');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      setTimeout(() => {
+        form.style.display = 'none';
+        formSuccess.classList.add('show');
+      }, 800);
+    });
+  </script>
+
+</body>
+</html>
