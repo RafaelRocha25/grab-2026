@@ -57,35 +57,56 @@
 <a class="skip-link" href="#content">Ir para o conteúdo</a>
 
 <!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <a class="site-logo" href="index.html">
-      <img src="https://grab.net.br/wp-content/uploads/2024/02/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB Asa Branca">
-    </a>
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Início</a></li>
-        <li><a href="prevencao-combinada.html">Prevenção Combinada</a></li>
-        <li><a href="parada.html">24ª Parada pela Diversidade</a></li>
-        <li><a href="traves-ti.html" class="active">TRAVES-TI</a></li>
-        <li class="nav-highlight"><a href="contato.html">Entre em Contato</a></li>
-      </ul>
-    </nav>
-    <div class="header-socials">
-      <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+      <a class="site-logo" href="index.html" aria-label="GRAB Asa Branca — Início">
+        <img src="https://grab.net.br/wp-content/uploads/2024/02/cropped-cropped-cropped-Logo-GRAB-Horizontal.png"
+          alt="GRAB Asa Branca" height="42">
+      </a>
+      <nav class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="index.html" >Início</a></li>
+          <li><a href="prevencao-combinada.html">Prevenção Combinada</a></li>
+          <li><a href="parada.html">24ª Parada pela Diversidade</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
+              Projetos
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <div class="dropdown-menu" id="dropdown-projetos" role="menu">
+              <a href="traves-ti.html" class="active" role="menuitem">TRAVES-TI</a>
+              <a href="#" role="menuitem">Rede</a>
+            </div>
+          </li>
+          <li class="nav-highlight"><a href="#contato">Entre em Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-socials">
+        <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
-  </div>
-</header>
+  </header>
 
-<nav class="mobile-nav">
-  <a href="index.html">Início</a>
-  <a href="prevencao-combinada.html">Prevenção Combinada</a>
-  <a href="parada.html">24ª Parada pela Diversidade Sexual do Ceará</a>
-  <a href="traves-ti.html">TRAVES-TI</a>
-  <a href="contato.html">Entre em Contato</a>
-</nav>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+    <a href="index.html">Início</a>
+    <a href="prevencao-combinada.html">Prevenção Combinada</a>
+    <a href="parada.html">24ª Parada pela Diversidade Sexual do Ceará</a>
+    <span class="mobile-subnav-label">Projetos</span>
+    <a href="traves-ti.html" class="mobile-subitem">TRAVES-TI</a>
+    <a href="#" class="mobile-subitem">Rede</a>
+    <a href="#contato">Entre em Contato</a>
+  </nav>
 
 <main class="page-content" id="content">
 
@@ -232,26 +253,42 @@
 
 <!-- FOOTER -->
 <footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-col">
-      <h4>GRAB Asa Branca</h4>
-      <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>GRAB Asa Branca</h4>
+        <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
+        <div class="footer-socials">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894"
+            target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f" aria-hidden="true"></i>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/grabasabranca"
+            target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html">Início</a>
+        <a href="prevencao-combinada.html">Prevenção Combinada</a>
+        <a href="parada.html">24ª Parada pela Diversidade</a>
+        <a href="#">Projetos</a>
+        <a href="#contato">Entre em Contato</a>
+      </div>
+      <div class="footer-col">
+        <h4>Sede</h4>
+        <p>Rua K (Ipê Amarelo), 1022, Itaperi<br>Fortaleza – CE</p>
+        <br>
+        <h4>Contato</h4>
+        <a href="mailto:grab@grab.net.br">grab@grab.net.br</a>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Navegação</h4>
-      <a href="index.html" style="display:block;">Início</a>
-      <a href="prevencao-combinada.html" style="display:block;">Prevenção Combinada</a>
-      <a href="parada.html" style="display:block;">24ª Parada pela Diversidade</a>
-      <a href="#" style="display:block;">Projetos</a>
-      <a href="contato.html" style="display:block;">Entre em Contato</a>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <p>&copy; 2024 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p>
     </div>
-    <div class="footer-col">
-      <h4>Sede</h4>
-      <p>Rua K (Ipê Amarelo), 1022, Itaperi<br>Fortaleza – CE</p>
-    </div>
-  </div>
-  <div class="footer-bottom"><p>&copy; 2024 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p></div>
-</footer>
+  </footer>
 
 <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
 
