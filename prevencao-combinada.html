@@ -10,30 +10,115 @@
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="stylesheet" href="style.css">
   <style>
-    .video-grid {
+    /* ── grade de thumbnails ── */
+    .video-thumbs {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
       margin: 24px 0;
     }
-    .video-item {
+    .video-thumb {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      cursor: pointer;
     }
-    .video-item video {
-      width: 100%;
+    .video-thumb-img {
+      position: relative;
       aspect-ratio: 9 / 16;
       border-radius: 10px;
+      overflow: hidden;
       background: #111;
-      display: block;
-      object-fit: contain;
     }
-    .video-item .video-label {
+    .video-thumb-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+    .video-thumb:hover .video-thumb-img img {
+      transform: scale(1.04);
+      filter: brightness(0.75);
+    }
+    .video-thumb-play {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .video-thumb-play svg {
+      width: 52px;
+      height: 52px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      transition: transform 0.2s ease;
+    }
+    .video-thumb:hover .video-thumb-play svg {
+      transform: scale(1.12);
+    }
+    .video-thumb-label {
       font-size: 13px;
       color: var(--text-light);
       font-family: 'Montserrat', sans-serif;
       text-align: center;
+      line-height: 1.4;
+    }
+
+    /* ── modal de vídeo ── */
+    .video-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.88);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .video-modal-overlay.open {
+      display: flex;
+    }
+    .video-modal-box {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-height: 90vh;
+    }
+    .video-modal-box video {
+      max-height: 82vh;
+      max-width: 100%;
+      border-radius: 10px;
+      background: #000;
+      display: block;
+    }
+    .video-modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 32px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .video-modal-close:hover { opacity: 1; }
+    .video-modal-title {
+      color: #fff;
+      font-size: 14px;
+      margin-top: 12px;
+      font-family: 'Montserrat', sans-serif;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .video-thumbs { grid-template-columns: repeat(2, 1fr); }
     }
     .services-table {
       width: 100%;
@@ -137,30 +222,48 @@
 
     <!-- VÍDEOS -->
     <h4>Vídeos do Projeto</h4>
-    <div class="video-grid">
-      <div class="video-item">
-        <video controls preload="none" poster="assets/images/poster-v01.jpg">
-          <source src="assets/videos/v01.mp4" type="video/mp4">
-        </video>
-        <span class="video-label">Vídeo 1 – Apresentação do Projeto</span>
+    <div class="video-thumbs">
+      <div class="video-thumb" data-src="assets/videos/v01.mp4" data-poster="assets/images/poster-v01.jpg" data-title="Vídeo 1 – Apresentação do Projeto">
+        <div class="video-thumb-img">
+          <img src="assets/images/poster-v01.jpg" alt="Vídeo 1">
+          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        </div>
+        <span class="video-thumb-label">Vídeo 1 – Apresentação do Projeto</span>
       </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/images/poster-v02.jpg">
-          <source src="assets/videos/v02.mp4" type="video/mp4">
-        </video>
-        <span class="video-label">Vídeo 2 – Formas de Prevenção</span>
+      <div class="video-thumb" data-src="assets/videos/v02.mp4" data-poster="assets/images/poster-v02.jpg" data-title="Vídeo 2 – Formas de Prevenção">
+        <div class="video-thumb-img">
+          <img src="assets/images/poster-v02.jpg" alt="Vídeo 2">
+          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        </div>
+        <span class="video-thumb-label">Vídeo 2 – Formas de Prevenção</span>
       </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/images/poster-v03.jpg">
-          <source src="assets/videos/v03.mp4" type="video/mp4">
-        </video>
-        <span class="video-label">Vídeo 3 – PrEP e PEP</span>
+      <div class="video-thumb" data-src="assets/videos/v03.mp4" data-poster="assets/images/poster-v03.jpg" data-title="Vídeo 3 – PrEP e PEP">
+        <div class="video-thumb-img">
+          <img src="assets/images/poster-v03.jpg" alt="Vídeo 3">
+          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        </div>
+        <span class="video-thumb-label">Vídeo 3 – PrEP e PEP</span>
       </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/images/poster-v04.jpg">
-          <source src="assets/videos/v04.mp4" type="video/mp4">
-        </video>
-        <span class="video-label">Vídeo 4 – Serviços de Saúde</span>
+      <div class="video-thumb" data-src="assets/videos/v04.mp4" data-poster="assets/images/poster-v04.jpg" data-title="Vídeo 4 – Serviços de Saúde">
+        <div class="video-thumb-img">
+          <img src="assets/images/poster-v04.jpg" alt="Vídeo 4">
+          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        </div>
+        <span class="video-thumb-label">Vídeo 4 – Serviços de Saúde</span>
+      </div>
+      <div class="video-thumb" data-src="assets/videos/v05.mp4" data-poster="assets/images/poster-v05.jpg" data-title="Vídeo 5 – Maneiras de Prevenção I">
+        <div class="video-thumb-img">
+          <img src="assets/images/poster-v05.jpg" alt="Vídeo 5">
+          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        </div>
+        <span class="video-thumb-label">Vídeo 5 – Maneiras de Prevenção I</span>
+      </div>
+      <div class="video-thumb" data-src="assets/videos/v06.mp4" data-poster="assets/images/poster-v06.jpg" data-title="Vídeo 6 – Maneiras de Prevenção II">
+        <div class="video-thumb-img">
+          <img src="assets/images/poster-v06.jpg" alt="Vídeo 6">
+          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        </div>
+        <span class="video-thumb-label">Vídeo 6 – Maneiras de Prevenção II</span>
       </div>
     </div>
 
@@ -191,22 +294,6 @@
       <div class="objective-card">
         <img class="obj-icon" src="assets/images/icon-3.png" alt="" loading="lazy">
         <p>Contribuir para a resposta ao estigma, à discriminação e à outras barreiras para o acesso aos serviços de saúde e socioassistenciais.</p>
-      </div>
-    </div>
-
-    <!-- MAIS VÍDEOS -->
-    <div class="video-grid" style="margin-top:16px;">
-      <div class="video-item">
-        <video controls preload="none" poster="assets/images/poster-v05.jpg">
-          <source src="assets/videos/v05.mp4" type="video/mp4">
-        </video>
-        <span class="video-label">Vídeo 5 – Maneiras de Prevenção I</span>
-      </div>
-      <div class="video-item">
-        <video controls preload="none" poster="assets/images/poster-v06.jpg">
-          <source src="assets/videos/v06.mp4" type="video/mp4">
-        </video>
-        <span class="video-label">Vídeo 6 – Maneiras de Prevenção II</span>
       </div>
     </div>
 
@@ -286,6 +373,15 @@
 
 </main>
 
+<!-- MODAL DE VÍDEO -->
+<div class="video-modal-overlay" id="video-modal" role="dialog" aria-modal="true" aria-label="Player de vídeo">
+  <div class="video-modal-box">
+    <button class="video-modal-close" id="video-modal-close" aria-label="Fechar">&times;</button>
+    <video id="modal-video" controls playsinline></video>
+    <span class="video-modal-title" id="modal-video-title"></span>
+  </div>
+</div>
+
 <!-- LIGHTBOX -->
 <div class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
   <button class="lightbox-close" aria-label="Fechar">&times;</button>
@@ -340,6 +436,49 @@
 <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
 
 <script src="main.js"></script>
+<script>
+// Modal de vídeo
+(function () {
+  const overlay   = document.getElementById('video-modal');
+  const modalVideo = document.getElementById('modal-video');
+  const titleEl   = document.getElementById('modal-video-title');
+  const closeBtn  = document.getElementById('video-modal-close');
+
+  function openModal(src, poster, title) {
+    modalVideo.poster = poster;
+    modalVideo.src    = src;
+    titleEl.textContent = title;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    modalVideo.play();
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    modalVideo.pause();
+    modalVideo.src = '';
+  }
+
+  document.querySelectorAll('.video-thumb').forEach(function (thumb) {
+    thumb.addEventListener('click', function () {
+      openModal(
+        thumb.dataset.src,
+        thumb.dataset.poster,
+        thumb.dataset.title
+      );
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeModal();
+  });
+}());
+</script>
 <script>
 // Gallery images for Prevenção Combinada
 var prevImages = [
