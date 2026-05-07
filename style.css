@@ -151,14 +151,14 @@
 
     .dropdown-menu {
       position: absolute;
-      top: calc(100% + 10px);
+      top: 100%;
       left: 50%;
       transform: translateX(-50%) translateY(-6px);
       background: #fff;
       border-radius: var(--radius-sm);
       box-shadow: 0 12px 40px rgba(0,0,0,0.15);
       min-width: 180px;
-      padding: 6px;
+      padding: 16px 6px 6px;
       opacity: 0;
       pointer-events: none;
       transition: opacity var(--t) var(--ease), transform var(--t) var(--ease);
@@ -193,7 +193,7 @@
     .dropdown-menu::before {
       content: '';
       position: absolute;
-      top: -6px;
+      top: 4px;
       left: 50%;
       transform: translateX(-50%);
       border: 6px solid transparent;
