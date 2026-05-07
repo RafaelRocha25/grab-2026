@@ -1224,9 +1224,20 @@
    =========================== */
 .divider-img {
   width: 100%;
-  height: 16px;
-  object-fit: cover;
+  height: 3px;
   display: block;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #e40303 12%,
+    #ff8c00 25%,
+    #ffed00 40%,
+    #008026 55%,
+    #004dff 70%,
+    #750787 85%,
+    transparent 100%
+  );
+  opacity: 0.45;
 }
 
 /* ===========================
