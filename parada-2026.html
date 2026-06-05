@@ -74,10 +74,12 @@
       background: linear-gradient(135deg, #7B2D8B 0%, #E91E8C 100%);
       color: #fff;
       border-radius: 20px;
-      padding: 3px 14px;
+      padding: 4px 0;
       font-size: 0.88rem;
       font-weight: 700;
       letter-spacing: 0.3px;
+      min-width: 76px;
+      text-align: center;
     }
 
     /* ---- Programação Alusiva: grid 2 colunas ---- */
@@ -173,6 +175,66 @@
       margin-bottom: 4px;
     }
 
+    /* ---- Destaque: próximo evento / hoje ---- */
+    .alusiva-card--next {
+      background: linear-gradient(135deg, rgba(245,166,35,0.09) 0%, rgba(245,166,35,0.03) 100%);
+      border-top-color: #F5A623;
+      border-color: rgba(245,166,35,0.35);
+      box-shadow: 0 3px 14px rgba(245,166,35,0.18);
+    }
+
+    .alusiva-card--today {
+      background: linear-gradient(135deg, rgba(233,30,140,0.09) 0%, rgba(123,45,139,0.05) 100%);
+      border-top-color: #E91E8C;
+      border-color: rgba(233,30,140,0.3);
+      box-shadow: 0 3px 14px rgba(233,30,140,0.18);
+    }
+
+    .alusiva-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 20px;
+      padding: 2px 10px;
+      margin-bottom: 10px;
+    }
+
+    .alusiva-badge--next {
+      background: rgba(245,166,35,0.15);
+      color: #9a6500;
+    }
+
+    .alusiva-badge--next i {
+      font-size: 0.65rem;
+      color: #9a6500;
+      width: auto;
+      margin-top: 0;
+    }
+
+    .alusiva-badge--today {
+      background: rgba(233,30,140,0.12);
+      color: #c0186f;
+    }
+
+    .badge-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #E91E8C;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: badge-pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.75); }
+    }
+
     @media (max-width: 640px) {
       .alusiva-grid {
         grid-template-columns: 1fr;
@@ -256,9 +318,10 @@
 
 
       <!-- PROGRAMAÇÃO OFICIAL -->
-      <h4>Programação Oficial</h4>
+      <h4 id="programacao-oficial">Programação Oficial</h4>
       <p style="color:var(--text-muted);font-weight:600;margin-bottom:12px;"><i class="fa fa-calendar-alt"
           style="color:var(--secondary);margin-right:6px;"></i>28 de junho de 2026 · Avenida Beira-Mar, Fortaleza</p>
+      <div style="overflow-x:auto;-webkit-overflow-scrolling:touch;">
       <table class="schedule-table">
         <thead>
           <tr>
@@ -297,13 +360,14 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <!-- PROGRAMAÇÃO ALUSIVA -->
       <h4 style="margin-top:40px;">Programação Alusiva</h4>
 
       <div class="alusiva-grid">
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-10">
           <h5>Sessão Solene Homenagem aos 25 Anos de Paradas no Ceará</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>10/06/2026 (Quarta-feira) – 17h</span>
@@ -312,7 +376,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-16">
           <h5>Sessão Solene Alusivo ao Mês do Orgulho LGBTQIA+</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>16/06/2026 (Terça-feira) – 17h</span>
@@ -321,7 +385,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-18">
           <h5>Exposição 25 Anos – Parada pela Diversidade Sexual do Ceará</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>18/06/2026 (Quinta-feira)</span>
@@ -330,7 +394,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-21">
           <h5>4º Pedal do Orgulho</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 7h</span>
@@ -339,7 +403,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-21">
           <h5>2º Sambão do Orgulho</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 12h às 19h</span>
@@ -348,7 +412,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-24">
           <h5>Coletiva de Imprensa da 25ª Parada</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>24/06/2026 (Quarta-feira)</span>
@@ -357,7 +421,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-25">
           <h5>Seminário-Ato da 25ª Parada pela Diversidade Sexual do Ceará</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 15h</span>
@@ -366,7 +430,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-25">
           <h5>Esquenta da Parada (Ato-Show)</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira)</span>
@@ -375,7 +439,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-26">
           <h5>3º Festival da Diversidade (1ª Noite)</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>26/06/2026 (Sexta-feira) – 18h</span>
@@ -384,7 +448,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-27">
           <h5>2º Encontro Cearense de Organizações de Paradas LGBTQIA+</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado)</span>
@@ -393,7 +457,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-27">
           <h5>I Encontro de Homens Gays do Ceará</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado)</span>
@@ -402,7 +466,7 @@
           </div>
         </div>
 
-        <div class="alusiva-card">
+        <div class="alusiva-card" data-date="2026-06-27">
           <h5>3º Festival da Diversidade (2ª Noite)</h5>
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) – 18h</span>
@@ -417,6 +481,23 @@
         <i class="fa fa-info-circle" style="margin-right:5px;color:var(--secondary);"></i><strong>Obs.:</strong>
         Programação sujeita a alterações.
       </p>
+
+      <!-- MARCOS LEGAIS -->
+      <h4>Marcos Legais</h4>
+      <div class="legal-grid">
+        <div class="legal-card">
+          <strong>Lei nº 8.026/2002</strong>
+          Dia da Consciência Homossexual no calendário oficial de Fortaleza.
+        </div>
+        <div class="legal-card">
+          <strong>Lei Estadual nº 13.644/2005 – Art. 1º</strong>
+          Fica instituído o Dia do Orgulho Gay e Livre Expressão Sexual no Estado do Ceará.
+        </div>
+        <div class="legal-card">
+          <strong>Lei 17.062/2019</strong>
+          Inclui no Calendário de Eventos do Ceará a Parada pela Diversidade Sexual como patrimônio imaterial.
+        </div>
+      </div>
 
       <!-- TEMA -->
       <div class="content-block">
@@ -531,23 +612,6 @@
         </tbody>
       </table>
 
-      <!-- MARCOS LEGAIS -->
-      <h4>Marcos Legais</h4>
-      <div class="legal-grid">
-        <div class="legal-card">
-          <strong>Lei nº 8.026/2002</strong>
-          Dia da Consciência Homossexual no calendário oficial de Fortaleza.
-        </div>
-        <div class="legal-card">
-          <strong>Lei Estadual nº 13.644/2005 – Art. 1º</strong>
-          Fica instituído o Dia do Orgulho Gay e Livre Expressão Sexual no Estado do Ceará.
-        </div>
-        <div class="legal-card">
-          <strong>Lei 17.062/2019</strong>
-          Inclui no Calendário de Eventos do Ceará a Parada pela Diversidade Sexual como patrimônio imaterial.
-        </div>
-      </div>
-
       <!-- APOIADORES -->
       <h4 style="margin-top:40px;">Apoio</h4>
       <img src="assets/images/apoio-parada-2026.png" alt="Apoiadores da 25ª Parada pela Diversidade Sexual do Ceará"
@@ -599,6 +663,47 @@
   <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
 
   <script src="main.js"></script>
+  <script>
+    (function () {
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      var cards = document.querySelectorAll('.alusiva-card[data-date]');
+      var nearestDate = null;
+
+      cards.forEach(function (card) {
+        var parts = card.dataset.date.split('-');
+        var eventDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        if (eventDate >= today) {
+          if (nearestDate === null || eventDate < nearestDate) {
+            nearestDate = eventDate;
+          }
+        }
+      });
+
+      if (nearestDate === null) return;
+
+      var isToday = nearestDate.getTime() === today.getTime();
+
+      cards.forEach(function (card) {
+        var parts = card.dataset.date.split('-');
+        var eventDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        if (eventDate.getTime() === nearestDate.getTime()) {
+          var badge = document.createElement('div');
+          if (isToday) {
+            card.classList.add('alusiva-card--today');
+            badge.className = 'alusiva-badge alusiva-badge--today';
+            badge.innerHTML = '<span class="badge-dot"></span> Acontece hoje';
+          } else {
+            card.classList.add('alusiva-card--next');
+            badge.className = 'alusiva-badge alusiva-badge--next';
+            badge.innerHTML = '<i class="fa fa-clock"></i> Próximo evento';
+          }
+          card.insertBefore(badge, card.firstChild);
+        }
+      });
+    }());
+  </script>
 </body>
 
 </html>

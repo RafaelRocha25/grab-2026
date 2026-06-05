@@ -5,16 +5,218 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INICÍO - GRAB Asa Branca</title>
-  <meta name="description" content="Grupo de Resistência Asa Branca – GRAB. ONG que defende os direitos LGBTI+ no Ceará há 34 anos.">
+  <meta name="description"
+    content="Grupo de Resistência Asa Branca – GRAB. ONG que defende os direitos LGBTI+ no Ceará há 34 anos.">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="stylesheet" href="style.css">
+  <style>
+    .home-alusiva-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .home-alusiva-card {
+      background: #fff;
+      border: 1px solid #e8e0f0;
+      border-top: 3px solid #7B2D8B;
+      border-radius: 10px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 8px rgba(123, 45, 139, 0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+
+    .home-alusiva-card:hover {
+      box-shadow: 0 6px 20px rgba(123, 45, 139, 0.13);
+      transform: translateY(-2px);
+    }
+
+    .home-alusiva-card h5 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #7B2D8B;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .home-alusiva-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.78rem;
+      color: #4a4a6a;
+    }
+
+    .home-alusiva-meta span {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .home-alusiva-meta i {
+      color: #E91E8C;
+      font-size: 0.75rem;
+      margin-top: 2px;
+      flex-shrink: 0;
+      width: 12px;
+    }
+
+    /* ---- Validação de formulário ---- */
+    .field-error {
+      border-color: #e53e3e !important;
+      box-shadow: 0 0 0 3px rgba(229,62,62,0.12) !important;
+    }
+    .field-error-msg {
+      display: block;
+      color: #c53030;
+      font-size: 0.78rem;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+
+    /* ---- Modais de feedback do formulário ---- */
+    .feedback-modal-box {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 36px;
+      max-width: 440px;
+      width: 90%;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(123,45,139,0.22);
+    }
+    .feedback-modal-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+    }
+    .feedback-modal-icon--success {
+      background: linear-gradient(135deg, #7B2D8B 0%, #E91E8C 100%);
+    }
+    .feedback-modal-icon--error {
+      background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+    }
+    .feedback-modal-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 10px;
+    }
+    .feedback-modal-text {
+      color: #6b6b8a;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+    .feedback-modal-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, #7B2D8B 0%, #E91E8C 100%);
+      color: #fff;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s;
+      box-shadow: 0 6px 20px rgba(123,45,139,0.25);
+    }
+    .feedback-modal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(123,45,139,0.4);
+    }
+
+    @media (max-width: 900px) {
+      .home-alusiva-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .home-alusiva-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---- Destaque: próximo evento ---- */
+    .home-alusiva-card--next {
+      background: linear-gradient(135deg, rgba(245,166,35,0.09) 0%, rgba(245,166,35,0.03) 100%);
+      border-top-color: #F5A623;
+      border-color: rgba(245,166,35,0.35);
+      box-shadow: 0 3px 14px rgba(245,166,35,0.18);
+    }
+
+    .home-alusiva-card--today {
+      background: linear-gradient(135deg, rgba(233,30,140,0.09) 0%, rgba(123,45,139,0.05) 100%);
+      border-top-color: #E91E8C;
+      border-color: rgba(233,30,140,0.3);
+      box-shadow: 0 3px 14px rgba(233,30,140,0.18);
+    }
+
+    .alusiva-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-radius: 20px;
+      padding: 2px 9px;
+      margin-bottom: 8px;
+    }
+
+    .alusiva-badge--next {
+      background: rgba(245,166,35,0.15);
+      color: #9a6500;
+    }
+
+    .alusiva-badge--next i {
+      font-size: 0.65rem;
+      color: #9a6500;
+      width: auto;
+      margin-top: 0;
+    }
+
+    .alusiva-badge--today {
+      background: rgba(233,30,140,0.12);
+      color: #c0186f;
+    }
+
+    .badge-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      background: #E91E8C;
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: badge-pulse 1.4s ease-in-out infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.75); }
+    }
+  </style>
 </head>
 
 <body>
@@ -25,8 +227,7 @@
   <header class="site-header" id="site-header">
     <div class="header-inner">
       <a class="site-logo" href="index.html" aria-label="GRAB Asa Branca — Início">
-        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png"
-          alt="GRAB Asa Branca" height="42">
+        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB Asa Branca" height="42">
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
@@ -53,7 +254,8 @@
         <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener"
+          aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
@@ -93,11 +295,15 @@
       </div>
       <button class="slider-btn prev" id="slider-prev" aria-label="Slide anterior">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
       </button>
       <button class="slider-btn next" id="slider-next" aria-label="Próximo slide">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
       </button>
       <div class="slider-dots" role="tablist" id="slider-dots">
         <button class="slider-dot active" role="tab" aria-label="Slide 1" data-index="0"></button>
@@ -131,15 +337,15 @@
             <button class="btn-historia" id="btn-read-more" aria-controls="quem-somos-modal">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
               Conheça mais sobre a nossa trajetória
             </button>
           </div>
           <div class="about-img-wrapper fade-up delay-1">
-            <img src="assets/images/img-2.jpg"
-              alt="Membros do GRAB" loading="lazy">
+            <img src="assets/images/img-2.jpg" alt="Membros do GRAB" loading="lazy">
             <div class="img-badge">
               <strong>37</strong>
               anos de<br>resistência
@@ -160,10 +366,10 @@
           <div class="area-card fade-up">
             <div class="area-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                <circle cx="9" cy="7" r="4"/>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
             </div>
             <h3>Ativismo, Cidadania e Direitos Humanos</h3>
@@ -171,8 +377,8 @@
           <div class="area-card fade-up delay-1">
             <div class="area-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
               </svg>
             </div>
             <h3>Educação e Cultura</h3>
@@ -180,7 +386,7 @@
           <div class="area-card fade-up delay-2">
             <div class="area-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
               </svg>
             </div>
             <h3>Promoção da Saúde e Prevenção ao HIV/Aids</h3>
@@ -208,9 +414,10 @@
             <span class="parada-date-badge">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                <line x1="3" y1="10" x2="21" y2="10"/>
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                <line x1="16" y1="2" x2="16" y2="6" />
+                <line x1="8" y1="2" x2="8" y2="6" />
+                <line x1="3" y1="10" x2="21" y2="10" />
               </svg>
               28 de Junho de 2026 · Beira-Mar, Fortaleza
             </span>
@@ -224,7 +431,7 @@
             <p style="color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:28px;">
               O evento conta com caminhada, trios elétricos, apresentações culturais, ala de acessibilidade
               e diversidade, além de uma programação de seminários, feiras e debates — <em>todas as atividades
-              são gratuitas.</em>
+                são gratuitas.</em>
             </p>
 
             <div class="history-stats parada-home-stats" role="list" aria-label="Números da Parada">
@@ -243,7 +450,7 @@
             </div>
 
             <a href="parada-2026.html" class="btn-parada">
-              Conheça a Parada
+              Mais detalhes da 25ª Parada
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <polyline points="9 18 15 12 9 6"></polyline>
@@ -254,127 +461,148 @@
           <!-- Colagem de imagens -->
           <div class="parada-collage fade-up delay-1" aria-hidden="true">
             <span class="parada-collage-ribbon">Parada CE · 2025</span>
-            <img class="parada-collage-main"
-              src="assets/images/MG_2863-2048x1365.jpg"
-              alt="Multidão na 24ª Parada pela Diversidade Sexual do Ceará"
-              loading="lazy">
+            <img class="parada-collage-main" src="assets/images/MG_2863-2048x1365.jpg"
+              alt="Multidão na 24ª Parada pela Diversidade Sexual do Ceará" loading="lazy">
             <img class="parada-collage-secondary"
               src="assets/images/355822267_6594502867268371_2579925457456458721_n-edited.jpg"
-              alt="Participantes da Parada pela Diversidade"
-              loading="lazy">
+              alt="Participantes da Parada pela Diversidade" loading="lazy">
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- NOTÍCIAS -->
-    <section class="section news-section" id="noticias">
+    <!-- PROGRAMAÇÃO ALUSIVA 25ª PARADA -->
+    <section class="section" id="programacao-alusiva" style="background:#fff;padding-top:64px;padding-bottom:64px;">
       <div class="section-inner">
-        <div class="news-header">
-          <div>
-            <span class="section-label">Fique por Dentro</span>
-            <h2 class="section-title" style="margin-bottom:0;">Últimas Notícias</h2>
-          </div>
+        <div class="fade-up" style="margin-bottom:32px;">
+          <span class="section-label">25ª Parada pela Diversidade Sexual do Ceará</span>
+          <h2 class="section-title" style="margin-bottom:12px;">Programação Alusiva</h2>
+          <p class="parada-home-lead">
+            25 anos de resistência não cabem em um único dia. A celebração começa em 10 de junho e percorre Fortaleza
+            com arte, política e memória, culminando na maior caminhada do Ceará no dia 28.
+          </p>
         </div>
-        <div class="news-grid">
+        <div class="home-alusiva-grid fade-up">
 
-          <!-- Notícia em destaque -->
-          <div class="news-card news-featured fade-up">
-            <div class="news-card-stripe"></div>
-            <div class="news-card-body">
-              <span class="news-tag">Destaque</span>
-              <h3 class="news-card-title">GRAB realiza 24ª Parada pela Diversidade Sexual do Ceará com recorde de público</h3>
-              <div class="news-card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                15 de março de 2025
-              </div>
+          <div class="home-alusiva-card" data-date="2026-06-10">
+            <h5>Sessão Solene Homenagem aos 25 Anos de Paradas no Ceará</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>10/06/2026 (Quarta-feira) – 17h</span>
+              <span><i class="fa fa-map-marker-alt"></i>Assembleia Legislativa do Ceará</span>
+              <span><i class="fa fa-users"></i>Mandato Dep. Estadual Renato Roseno</span>
             </div>
           </div>
 
-          <!-- Demais notícias -->
-          <div class="news-card fade-up delay-1">
-            <div class="news-card-stripe"></div>
-            <div class="news-card-body">
-              <span class="news-tag">Projetos</span>
-              <h3 class="news-card-title">Projeto TRAVES-TI amplia atendimento à população trans no Ceará</h3>
-              <div class="news-card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                02 de fevereiro de 2025
-              </div>
+          <div class="home-alusiva-card" data-date="2026-06-16">
+            <h5>Sessão Solene Alusivo ao Mês do Orgulho LGBTQIA+</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>16/06/2026 (Terça-feira) – 17h</span>
+              <span><i class="fa fa-map-marker-alt"></i>Assembleia Legislativa do Ceará</span>
+              <span><i class="fa fa-users"></i>Mandato Dep. Estadual Larissa Gaspar</span>
             </div>
           </div>
 
-          <div class="news-card fade-up delay-2">
-            <div class="news-card-stripe"></div>
-            <div class="news-card-body">
-              <span class="news-tag">Institucional</span>
-              <h3 class="news-card-title">GRAB participa de conferência nacional de direitos LGBTI+</h3>
-              <div class="news-card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                20 de janeiro de 2025
-              </div>
+          <div class="home-alusiva-card" data-date="2026-06-18">
+            <h5>Exposição 25 Anos – Parada pela Diversidade Sexual do Ceará</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>18/06/2026 (Quinta-feira)</span>
+              <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
             </div>
           </div>
 
-          <div class="news-card fade-up delay-1">
-            <div class="news-card-stripe"></div>
-            <div class="news-card-body">
-              <span class="news-tag">Saúde</span>
-              <h3 class="news-card-title">Prevenção Combinada: nova fase do projeto chega ao interior do Ceará</h3>
-              <div class="news-card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                10 de dezembro de 2024
-              </div>
+          <div class="home-alusiva-card" data-date="2026-06-21">
+            <h5>4º Pedal do Orgulho</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 7h</span>
+              <span><i class="fa fa-map-marker-alt"></i>Passeio Público de Fortaleza</span>
+              <span><i class="fa fa-users"></i>AMOR / Prefeitura Municipal de Fortaleza</span>
             </div>
           </div>
 
-          <div class="news-card fade-up delay-2">
-            <div class="news-card-stripe"></div>
-            <div class="news-card-body">
-              <span class="news-tag">Direitos Humanos</span>
-              <h3 class="news-card-title">GRAB debate políticas públicas no Fórum Estadual de Saúde do Ceará</h3>
-              <div class="news-card-date">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
-                  <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
-                28 de novembro de 2024
-              </div>
+          <div class="home-alusiva-card" data-date="2026-06-21">
+            <h5>2º Sambão do Orgulho</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 12h às 19h</span>
+              <span><i class="fa fa-map-marker-alt"></i>Ajeum de Oyá</span>
+              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-24">
+            <h5>Coletiva de Imprensa da 25ª Parada</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>24/06/2026 (Quarta-feira)</span>
+              <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-25">
+            <h5>Seminário-Ato da 25ª Parada pela Diversidade Sexual do Ceará</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 15h</span>
+              <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-25">
+            <h5>Esquenta da Parada (Ato-Show)</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira)</span>
+              <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-26">
+            <h5>3º Festival da Diversidade (1ª Noite)</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>26/06/2026 (Sexta-feira) – 18h</span>
+              <span><i class="fa fa-map-marker-alt"></i>Concha Acústica / UFC</span>
+              <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-27">
+            <h5>2º Encontro Cearense de Organizações de Paradas LGBTQIA+</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado)</span>
+              <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-27">
+            <h5>I Encontro de Homens Gays do Ceará</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado)</span>
+              <span><i class="fa fa-map-marker-alt"></i>Em construção</span>
+              <span><i class="fa fa-users"></i>LGBTs do Bonsucesso</span>
+            </div>
+          </div>
+
+          <div class="home-alusiva-card" data-date="2026-06-27">
+            <h5>3º Festival da Diversidade (2ª Noite)</h5>
+            <div class="home-alusiva-meta">
+              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) – 18h</span>
+              <span><i class="fa fa-map-marker-alt"></i>Centro Dragão do Mar (Praça Verde)</span>
+              <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
             </div>
           </div>
 
         </div>
-        <div class="news-cta">
-          <button class="btn-mais-noticias" type="button">
+
+        <div style="text-align:center;margin-top:36px;" class="fade-up">
+          <a href="parada-2026.html#programacao-oficial" class="btn-parada">
+            Programação detalhada
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
               stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="9 18 15 12 9 6"></polyline>
             </svg>
-            Mais notícias
-          </button>
+          </a>
         </div>
       </div>
     </section>
@@ -384,7 +612,8 @@
       <div class="section-inner">
         <div class="history-grid">
           <div class="history-img-wrapper fade-up">
-            <img src="assets/images/parada-pela-diversidade-sexual-do-ceara-2022-acontece-no-domingo-7-scaled-1-1024x608.webp"
+            <img
+              src="assets/images/parada-pela-diversidade-sexual-do-ceara-2022-acontece-no-domingo-7-scaled-1-1024x608.webp"
               alt="Parada pela Diversidade Sexual do Ceará" loading="lazy">
             <p class="history-img-caption">Foto: Reprodução</p>
           </div>
@@ -421,8 +650,9 @@
             <button class="btn-historia" id="btn-historia-modal" aria-controls="historia-modal">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/>
-                <line x1="12" y1="16" x2="12.01" y2="16"/>
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
               Conheça mais sobre nossa história
             </button>
@@ -451,7 +681,7 @@
                 </div>
                 <div class="form-group">
                   <label for="sobrenome">Sobrenome</label>
-                  <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome">
+                  <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required>
                 </div>
               </div>
               <div class="form-group">
@@ -469,7 +699,8 @@
               <button type="submit" class="btn-submit">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
                 Enviar mensagem
               </button>
@@ -477,7 +708,7 @@
             <div class="form-success" id="form-success" role="alert">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="20 6 9 17 4 12"/>
+                <polyline points="20 6 9 17 4 12" />
               </svg>
               Agradecemos a sua mensagem. Responderemos em breve.
             </div>
@@ -492,8 +723,8 @@
                 <div class="info-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                    <circle cx="12" cy="10" r="3"/>
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
                 <div class="info-text">
@@ -506,8 +737,8 @@
                 <div class="info-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
                   </svg>
                 </div>
                 <div class="info-text">
@@ -520,8 +751,8 @@
                 <div class="info-icon" aria-hidden="true">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="10"/>
-                    <polyline points="12 6 12 12 16 14"/>
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
                   </svg>
                 </div>
                 <div class="info-text">
@@ -539,8 +770,8 @@
                   target="_blank" rel="noopener" aria-label="Facebook">
                   <i class="fab fa-facebook-f" aria-hidden="true"></i> Facebook
                 </a>
-                <a class="info-social-btn" href="https://www.instagram.com/grabasabranca"
-                  target="_blank" rel="noopener" aria-label="Instagram">
+                <a class="info-social-btn" href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener"
+                  aria-label="Instagram">
                   <i class="fab fa-instagram" aria-hidden="true"></i> Instagram
                 </a>
               </div>
@@ -560,12 +791,12 @@
         <h4>GRAB Asa Branca</h4>
         <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
         <div class="footer-socials">
-          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894"
-            target="_blank" rel="noopener" aria-label="Facebook">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank"
+            rel="noopener" aria-label="Facebook">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
-          <a class="social-link" href="https://www.instagram.com/grabasabranca"
-            target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="social-link" href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener"
+            aria-label="Instagram">
             <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
@@ -606,12 +837,11 @@
       <button class="modal-close" id="modal-quem-somos-close" aria-label="Fechar modal">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
-      <img class="modal-img modal-img--full"
-        src="assets/images/grab-37-anos.jpeg"
-        alt="GRAB – 37 anos de resistência">
+      <img class="modal-img modal-img--full" src="assets/images/grab-37-anos.jpeg" alt="GRAB – 37 anos de resistência">
       <div class="modal-body">
         <h2 id="modal-quem-somos-title">Quem Somos</h2>
 
@@ -664,20 +894,21 @@
           qualificação profissional, prevenção ao HIV/aids, formação de lideranças no contexto do nordeste
           brasileiro. O GRAB se coloca no contexto brasileiro como a
           <strong>segunda organização mais antiga da sociedade civil organizada do segmento LGBTQIA+
-          em funcionamento</strong>.
+            em funcionamento</strong>.
         </p>
       </div>
     </div>
   </div>
 
   <!-- MODAL: Nossa História -->
-  <div class="modal-overlay" id="historia-modal" role="dialog" aria-modal="true"
-    aria-labelledby="modal-historia-title" aria-hidden="true">
+  <div class="modal-overlay" id="historia-modal" role="dialog" aria-modal="true" aria-labelledby="modal-historia-title"
+    aria-hidden="true">
     <div class="modal-box">
       <button class="modal-close" id="modal-close" aria-label="Fechar modal">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
           stroke-linecap="round" stroke-linejoin="round">
-          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
         </svg>
       </button>
       <img class="modal-img"
@@ -723,10 +954,91 @@
     </div>
   </div>
 
+  <!-- MODAL: Sucesso no envio -->
+  <div class="modal-overlay" id="form-success-modal" role="dialog" aria-modal="true"
+    aria-labelledby="form-success-modal-title" aria-hidden="true">
+    <div class="feedback-modal-box">
+      <div class="feedback-modal-icon feedback-modal-icon--success" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <p class="feedback-modal-title" id="form-success-modal-title">Mensagem enviada!</p>
+      <p class="feedback-modal-text">Agradecemos o seu contato. Nossa equipe responderá em breve.</p>
+      <button class="feedback-modal-btn" id="form-success-modal-close">
+        Fechar
+      </button>
+    </div>
+  </div>
+
+  <!-- MODAL: Erro no envio -->
+  <div class="modal-overlay" id="form-error-modal" role="dialog" aria-modal="true"
+    aria-labelledby="form-error-modal-title" aria-hidden="true">
+    <div class="feedback-modal-box">
+      <div class="feedback-modal-icon feedback-modal-icon--error" aria-hidden="true">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </div>
+      <p class="feedback-modal-title" id="form-error-modal-title">Não foi possível enviar</p>
+      <p class="feedback-modal-text">
+        Ocorreu um problema ao enviar sua mensagem. Tente novamente em instantes ou entre em contato
+        diretamente pelo e-mail <a href="mailto:grab@grab.net.br" style="color:#7B2D8B;font-weight:600;">grab@grab.net.br</a>.
+      </p>
+      <button class="feedback-modal-btn" id="form-error-modal-close"
+        style="background:linear-gradient(135deg,#e53e3e 0%,#c53030 100%);box-shadow:0 6px 20px rgba(229,62,62,0.25);">
+        Tentar novamente
+      </button>
+    </div>
+  </div>
+
   <script>
+    /* === DESTAQUE PRÓXIMO EVENTO ALUSIVO === */
+    (function () {
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+
+      var cards = document.querySelectorAll('.home-alusiva-card[data-date]');
+      var nearestDate = null;
+
+      cards.forEach(function (card) {
+        var parts = card.dataset.date.split('-');
+        var eventDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        if (eventDate >= today) {
+          if (nearestDate === null || eventDate < nearestDate) {
+            nearestDate = eventDate;
+          }
+        }
+      });
+
+      if (nearestDate === null) return;
+
+      var isToday = nearestDate.getTime() === today.getTime();
+
+      cards.forEach(function (card) {
+        var parts = card.dataset.date.split('-');
+        var eventDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        if (eventDate.getTime() === nearestDate.getTime()) {
+          var badge = document.createElement('div');
+          if (isToday) {
+            card.classList.add('home-alusiva-card--today');
+            badge.className = 'alusiva-badge alusiva-badge--today';
+            badge.innerHTML = '<span class="badge-dot"></span> Acontece hoje';
+          } else {
+            card.classList.add('home-alusiva-card--next');
+            badge.className = 'alusiva-badge alusiva-badge--next';
+            badge.innerHTML = '<i class="fa fa-clock"></i> Próximo evento';
+          }
+          card.insertBefore(badge, card.firstChild);
+        }
+      });
+    }());
+
     /* === SLIDER === */
     const track = document.getElementById('slider-track');
-    const dots  = document.querySelectorAll('.slider-dot');
+    const dots = document.querySelectorAll('.slider-dot');
     const TOTAL = 3;
     let current = 0, autoTimer;
 
@@ -781,7 +1093,7 @@
 
     /* === SCROLL EVENTS === */
     const siteHeader = document.getElementById('site-header');
-    const backToTop  = document.getElementById('back-to-top');
+    const backToTop = document.getElementById('back-to-top');
 
     window.addEventListener('scroll', () => {
       siteHeader.classList.toggle('scrolled', window.scrollY > 60);
@@ -800,9 +1112,9 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
     /* === MODAL QUEM SOMOS === */
-    const modalQuemSomos      = document.getElementById('quem-somos-modal');
+    const modalQuemSomos = document.getElementById('quem-somos-modal');
     const modalQuemSomosClose = document.getElementById('modal-quem-somos-close');
-    const btnReadMore         = document.getElementById('btn-read-more');
+    const btnReadMore = document.getElementById('btn-read-more');
 
     function openQuemSomosModal() {
       modalQuemSomos.classList.add('open');
@@ -825,8 +1137,8 @@
     });
 
     /* === MODAL HISTÓRIA === */
-    const modal       = document.getElementById('historia-modal');
-    const modalClose  = document.getElementById('modal-close');
+    const modal = document.getElementById('historia-modal');
+    const modalClose = document.getElementById('modal-close');
     const btnHistoria = document.getElementById('btn-historia-modal');
 
     function openModal() {
@@ -848,20 +1160,122 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
     /* === FORMULÁRIO === */
+    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyMQmp5Qm2-cT6_6H90mcPW2HkC3h6ZIfDKfVQUliRVx5N6SwzK9kLKco0ffTNkyXsdqg/exec';
     const form = document.getElementById('contact-form');
-    const formSuccess = document.getElementById('form-success');
 
-    form.addEventListener('submit', e => {
+    const successModal = document.getElementById('form-success-modal');
+    const errorModal   = document.getElementById('form-error-modal');
+
+    function openFeedbackModal(modal) {
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modal.querySelector('button').focus();
+    }
+    function closeFeedbackModal(modal) {
+      modal.classList.remove('open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('form-success-modal-close').addEventListener('click', () => closeFeedbackModal(successModal));
+    document.getElementById('form-error-modal-close').addEventListener('click',   () => closeFeedbackModal(errorModal));
+    [successModal, errorModal].forEach(m => {
+      m.addEventListener('click', e => { if (e.target === m) closeFeedbackModal(m); });
+    });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        if (successModal.classList.contains('open')) closeFeedbackModal(successModal);
+        if (errorModal.classList.contains('open'))   closeFeedbackModal(errorModal);
+      }
+    });
+
+    /* Validação */
+    function isValidEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+    function setError(el, msg) {
+      el.classList.add('field-error');
+      let span = el.parentElement.querySelector('.field-error-msg');
+      if (!span) { span = document.createElement('span'); span.className = 'field-error-msg'; el.parentElement.appendChild(span); }
+      span.textContent = msg;
+    }
+    function clearError(el) {
+      el.classList.remove('field-error');
+      const span = el.parentElement.querySelector('.field-error-msg');
+      if (span) span.remove();
+    }
+
+    const fieldDefs = [
+      { id: 'nome',      msg: 'Por favor, informe seu nome.' },
+      { id: 'sobrenome', msg: 'Por favor, informe seu sobrenome.' },
+      { id: 'email',     msg: 'Por favor, informe seu e-mail.' },
+      { id: 'assunto',   msg: 'Por favor, informe o assunto.' },
+      { id: 'mensagem',  msg: 'Por favor, escreva sua mensagem.' },
+    ];
+
+    fieldDefs.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => clearError(el));
+    });
+
+    function validateForm() {
+      let ok = true;
+      fieldDefs.forEach(({ id, msg }) => {
+        const el = document.getElementById(id);
+        clearError(el);
+        if (!el.value.trim()) { setError(el, msg); ok = false; }
+      });
+      const emailEl = document.getElementById('email');
+      if (emailEl.value.trim() && !isValidEmail(emailEl.value.trim())) {
+        setError(emailEl, 'Por favor, informe um e-mail válido.');
+        ok = false;
+      }
+      return ok;
+    }
+
+    /* Envio */
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
+      if (!validateForm()) {
+        form.querySelector('.field-error').focus();
+        return;
+      }
+
       const btn = form.querySelector('.btn-submit');
+      const originalHTML = btn.innerHTML;
       btn.disabled = true;
-      btn.textContent = 'Enviando...';
-      setTimeout(() => {
-        form.style.display = 'none';
-        formSuccess.classList.add('show');
-      }, 800);
+      btn.innerHTML = 'Enviando…';
+
+      const now = new Date();
+      const datahora = now.toLocaleString('pt-BR', { timeZone: 'America/Fortaleza' });
+
+      const payload = {
+        nome:      document.getElementById('nome').value.trim(),
+        sobrenome: document.getElementById('sobrenome').value.trim(),
+        email:     document.getElementById('email').value.trim(),
+        assunto:   document.getElementById('assunto').value.trim(),
+        mensagem:  document.getElementById('mensagem').value.trim(),
+        datahora:  datahora
+      };
+
+      try {
+        await fetch(SHEETS_URL, {
+          method:  'POST',
+          mode:    'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+        form.reset();
+        openFeedbackModal(successModal);
+      } catch (err) {
+        openFeedbackModal(errorModal);
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = originalHTML;
+      }
     });
   </script>
 
 </body>
+
 </html>
