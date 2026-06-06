@@ -1198,47 +1198,6 @@
       margin-bottom: 32px;
     }
 
-    .parada-collage {
-      position: relative;
-      padding-bottom: 56px;
-      padding-right: 40px;
-    }
-    .parada-collage-main {
-      width: 100%;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-      display: block;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-    }
-    .parada-collage-secondary {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      width: 56%;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-lg);
-      border: 4px solid #fff;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      display: block;
-    }
-    .parada-collage-ribbon {
-      position: absolute;
-      top: 20px;
-      left: -8px;
-      background: var(--gradient);
-      color: #fff;
-      font-family: 'Syne', sans-serif;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 6px 16px 6px 20px;
-      border-radius: 0 40px 40px 0;
-      box-shadow: 0 4px 16px rgba(123,45,139,0.35);
-      z-index: 2;
-    }
 
     .btn-parada {
       display: inline-flex;
@@ -1266,8 +1225,6 @@
 
     @media (max-width: 768px) {
       .parada-home-grid { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
-      .parada-collage { padding-bottom: 44px; padding-right: 28px; }
-      .parada-collage-secondary { width: 52%; }
       .parada-home-stats { flex-direction: row; }
     }
 
