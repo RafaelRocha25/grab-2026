@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prevenção Combinada - GRAB Asa Branca</title>
-  <meta name="description" content="Projeto Prevenção Combinada: Comunique Essa Ideia – GRAB Asa Branca">
+  <title>Prevenção Combinada - GRAB</title>
+  <meta name="description" content="Projeto Prevenção Combinada: Comunique Essa Ideia – GRAB">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -17,12 +18,14 @@
       gap: 16px;
       margin: 24px 0;
     }
+
     .video-thumb {
       display: flex;
       flex-direction: column;
       gap: 8px;
       cursor: pointer;
     }
+
     .video-thumb-img {
       position: relative;
       aspect-ratio: 9 / 16;
@@ -30,6 +33,7 @@
       overflow: hidden;
       background: #111;
     }
+
     .video-thumb-img img {
       width: 100%;
       height: 100%;
@@ -37,10 +41,12 @@
       display: block;
       transition: transform 0.3s ease, filter 0.3s ease;
     }
+
     .video-thumb:hover .video-thumb-img img {
       transform: scale(1.04);
       filter: brightness(0.75);
     }
+
     .video-thumb-play {
       position: absolute;
       inset: 0;
@@ -49,15 +55,18 @@
       justify-content: center;
       pointer-events: none;
     }
+
     .video-thumb-play svg {
       width: 52px;
       height: 52px;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
       transition: transform 0.2s ease;
     }
+
     .video-thumb:hover .video-thumb-play svg {
       transform: scale(1.12);
     }
+
     .video-thumb-label {
       font-size: 13px;
       color: var(--text-light);
@@ -71,15 +80,17 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.88);
+      background: rgba(0, 0, 0, 0.88);
       z-index: 1000;
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
+
     .video-modal-overlay.open {
       display: flex;
     }
+
     .video-modal-box {
       position: relative;
       display: flex;
@@ -87,6 +98,7 @@
       align-items: center;
       max-height: 90vh;
     }
+
     .video-modal-box video {
       max-height: 82vh;
       max-width: 100%;
@@ -94,6 +106,7 @@
       background: #000;
       display: block;
     }
+
     .video-modal-close {
       position: absolute;
       top: -40px;
@@ -108,7 +121,11 @@
       opacity: 0.8;
       transition: opacity 0.2s;
     }
-    .video-modal-close:hover { opacity: 1; }
+
+    .video-modal-close:hover {
+      opacity: 1;
+    }
+
     .video-modal-title {
       color: #fff;
       font-size: 14px;
@@ -118,14 +135,18 @@
     }
 
     @media (max-width: 600px) {
-      .video-thumbs { grid-template-columns: repeat(2, 1fr); }
+      .video-thumbs {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
+
     .services-table {
       width: 100%;
       border-collapse: collapse;
       margin: 16px 0;
       font-size: 0.9rem;
     }
+
     .services-table th {
       background: var(--primary);
       color: #fff;
@@ -136,33 +157,123 @@
       font-size: 0.8rem;
       letter-spacing: 0.5px;
     }
+
     .services-table td {
       padding: 10px 16px;
       border-bottom: 1px solid var(--border);
       vertical-align: top;
     }
-    .services-table tr:nth-child(even) td { background: var(--bg-light); }
-    .services-table td strong { color: var(--primary); display: block; margin-bottom: 2px; }
+
+    .services-table tr:nth-child(even) td {
+      background: var(--bg-light);
+    }
+
+    .services-table td strong {
+      color: var(--primary);
+      display: block;
+      margin-bottom: 2px;
+    }
+
     @media (max-width: 600px) {
-      .video-grid { grid-template-columns: 1fr; }
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--secondary));
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-strip::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 280px;
+      height: 280px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-strip h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-strip p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--primary);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      color: var(--secondary);
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-<a class="skip-link" href="#content">Ir para o conteúdo</a>
+  <a class="skip-link" href="#content">Ir para o conteúdo</a>
 
-<!-- HEADER -->
-<header class="site-header" id="site-header">
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a class="site-logo" href="index.html" aria-label="GRAB Asa Branca — Início">
-        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png"
-          alt="GRAB Asa Branca" height="42">
+      <a class="site-logo" href="index.html" aria-label="GRAB — Início">
+        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB" height="42">
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
-          <li><a href="index.html" >Início</a></li>
+          <li><a href="index.html">Início</a></li>
           <li><a href="parada-2026.html">25ª Parada pela Diversidade</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
@@ -184,7 +295,8 @@
         <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener"
+          aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
@@ -194,7 +306,7 @@
     </div>
   </header>
 
-<nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="index.html">Início</a>
     <a href="parada-2026.html">25ª Parada pela Diversidade Sexual do Ceará</a>
     <span class="mobile-subnav-label">Projetos</span>
@@ -203,209 +315,516 @@
     <a href="index.html#contato">Entre em Contato</a>
   </nav>
 
-<main class="page-content" id="content">
+  <main class="page-content" id="content">
 
-  <!-- BANNER -->
-  <img class="project-banner" src="assets/images/BG-Projeto.png" alt="Prevenção Combinada">
-  <div class="divider-img" aria-hidden="true"></div>
+    <!-- BANNER -->
+    <img class="project-banner" src="assets/images/BG-Projeto.png" alt="Prevenção Combinada">
+    <div class="divider-img" aria-hidden="true"></div>
 
-  <div class="project-content">
+    <div class="project-content">
 
-    <h1 style="font-size:1.8rem;color:var(--primary);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;">
-      Prevenção Combinada: Comunique Essa Ideia
-    </h1>
+      <h1 style="font-size:1.8rem;color:var(--primary);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;">
+        Prevenção Combinada: Comunique Essa Ideia
+      </h1>
 
-    <p>
-      O projeto <strong>Prevenção Combinada: Comunique Essa Ideia</strong> tem como foco a Divulgação da oferta dos serviços de saúde e socioassistenciais; Comunicação em saúde para a resposta do estigma, da discriminação e de outras barreiras para o acesso aos serviços de saúde e socioassistenciais; e Comunicação em saúde para ampliação do acesso à profilaxia pós-exposição (PEP) e profilaxia pré-exposição (PrEP) junto à gays, outros HSH, travestis, mulheres e homens trans, e profissionais do sexo.
-    </p>
+      <p>
+        O projeto <strong>Prevenção Combinada: Comunique Essa Ideia</strong> tem como foco a Divulgação da oferta dos
+        serviços de saúde e socioassistenciais; Comunicação em saúde para a resposta do estigma, da discriminação e de
+        outras barreiras para o acesso aos serviços de saúde e socioassistenciais; e Comunicação em saúde para ampliação
+        do acesso à profilaxia pós-exposição (PEP) e profilaxia pré-exposição (PrEP) junto à gays, outros HSH,
+        travestis, mulheres e homens trans, e profissionais do sexo.
+      </p>
 
-    <!-- VÍDEOS -->
-    <h4>Vídeos do Projeto</h4>
-    <div class="video-thumbs">
-      <div class="video-thumb" data-src="assets/videos/v01.mp4" data-poster="assets/images/poster-v01.jpg" data-title="Vídeo 1 – Apresentação do Projeto">
-        <div class="video-thumb-img">
-          <img src="assets/images/poster-v01.jpg" alt="Vídeo 1">
-          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+      <!-- VÍDEOS -->
+      <h4>Vídeos do Projeto</h4>
+      <div class="video-thumbs">
+        <div class="video-thumb" data-src="assets/videos/v01.mp4" data-poster="assets/images/poster-v01.jpg"
+          data-title="Vídeo 1 – Apresentação do Projeto">
+          <div class="video-thumb-img">
+            <img src="assets/images/poster-v01.jpg" alt="Vídeo 1">
+            <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                <polygon points="26,20 50,32 26,44" fill="#fff" />
+              </svg></div>
+          </div>
+          <span class="video-thumb-label">Vídeo 1 – Apresentação do Projeto</span>
         </div>
-        <span class="video-thumb-label">Vídeo 1 – Apresentação do Projeto</span>
-      </div>
-      <div class="video-thumb" data-src="assets/videos/v02.mp4" data-poster="assets/images/poster-v02.jpg" data-title="Vídeo 2 – Formas de Prevenção">
-        <div class="video-thumb-img">
-          <img src="assets/images/poster-v02.jpg" alt="Vídeo 2">
-          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        <div class="video-thumb" data-src="assets/videos/v02.mp4" data-poster="assets/images/poster-v02.jpg"
+          data-title="Vídeo 2 – Formas de Prevenção">
+          <div class="video-thumb-img">
+            <img src="assets/images/poster-v02.jpg" alt="Vídeo 2">
+            <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                <polygon points="26,20 50,32 26,44" fill="#fff" />
+              </svg></div>
+          </div>
+          <span class="video-thumb-label">Vídeo 2 – Formas de Prevenção</span>
         </div>
-        <span class="video-thumb-label">Vídeo 2 – Formas de Prevenção</span>
-      </div>
-      <div class="video-thumb" data-src="assets/videos/v03.mp4" data-poster="assets/images/poster-v03.jpg" data-title="Vídeo 3 – PrEP e PEP">
-        <div class="video-thumb-img">
-          <img src="assets/images/poster-v03.jpg" alt="Vídeo 3">
-          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        <div class="video-thumb" data-src="assets/videos/v03.mp4" data-poster="assets/images/poster-v03.jpg"
+          data-title="Vídeo 3 – PrEP e PEP">
+          <div class="video-thumb-img">
+            <img src="assets/images/poster-v03.jpg" alt="Vídeo 3">
+            <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                <polygon points="26,20 50,32 26,44" fill="#fff" />
+              </svg></div>
+          </div>
+          <span class="video-thumb-label">Vídeo 3 – PrEP e PEP</span>
         </div>
-        <span class="video-thumb-label">Vídeo 3 – PrEP e PEP</span>
-      </div>
-      <div class="video-thumb" data-src="assets/videos/v04.mp4" data-poster="assets/images/poster-v04.jpg" data-title="Vídeo 4 – Serviços de Saúde">
-        <div class="video-thumb-img">
-          <img src="assets/images/poster-v04.jpg" alt="Vídeo 4">
-          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        <div class="video-thumb" data-src="assets/videos/v04.mp4" data-poster="assets/images/poster-v04.jpg"
+          data-title="Vídeo 4 – Serviços de Saúde">
+          <div class="video-thumb-img">
+            <img src="assets/images/poster-v04.jpg" alt="Vídeo 4">
+            <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                <polygon points="26,20 50,32 26,44" fill="#fff" />
+              </svg></div>
+          </div>
+          <span class="video-thumb-label">Vídeo 4 – Serviços de Saúde</span>
         </div>
-        <span class="video-thumb-label">Vídeo 4 – Serviços de Saúde</span>
-      </div>
-      <div class="video-thumb" data-src="assets/videos/v05.mp4" data-poster="assets/images/poster-v05.jpg" data-title="Vídeo 5 – Maneiras de Prevenção I">
-        <div class="video-thumb-img">
-          <img src="assets/images/poster-v05.jpg" alt="Vídeo 5">
-          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        <div class="video-thumb" data-src="assets/videos/v05.mp4" data-poster="assets/images/poster-v05.jpg"
+          data-title="Vídeo 5 – Maneiras de Prevenção I">
+          <div class="video-thumb-img">
+            <img src="assets/images/poster-v05.jpg" alt="Vídeo 5">
+            <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                <polygon points="26,20 50,32 26,44" fill="#fff" />
+              </svg></div>
+          </div>
+          <span class="video-thumb-label">Vídeo 5 – Maneiras de Prevenção I</span>
         </div>
-        <span class="video-thumb-label">Vídeo 5 – Maneiras de Prevenção I</span>
-      </div>
-      <div class="video-thumb" data-src="assets/videos/v06.mp4" data-poster="assets/images/poster-v06.jpg" data-title="Vídeo 6 – Maneiras de Prevenção II">
-        <div class="video-thumb-img">
-          <img src="assets/images/poster-v06.jpg" alt="Vídeo 6">
-          <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)"/><polygon points="26,20 50,32 26,44" fill="#fff"/></svg></div>
+        <div class="video-thumb" data-src="assets/videos/v06.mp4" data-poster="assets/images/poster-v06.jpg"
+          data-title="Vídeo 6 – Maneiras de Prevenção II">
+          <div class="video-thumb-img">
+            <img src="assets/images/poster-v06.jpg" alt="Vídeo 6">
+            <div class="video-thumb-play"><svg viewBox="0 0 64 64" fill="none">
+                <circle cx="32" cy="32" r="32" fill="rgba(255,255,255,0.2)" />
+                <polygon points="26,20 50,32 26,44" fill="#fff" />
+              </svg></div>
+          </div>
+          <span class="video-thumb-label">Vídeo 6 – Maneiras de Prevenção II</span>
         </div>
-        <span class="video-thumb-label">Vídeo 6 – Maneiras de Prevenção II</span>
       </div>
-    </div>
 
-    <!-- OBJETIVO GERAL -->
-    <div class="about-grid" style="margin:32px 0;gap:32px;">
-      <div>
-        <h4>Objetivo Geral</h4>
-        <p>
-          Contribuir para a produção e difusão de materiais de comunicação em saúde a partir de processos formativos e de comunicação junto à população-alvo de gays, outros HSH, travestis, mulheres e homens trans, e profissionais do sexo, em sua maioria jovens e da terceira idade, da cidade de Fortaleza, em parceria estratégica com ONG's, Estado e município.
-        </p>
+      <!-- OBJETIVO GERAL -->
+      <div class="about-grid" style="margin:32px 0;gap:32px;">
+        <div>
+          <h4>Objetivo Geral</h4>
+          <p>
+            Contribuir para a produção e difusão de materiais de comunicação em saúde a partir de processos formativos e
+            de comunicação junto à população-alvo de gays, outros HSH, travestis, mulheres e homens trans, e
+            profissionais do sexo, em sua maioria jovens e da terceira idade, da cidade de Fortaleza, em parceria
+            estratégica com ONG's, Estado e município.
+          </p>
+        </div>
+        <div>
+          <img src="assets/images/img.webp" alt="Prevenção Combinada" style="border-radius:8px;width:100%;"
+            loading="lazy">
+        </div>
       </div>
-      <div>
-        <img src="assets/images/img.webp" alt="Prevenção Combinada" style="border-radius:8px;width:100%;" loading="lazy">
+
+      <!-- OBJETIVOS ESPECÍFICOS -->
+      <h4>Objetivos Específicos</h4>
+      <div class="objectives-grid">
+        <div class="objective-card">
+          <img class="obj-icon" src="assets/images/icon-1.png" alt="" loading="lazy">
+          <p>Realizar ações educativas e em comunicação na cidade de Fortaleza que visem a produção de materiais de
+            divulgação da oferta dos serviços de saúde e socioassistenciais junto à população-alvo.</p>
+        </div>
+        <div class="objective-card">
+          <img class="obj-icon" src="assets/images/icon-2.png" alt="" loading="lazy">
+          <p>Divulgar informações sobre tecnologias, métodos, estratégias e políticas de prevenção e diagnóstico das
+            doenças/infecções ampliando o acesso à PEP, PrEP e a prevenção das hepatites virais.</p>
+        </div>
+        <div class="objective-card">
+          <img class="obj-icon" src="assets/images/icon-3.png" alt="" loading="lazy">
+          <p>Contribuir para a resposta ao estigma, à discriminação e à outras barreiras para o acesso aos serviços de
+            saúde e socioassistenciais.</p>
+        </div>
       </div>
-    </div>
 
-    <!-- OBJETIVOS ESPECÍFICOS -->
-    <h4>Objetivos Específicos</h4>
-    <div class="objectives-grid">
-      <div class="objective-card">
-        <img class="obj-icon" src="assets/images/icon-1.png" alt="" loading="lazy">
-        <p>Realizar ações educativas e em comunicação na cidade de Fortaleza que visem a produção de materiais de divulgação da oferta dos serviços de saúde e socioassistenciais junto à população-alvo.</p>
+      <!-- CTA -->
+      <div class="cta-strip">
+        <h3>Dúvidas ou quer saber mais sobre o projeto?</h3>
+        <p>Fale com a gente e saiba como acessar os serviços ou colaborar com as ações de prevenção combinada.</p>
+        <a href="index.html#contato" class="cta-btn">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Entre em Contato
+        </a>
       </div>
-      <div class="objective-card">
-        <img class="obj-icon" src="assets/images/icon-2.png" alt="" loading="lazy">
-        <p>Divulgar informações sobre tecnologias, métodos, estratégias e políticas de prevenção e diagnóstico das doenças/infecções ampliando o acesso à PEP, PrEP e a prevenção das hepatites virais.</p>
+
+      <!-- SERVIÇOS SUS -->
+      <h4>Serviços do Sistema Único de Saúde – SUS e Socioassistenciais em Fortaleza-CE</h4>
+
+      <h5
+        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+        Serviços de PrEP (Profilaxia Pré-Exposição)</h5>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Policlínica Dr. Lusmar Veras Rodrigues</strong></td>
+            <td>Av. Lineu Machado, 155, Jóquei Clube (anexo do Hospital da Mulher)</td>
+            <td>(85) 4042-3133</td>
+          </tr>
+          <tr>
+            <td><strong>Policlínica Dr. Luiz Carlos Fontenele</strong></td>
+            <td>Av. Juscelino Kubitscheck, 5495, Passaré</td>
+            <td>(85) 2180-7065</td>
+          </tr>
+          <tr>
+            <td><strong>Policlínica Dr. José Eloy da Costa Filho</strong></td>
+            <td>Av. Osório de Paiva, 2466, Bonsucesso</td>
+            <td>(85) 2180-7066</td>
+          </tr>
+          <tr>
+            <td><strong>Hospital São José de Doenças Infecciosas</strong></td>
+            <td>R. Nestor Barbosa, 315 – Parquelândia</td>
+            <td>(85) 3101-2352</td>
+          </tr>
+          <tr>
+            <td><strong>Hospital Universitário Walter Cantídio</strong></td>
+            <td>R. Pastor Samuel Munguba, 1290 – Rodolfo Teófilo</td>
+            <td>(85) 3366-8167</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5
+        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+        Serviços de PEP (Profilaxia Pós-Exposição – até 72h)</h5>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hospital São José de Doenças Infecciosas</strong></td>
+            <td>R. Nestor Barbosa, 315 – Parquelândia</td>
+            <td>(85) 3101-2352</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h5
+        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+        Somente em Casos de Violência Sexual</h5>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Endereço</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hospital Gonzaguinha José Walter</strong></td>
+            <td>Av. C, s/n – Pref. José Walter</td>
+            <td>(85) 3452-9399</td>
+          </tr>
+          <tr>
+            <td><strong>Hospital Distrital Gonzaga Mota de Messejana</strong></td>
+            <td>Av. Washington Soares, 7700 – Messejana</td>
+            <td>(85) 3105-1590 / 3105-4353</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <p><strong>Exames de HIV, Sífilis, Hepatite B e Vacinação para Hepatite B:</strong></p>
+        <p>Disponíveis em todas as <strong>118 Unidades de Atenção Primária à Saúde – UAPS (Postos de Saúde)</strong> de
+          Fortaleza.</p>
+        <p><a href="https://saude.fortaleza.ce.gov.br/postos-de-saude" target="_blank" rel="noopener"
+            style="color:var(--secondary);font-weight:700;">Ver endereços dos postos →</a></p>
       </div>
-      <div class="objective-card">
-        <img class="obj-icon" src="assets/images/icon-3.png" alt="" loading="lazy">
-        <p>Contribuir para a resposta ao estigma, à discriminação e à outras barreiras para o acesso aos serviços de saúde e socioassistenciais.</p>
+
+      <h5
+        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+        Apoio para LGBTI+ em Situações de Violências</h5>
+      <table class="services-table">
+        <thead>
+          <tr>
+            <th>Unidade</th>
+            <th>Endereço</th>
+            <th>Contato</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Centro de Referência LGBT Janaína Dutra</strong></td>
+            <td>Rua Guilherme Rocha, 1469 – Centro</td>
+            <td>(85) 98970-4621 / 3452-2047</td>
+          </tr>
+          <tr>
+            <td><strong>Centro Estadual de Referência LGBT+ Thina Rodrigues</strong></td>
+            <td>Rua Valdetário Mota 970 – Papicu</td>
+            <td>(85) 98993-3884</td>
+          </tr>
+          <tr>
+            <td><strong>DECRIN – Delegacia de Crimes por Discriminação</strong></td>
+            <td>Rua Valdetário Mota 970 – Papicu</td>
+            <td>(85) 98993-3884</td>
+          </tr>
+          <tr>
+            <td><strong>Disque Direitos Humanos</strong></td>
+            <td>Nacional</td>
+            <td>100</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="info-box">
+        <p><strong>Onde conseguir preservativos e gel lubrificante:</strong></p>
+        <p>Todas as 118 Unidades de Atenção Primária à Saúde – UAPS (Postos de Saúde)</p>
+        <p>Sede do GRAB: Rua K (Ipê Amarelo), 1022, Itaperi</p>
       </div>
+
+      <!-- GALERIA -->
+      <h4>Ações de Comunicação em Prevenção Combinada</h4>
+
+      <div id="gallery-prev" class="gallery-grid"></div>
+      <div class="gallery-pages" style="margin-top:16px;">
+        <button class="btn-first" title="Primeira página">|&laquo;</button>
+        <button class="btn-prev" title="Página anterior">&laquo;</button>
+        <span class="gallery-page-info"></span>
+        <button class="btn-next" title="Próxima página">&raquo;</button>
+        <button class="btn-last" title="Última página">&raquo;|</button>
+      </div>
+
+      <div style="margin-top: 48px;">
+        <h4>Galeria Mosaico</h4>
+        <div id="bwg_thumbnails_mosaic_1" class="bwg_mosaic_thumbnails_1"> <a class="bwg-a bwg_lightbox bwg_lightbox_1"
+            href="assets/images/IMG_7388.jpg" data-image-id="184" data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="184"
+                src="assets/images/IMG_7388.jpg" data-src="assets/images/IMG_7388.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7389.jpg" data-image-id="185"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="185"
+                src="assets/images/IMG_7389.jpg" data-src="assets/images/IMG_7389.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7386.jpg" data-image-id="186"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="186"
+                src="assets/images/IMG_7386.jpg" data-src="assets/images/IMG_7386.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7387.jpg" data-image-id="187"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="187"
+                src="assets/images/IMG_7387.jpg" data-src="assets/images/IMG_7387.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7392.jpg" data-image-id="189"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="189"
+                src="assets/images/IMG_7392.jpg" data-src="assets/images/IMG_7392.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7391.jpg" data-image-id="190"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="190"
+                src="assets/images/IMG_7391.jpg" data-src="assets/images/IMG_7391.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7393.jpg" data-image-id="191"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="191"
+                src="assets/images/IMG_7393.jpg" data-src="assets/images/IMG_7393.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7394.jpg" data-image-id="192"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="192"
+                src="assets/images/IMG_7394.jpg" data-src="assets/images/IMG_7394.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7395.jpg" data-image-id="193"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="193"
+                src="assets/images/IMG_7395.jpg" data-src="assets/images/IMG_7395.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7397.jpg" data-image-id="194"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="194"
+                src="assets/images/IMG_7397.jpg" data-src="assets/images/IMG_7397.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7398.jpg" data-image-id="195"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="195"
+                src="assets/images/IMG_7398.jpg" data-src="assets/images/IMG_7398.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7400.jpg" data-image-id="196"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="196"
+                src="assets/images/IMG_7400.jpg" data-src="assets/images/IMG_7400.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7399.jpg" data-image-id="197"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="197"
+                src="assets/images/IMG_7399.jpg" data-src="assets/images/IMG_7399.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7402.jpg" data-image-id="198"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="198"
+                src="assets/images/IMG_7402.jpg" data-src="assets/images/IMG_7402.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7403.jpg" data-image-id="199"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="199"
+                src="assets/images/IMG_7403.jpg" data-src="assets/images/IMG_7403.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7408.jpg" data-image-id="200"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="200"
+                src="assets/images/IMG_7408.jpg" data-src="assets/images/IMG_7408.jpg" data-width="500.00"
+                data-height="281.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7409.jpg" data-image-id="201"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="201"
+                src="assets/images/IMG_7409.jpg" data-src="assets/images/IMG_7409.jpg" data-width="500.00"
+                data-height="281.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7410.jpg" data-image-id="202"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="202"
+                src="assets/images/IMG_7410.jpg" data-src="assets/images/IMG_7410.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7413.jpg" data-image-id="203"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="203"
+                src="assets/images/IMG_7413.jpg" data-src="assets/images/IMG_7413.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7411.jpg" data-image-id="204"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="204"
+                src="assets/images/IMG_7411.jpg" data-src="assets/images/IMG_7411.jpg" data-width="500.00"
+                data-height="281.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7414.jpg" data-image-id="205"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="205"
+                src="assets/images/IMG_7414.jpg" data-src="assets/images/IMG_7414.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7416.jpg" data-image-id="206"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="206"
+                src="assets/images/IMG_7416.jpg" data-src="assets/images/IMG_7416.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7417.jpg" data-image-id="207"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="207"
+                src="assets/images/IMG_7417.jpg" data-src="assets/images/IMG_7417.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7418.jpg" data-image-id="208"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="208"
+                src="assets/images/IMG_7418.jpg" data-src="assets/images/IMG_7418.jpg" data-width="500.00"
+                data-height="281.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7419.jpg" data-image-id="209"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="209"
+                src="assets/images/IMG_7419.jpg" data-src="assets/images/IMG_7419.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7420.jpg" data-image-id="210"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="210"
+                src="assets/images/IMG_7420.jpg" data-src="assets/images/IMG_7420.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7424.jpg" data-image-id="211"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="211"
+                src="assets/images/IMG_7424.jpg" data-src="assets/images/IMG_7424.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7421.jpg" data-image-id="212"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="212"
+                src="assets/images/IMG_7421.jpg" data-src="assets/images/IMG_7421.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7425.jpg" data-image-id="213"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="213"
+                src="assets/images/IMG_7425.jpg" data-src="assets/images/IMG_7425.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7432.jpg" data-image-id="214"
+            data-elementor-open-lightbox="no">
+            <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
+                class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="214"
+                src="assets/images/IMG_7432.jpg" data-src="assets/images/IMG_7432.jpg" data-width="281.00"
+                data-height="500.00" alt="" title="" /> </div>
+          </a> </div>
+      </div>
+
+    </div><!-- end .project-content -->
+
+  </main>
+
+  <!-- MODAL DE VÍDEO -->
+  <div class="video-modal-overlay" id="video-modal" role="dialog" aria-modal="true" aria-label="Player de vídeo">
+    <div class="video-modal-box">
+      <button class="video-modal-close" id="video-modal-close" aria-label="Fechar">&times;</button>
+      <video id="modal-video" controls playsinline></video>
+      <span class="video-modal-title" id="modal-video-title"></span>
     </div>
-
-    <!-- SERVIÇOS SUS -->
-    <h4>Serviços do Sistema Único de Saúde – SUS e Socioassistenciais em Fortaleza-CE</h4>
-
-    <h5 style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">Serviços de PrEP (Profilaxia Pré-Exposição)</h5>
-    <table class="services-table">
-      <thead><tr><th>Unidade</th><th>Endereço</th><th>Telefone</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Policlínica Dr. Lusmar Veras Rodrigues</strong></td><td>Av. Lineu Machado, 155, Jóquei Clube (anexo do Hospital da Mulher)</td><td>(85) 4042-3133</td></tr>
-        <tr><td><strong>Policlínica Dr. Luiz Carlos Fontenele</strong></td><td>Av. Juscelino Kubitscheck, 5495, Passaré</td><td>(85) 2180-7065</td></tr>
-        <tr><td><strong>Policlínica Dr. José Eloy da Costa Filho</strong></td><td>Av. Osório de Paiva, 2466, Bonsucesso</td><td>(85) 2180-7066</td></tr>
-        <tr><td><strong>Hospital São José de Doenças Infecciosas</strong></td><td>R. Nestor Barbosa, 315 – Parquelândia</td><td>(85) 3101-2352</td></tr>
-        <tr><td><strong>Hospital Universitário Walter Cantídio</strong></td><td>R. Pastor Samuel Munguba, 1290 – Rodolfo Teófilo</td><td>(85) 3366-8167</td></tr>
-      </tbody>
-    </table>
-
-    <h5 style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">Serviços de PEP (Profilaxia Pós-Exposição – até 72h)</h5>
-    <table class="services-table">
-      <thead><tr><th>Unidade</th><th>Endereço</th><th>Telefone</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Hospital São José de Doenças Infecciosas</strong></td><td>R. Nestor Barbosa, 315 – Parquelândia</td><td>(85) 3101-2352</td></tr>
-      </tbody>
-    </table>
-
-    <h5 style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">Somente em Casos de Violência Sexual</h5>
-    <table class="services-table">
-      <thead><tr><th>Unidade</th><th>Endereço</th><th>Telefone</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Hospital Gonzaguinha José Walter</strong></td><td>Av. C, s/n – Pref. José Walter</td><td>(85) 3452-9399</td></tr>
-        <tr><td><strong>Hospital Distrital Gonzaga Mota de Messejana</strong></td><td>Av. Washington Soares, 7700 – Messejana</td><td>(85) 3105-1590 / 3105-4353</td></tr>
-      </tbody>
-    </table>
-
-    <div class="info-box">
-      <p><strong>Exames de HIV, Sífilis, Hepatite B e Vacinação para Hepatite B:</strong></p>
-      <p>Disponíveis em todas as <strong>118 Unidades de Atenção Primária à Saúde – UAPS (Postos de Saúde)</strong> de Fortaleza.</p>
-      <p><a href="https://saude.fortaleza.ce.gov.br/postos-de-saude" target="_blank" rel="noopener" style="color:var(--secondary);font-weight:700;">Ver endereços dos postos →</a></p>
-    </div>
-
-    <h5 style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">Apoio para LGBTI+ em Situações de Violências</h5>
-    <table class="services-table">
-      <thead><tr><th>Unidade</th><th>Endereço</th><th>Contato</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Centro de Referência LGBT Janaína Dutra</strong></td><td>Rua Guilherme Rocha, 1469 – Centro</td><td>(85) 98970-4621 / 3452-2047</td></tr>
-        <tr><td><strong>Centro Estadual de Referência LGBT+ Thina Rodrigues</strong></td><td>Rua Valdetário Mota 970 – Papicu</td><td>(85) 98993-3884</td></tr>
-        <tr><td><strong>DECRIN – Delegacia de Crimes por Discriminação</strong></td><td>Rua Valdetário Mota 970 – Papicu</td><td>(85) 98993-3884</td></tr>
-        <tr><td><strong>Disque Direitos Humanos</strong></td><td>Nacional</td><td>100</td></tr>
-      </tbody>
-    </table>
-
-    <div class="info-box">
-      <p><strong>Onde conseguir preservativos e gel lubrificante:</strong></p>
-      <p>Todas as 118 Unidades de Atenção Primária à Saúde – UAPS (Postos de Saúde)</p>
-      <p>Sede do GRAB: Rua K (Ipê Amarelo), 1022, Itaperi</p>
-    </div>
-
-    <!-- GALERIA -->
-    <h4>Ações de Comunicação em Prevenção Combinada</h4>
-
-    <div id="gallery-prev" class="gallery-grid"></div>
-    <div class="gallery-pages" style="margin-top:16px;">
-      <button class="btn-first" title="Primeira página">|&laquo;</button>
-      <button class="btn-prev" title="Página anterior">&laquo;</button>
-      <span class="gallery-page-info"></span>
-      <button class="btn-next" title="Próxima página">&raquo;</button>
-      <button class="btn-last" title="Última página">&raquo;|</button>
-    </div>
-    
-    <div style="margin-top: 48px;">
-      <h4>Galeria Mosaico</h4>
-<div id="bwg_thumbnails_mosaic_1" class="bwg_mosaic_thumbnails_1">                  <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7388.jpg" data-image-id="184" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="184"                 src="assets/images/IMG_7388.jpg"                 data-src="assets/images/IMG_7388.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7389.jpg" data-image-id="185" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="185"                 src="assets/images/IMG_7389.jpg"                 data-src="assets/images/IMG_7389.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7386.jpg" data-image-id="186" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="186"                 src="assets/images/IMG_7386.jpg"                 data-src="assets/images/IMG_7386.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7387.jpg" data-image-id="187" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="187"                 src="assets/images/IMG_7387.jpg"                 data-src="assets/images/IMG_7387.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7392.jpg" data-image-id="189" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="189"                 src="assets/images/IMG_7392.jpg"                 data-src="assets/images/IMG_7392.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7391.jpg" data-image-id="190" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="190"                 src="assets/images/IMG_7391.jpg"                 data-src="assets/images/IMG_7391.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7393.jpg" data-image-id="191" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="191"                 src="assets/images/IMG_7393.jpg"                 data-src="assets/images/IMG_7393.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7394.jpg" data-image-id="192" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="192"                 src="assets/images/IMG_7394.jpg"                 data-src="assets/images/IMG_7394.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7395.jpg" data-image-id="193" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="193"                 src="assets/images/IMG_7395.jpg"                 data-src="assets/images/IMG_7395.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7397.jpg" data-image-id="194" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="194"                 src="assets/images/IMG_7397.jpg"                 data-src="assets/images/IMG_7397.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7398.jpg" data-image-id="195" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="195"                 src="assets/images/IMG_7398.jpg"                 data-src="assets/images/IMG_7398.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7400.jpg" data-image-id="196" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="196"                 src="assets/images/IMG_7400.jpg"                 data-src="assets/images/IMG_7400.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7399.jpg" data-image-id="197" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="197"                 src="assets/images/IMG_7399.jpg"                 data-src="assets/images/IMG_7399.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7402.jpg" data-image-id="198" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="198"                 src="assets/images/IMG_7402.jpg"                 data-src="assets/images/IMG_7402.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7403.jpg" data-image-id="199" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="199"                 src="assets/images/IMG_7403.jpg"                 data-src="assets/images/IMG_7403.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7408.jpg" data-image-id="200" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="200"                 src="assets/images/IMG_7408.jpg"                 data-src="assets/images/IMG_7408.jpg"                 data-width="500.00"                 data-height="281.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7409.jpg" data-image-id="201" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="201"                 src="assets/images/IMG_7409.jpg"                 data-src="assets/images/IMG_7409.jpg"                 data-width="500.00"                 data-height="281.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7410.jpg" data-image-id="202" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="202"                 src="assets/images/IMG_7410.jpg"                 data-src="assets/images/IMG_7410.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7413.jpg" data-image-id="203" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="203"                 src="assets/images/IMG_7413.jpg"                 data-src="assets/images/IMG_7413.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7411.jpg" data-image-id="204" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="204"                 src="assets/images/IMG_7411.jpg"                 data-src="assets/images/IMG_7411.jpg"                 data-width="500.00"                 data-height="281.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7414.jpg" data-image-id="205" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="205"                 src="assets/images/IMG_7414.jpg"                 data-src="assets/images/IMG_7414.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7416.jpg" data-image-id="206" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="206"                 src="assets/images/IMG_7416.jpg"                 data-src="assets/images/IMG_7416.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7417.jpg" data-image-id="207" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="207"                 src="assets/images/IMG_7417.jpg"                 data-src="assets/images/IMG_7417.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7418.jpg" data-image-id="208" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="208"                 src="assets/images/IMG_7418.jpg"                 data-src="assets/images/IMG_7418.jpg"                 data-width="500.00"                 data-height="281.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7419.jpg" data-image-id="209" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="209"                 src="assets/images/IMG_7419.jpg"                 data-src="assets/images/IMG_7419.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7420.jpg" data-image-id="210" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="210"                 src="assets/images/IMG_7420.jpg"                 data-src="assets/images/IMG_7420.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7424.jpg" data-image-id="211" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="211"                 src="assets/images/IMG_7424.jpg"                 data-src="assets/images/IMG_7424.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7421.jpg" data-image-id="212" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="212"                 src="assets/images/IMG_7421.jpg"                 data-src="assets/images/IMG_7421.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7425.jpg" data-image-id="213" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="213"                 src="assets/images/IMG_7425.jpg"                 data-src="assets/images/IMG_7425.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>                <a  class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7432.jpg" data-image-id="214" data-elementor-open-lightbox="no">          <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span ">            <img decoding="async" class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom "                 id="214"                 src="assets/images/IMG_7432.jpg"                 data-src="assets/images/IMG_7432.jpg"                 data-width="281.00"                 data-height="500.00"                 alt=""                 title="" />                      </div>        </a>            </div>
-    </div>
-
-  </div><!-- end .project-content -->
-
-</main>
-
-<!-- MODAL DE VÍDEO -->
-<div class="video-modal-overlay" id="video-modal" role="dialog" aria-modal="true" aria-label="Player de vídeo">
-  <div class="video-modal-box">
-    <button class="video-modal-close" id="video-modal-close" aria-label="Fechar">&times;</button>
-    <video id="modal-video" controls playsinline></video>
-    <span class="video-modal-title" id="modal-video-title"></span>
   </div>
-</div>
 
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
-  <button class="lightbox-close" aria-label="Fechar">&times;</button>
-  <div class="lightbox-img-wrap">
-    <button class="lightbox-nav prev" aria-label="Imagem anterior">&#8249;</button>
-    <img id="lightbox-main-img" src="" alt="">
-    <button class="lightbox-nav next" aria-label="Próxima imagem">&#8250;</button>
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
+    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+    <div class="lightbox-img-wrap">
+      <button class="lightbox-nav prev" aria-label="Imagem anterior">&#8249;</button>
+      <img id="lightbox-main-img" src="" alt="">
+      <button class="lightbox-nav next" aria-label="Próxima imagem">&#8250;</button>
+    </div>
+    <div class="lightbox-caption"></div>
+    <div class="lightbox-counter"></div>
   </div>
-  <div class="lightbox-caption"></div>
-  <div class="lightbox-counter"></div>
-</div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>GRAB Asa Branca</h4>
+        <h4>GRAB</h4>
         <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
         <div class="footer-socials">
-          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894"
-            target="_blank" rel="noopener" aria-label="Facebook">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank"
+            rel="noopener" aria-label="Facebook">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
-          <a class="social-link" href="https://www.instagram.com/grabasabranca"
-            target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="social-link" href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener"
+            aria-label="Instagram">
             <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
@@ -426,88 +845,89 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2024 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p>
+      <p>&copy; 2026 GRAB &mdash; Todos os Direitos Reservados</p>
     </div>
   </footer>
 
-<button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
+  <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
 
-<script src="main.js"></script>
-<script>
-// Modal de vídeo
-(function () {
-  const overlay   = document.getElementById('video-modal');
-  const modalVideo = document.getElementById('modal-video');
-  const titleEl   = document.getElementById('modal-video-title');
-  const closeBtn  = document.getElementById('video-modal-close');
+  <script src="main.js"></script>
+  <script>
+    // Modal de vídeo
+    (function () {
+      const overlay = document.getElementById('video-modal');
+      const modalVideo = document.getElementById('modal-video');
+      const titleEl = document.getElementById('modal-video-title');
+      const closeBtn = document.getElementById('video-modal-close');
 
-  function openModal(src, poster, title) {
-    modalVideo.poster = poster;
-    modalVideo.src    = src;
-    titleEl.textContent = title;
-    overlay.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    modalVideo.play();
-  }
+      function openModal(src, poster, title) {
+        modalVideo.poster = poster;
+        modalVideo.src = src;
+        titleEl.textContent = title;
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        modalVideo.play();
+      }
 
-  function closeModal() {
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    modalVideo.pause();
-    modalVideo.src = '';
-  }
+      function closeModal() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        modalVideo.pause();
+        modalVideo.src = '';
+      }
 
-  document.querySelectorAll('.video-thumb').forEach(function (thumb) {
-    thumb.addEventListener('click', function () {
-      openModal(
-        thumb.dataset.src,
-        thumb.dataset.poster,
-        thumb.dataset.title
-      );
+      document.querySelectorAll('.video-thumb').forEach(function (thumb) {
+        thumb.addEventListener('click', function () {
+          openModal(
+            thumb.dataset.src,
+            thumb.dataset.poster,
+            thumb.dataset.title
+          );
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closeModal();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+    }());
+  </script>
+  <script>
+    // Gallery images for Prevenção Combinada
+    var prevImages = [
+      { thumb: 'assets/images/1.png', full: 'assets/images/1.png', caption: 'Ação de Comunicação' },
+      { thumb: 'assets/images/2.png', full: 'assets/images/2.png', caption: '' },
+      { thumb: 'assets/images/3.png', full: 'assets/images/3.png', caption: '' },
+      { thumb: 'assets/images/4.png', full: 'assets/images/4.png', caption: '' },
+      { thumb: 'assets/images/01-de-Dezembro.png', full: 'assets/images/01-de-Dezembro.png', caption: '01 de Dezembro' },
+      { thumb: 'assets/images/6.png', full: 'assets/images/6.png', caption: '' },
+      { thumb: 'assets/images/5.png', full: 'assets/images/5.png', caption: '' },
+      { thumb: 'assets/images/9.png', full: 'assets/images/9.png', caption: '' },
+      { thumb: 'assets/images/7.png', full: 'assets/images/7.png', caption: '' },
+      { thumb: 'assets/images/10.png', full: 'assets/images/10.png', caption: '' },
+      { thumb: 'assets/images/12.png', full: 'assets/images/12.png', caption: '' },
+      { thumb: 'assets/images/11.png', full: 'assets/images/11.png', caption: '' },
+      { thumb: 'assets/images/8.png', full: 'assets/images/8.png', caption: '' },
+      { thumb: 'assets/images/14.png', full: 'assets/images/14.png', caption: '' },
+      { thumb: 'assets/images/13.png', full: 'assets/images/13.png', caption: '' },
+      { thumb: 'assets/images/14_1.png', full: 'assets/images/14_1.png', caption: '' },
+      { thumb: 'assets/images/16.png', full: 'assets/images/16.png', caption: '' },
+      { thumb: 'assets/images/15.png', full: 'assets/images/15.png', caption: '' },
+      { thumb: 'assets/images/18.png', full: 'assets/images/18.png', caption: '' },
+      { thumb: 'assets/images/19.png', full: 'assets/images/19.png', caption: '' },
+      { thumb: 'assets/images/20.png', full: 'assets/images/20.png', caption: '' },
+      { thumb: 'assets/images/17.png', full: 'assets/images/17.png', caption: '' },
+      { thumb: 'assets/images/21.png', full: 'assets/images/21.png', caption: '' },
+      { thumb: 'assets/images/22.png', full: 'assets/images/22.png', caption: '' }
+    ];
+
+    document.addEventListener('DOMContentLoaded', function () {
+      initGalleryPagination('gallery-prev', prevImages, 24);
     });
-  });
-
-  closeBtn.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closeModal();
-  });
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closeModal();
-  });
-}());
-</script>
-<script>
-// Gallery images for Prevenção Combinada
-var prevImages = [
-  {thumb:'assets/images/1.png',full:'assets/images/1.png',caption:'Ação de Comunicação'},
-  {thumb:'assets/images/2.png',full:'assets/images/2.png',caption:''},
-  {thumb:'assets/images/3.png',full:'assets/images/3.png',caption:''},
-  {thumb:'assets/images/4.png',full:'assets/images/4.png',caption:''},
-  {thumb:'assets/images/01-de-Dezembro.png',full:'assets/images/01-de-Dezembro.png',caption:'01 de Dezembro'},
-  {thumb:'assets/images/6.png',full:'assets/images/6.png',caption:''},
-  {thumb:'assets/images/5.png',full:'assets/images/5.png',caption:''},
-  {thumb:'assets/images/9.png',full:'assets/images/9.png',caption:''},
-  {thumb:'assets/images/7.png',full:'assets/images/7.png',caption:''},
-  {thumb:'assets/images/10.png',full:'assets/images/10.png',caption:''},
-  {thumb:'assets/images/12.png',full:'assets/images/12.png',caption:''},
-  {thumb:'assets/images/11.png',full:'assets/images/11.png',caption:''},
-  {thumb:'assets/images/8.png',full:'assets/images/8.png',caption:''},
-  {thumb:'assets/images/14.png',full:'assets/images/14.png',caption:''},
-  {thumb:'assets/images/13.png',full:'assets/images/13.png',caption:''},
-  {thumb:'assets/images/14_1.png',full:'assets/images/14_1.png',caption:''},
-  {thumb:'assets/images/16.png',full:'assets/images/16.png',caption:''},
-  {thumb:'assets/images/15.png',full:'assets/images/15.png',caption:''},
-  {thumb:'assets/images/18.png',full:'assets/images/18.png',caption:''},
-  {thumb:'assets/images/19.png',full:'assets/images/19.png',caption:''},
-  {thumb:'assets/images/20.png',full:'assets/images/20.png',caption:''},
-  {thumb:'assets/images/17.png',full:'assets/images/17.png',caption:''},
-  {thumb:'assets/images/21.png',full:'assets/images/21.png',caption:''},
-  {thumb:'assets/images/22.png',full:'assets/images/22.png',caption:''}
-];
-
-document.addEventListener('DOMContentLoaded', function() {
-  initGalleryPagination('gallery-prev', prevImages, 24);
-});
-</script>
+  </script>
 </body>
+
 </html>

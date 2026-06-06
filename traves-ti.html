@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TRAVES-TI - GRAB Asa Branca</title>
-  <meta name="description" content="Projeto TRAVES-TI – Curso de letramento digital para pessoas trans e travestis. GRAB Asa Branca.">
+  <title>TRAVES-TI - GRAB</title>
+  <meta name="description"
+    content="Projeto TRAVES-TI – Curso de letramento digital para pessoas trans e travestis. GRAB.">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
@@ -17,12 +19,14 @@
       flex-wrap: wrap;
       margin: 24px 0;
     }
+
     .traves-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 12px;
       margin: 24px 0;
     }
+
     .traves-gallery img {
       width: 100%;
       border-radius: 6px;
@@ -31,10 +35,12 @@
       cursor: pointer;
       transition: transform 0.3s, filter 0.3s;
     }
+
     .traves-gallery img:hover {
       transform: scale(1.05);
       filter: brightness(0.85);
     }
+
     .quote-banner {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       padding: 36px 40px;
@@ -44,6 +50,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .quote-banner::before {
       content: '\201C';
       position: absolute;
@@ -51,10 +58,11 @@
       left: 20px;
       font-size: 8rem;
       font-family: 'Syne', sans-serif;
-      color: rgba(255,255,255,0.12);
+      color: rgba(255, 255, 255, 0.12);
       line-height: 1;
       pointer-events: none;
     }
+
     .quote-banner p {
       font-size: 1.15rem;
       font-style: italic;
@@ -74,6 +82,7 @@
       gap: 16px;
       margin: 28px 0;
     }
+
     .stat-card {
       background: #fff;
       border: 1px solid var(--border);
@@ -81,13 +90,15 @@
       padding: 22px 16px;
       text-align: center;
       border-top: 4px solid var(--primary);
-      box-shadow: 0 4px 16px rgba(123,45,139,0.08);
+      box-shadow: 0 4px 16px rgba(123, 45, 139, 0.08);
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .stat-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(123,45,139,0.15);
+      box-shadow: 0 8px 24px rgba(123, 45, 139, 0.15);
     }
+
     .stat-card .stat-number {
       font-size: 2.4rem;
       font-weight: 800;
@@ -99,6 +110,7 @@
       display: block;
       line-height: 1;
     }
+
     .stat-card .stat-label {
       font-size: 0.72rem;
       color: var(--text-muted);
@@ -141,6 +153,7 @@
       display: grid;
       gap: 10px;
     }
+
     .icon-list li {
       display: flex;
       align-items: flex-start;
@@ -153,6 +166,7 @@
       line-height: 1.55;
       color: var(--text);
     }
+
     .icon-list li .li-icon {
       background: linear-gradient(135deg, var(--primary), var(--secondary));
       color: #fff;
@@ -174,9 +188,10 @@
       gap: 8px;
       margin: 16px 0 8px;
     }
+
     .partnership-tag {
-      background: rgba(123,45,139,0.08);
-      border: 1px solid rgba(123,45,139,0.25);
+      background: rgba(123, 45, 139, 0.08);
+      border: 1px solid rgba(123, 45, 139, 0.25);
       color: var(--primary);
       font-size: 0.78rem;
       font-weight: 600;
@@ -194,28 +209,36 @@
       position: relative;
       overflow: hidden;
     }
+
     .highlight-card::before {
       content: '';
       position: absolute;
-      top: -50px; right: -50px;
-      width: 180px; height: 180px;
-      background: rgba(255,255,255,0.06);
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.06);
       border-radius: 50%;
       pointer-events: none;
     }
+
     .highlight-card::after {
       content: '';
       position: absolute;
-      bottom: -70px; left: 30px;
-      width: 240px; height: 240px;
-      background: rgba(233,30,140,0.18);
+      bottom: -70px;
+      left: 30px;
+      width: 240px;
+      height: 240px;
+      background: rgba(233, 30, 140, 0.18);
       border-radius: 50%;
       pointer-events: none;
     }
+
     .highlight-card .section-label {
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
       color: #fff;
     }
+
     .highlight-card h4 {
       color: #fff;
       font-size: 1.25rem;
@@ -223,20 +246,27 @@
       position: relative;
       z-index: 1;
     }
+
     .highlight-card p {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255, 255, 255, 0.9);
       position: relative;
       z-index: 1;
       margin-bottom: 14px;
       line-height: 1.7;
     }
-    .highlight-card p:last-child { margin-bottom: 0; }
-    .highlight-card strong { color: #fff; }
+
+    .highlight-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-card strong {
+      color: #fff;
+    }
 
     /* CALLOUT BOX (Parcerias) */
     .callout-box {
       background: linear-gradient(135deg, #fff8f0, #fff0f8);
-      border: 1px solid rgba(233,30,140,0.2);
+      border: 1px solid rgba(233, 30, 140, 0.2);
       border-left: 4px solid var(--accent);
       border-radius: 12px;
       padding: 20px 24px;
@@ -245,6 +275,7 @@
       line-height: 1.7;
       color: var(--text);
     }
+
     .callout-box .callout-title {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -266,6 +297,84 @@
       margin: 36px 0;
     }
 
+    /* CTA STRIP */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--secondary));
+      border-radius: 20px;
+      padding: 48px 40px;
+      text-align: center;
+      margin: 40px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-strip::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 220px;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-strip::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      left: -40px;
+      width: 280px;
+      height: 280px;
+      background: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .cta-strip h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-strip p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      color: var(--primary);
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 15px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+      color: var(--secondary);
+    }
+
     /* PILLAR CARDS */
     .pillar-cards {
       display: grid;
@@ -273,9 +382,13 @@
       gap: 16px;
       margin: 28px 0;
     }
+
     @media (max-width: 640px) {
-      .pillar-cards { grid-template-columns: 1fr; }
+      .pillar-cards {
+        grid-template-columns: 1fr;
+      }
     }
+
     .pillar-card {
       display: flex;
       gap: 16px;
@@ -284,13 +397,15 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       padding: 22px 20px;
-      box-shadow: 0 2px 12px rgba(123,45,139,0.06);
+      box-shadow: 0 2px 12px rgba(123, 45, 139, 0.06);
       transition: transform 0.2s, box-shadow 0.2s;
     }
+
     .pillar-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(123,45,139,0.13);
+      box-shadow: 0 8px 28px rgba(123, 45, 139, 0.13);
     }
+
     .pillar-icon {
       width: 44px;
       height: 44px;
@@ -303,6 +418,7 @@
       color: #fff;
       font-size: 1rem;
     }
+
     .pillar-body h5 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
@@ -311,6 +427,7 @@
       margin-bottom: 8px;
       line-height: 1.3;
     }
+
     .pillar-body p {
       font-size: 0.9rem;
       line-height: 1.65;
@@ -320,20 +437,20 @@
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
-<a class="skip-link" href="#content">Ir para o conteúdo</a>
+  <a class="skip-link" href="#content">Ir para o conteúdo</a>
 
-<!-- HEADER -->
-<header class="site-header" id="site-header">
+  <!-- HEADER -->
+  <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a class="site-logo" href="index.html" aria-label="GRAB Asa Branca — Início">
-        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png"
-          alt="GRAB Asa Branca" height="42">
+      <a class="site-logo" href="index.html" aria-label="GRAB — Início">
+        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB" height="42">
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
-          <li><a href="index.html" >Início</a></li>
+          <li><a href="index.html">Início</a></li>
           <li><a href="parada-2026.html">25ª Parada pela Diversidade</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
@@ -355,7 +472,8 @@
         <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener" aria-label="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener"
+          aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
@@ -365,7 +483,7 @@
     </div>
   </header>
 
-<nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="index.html">Início</a>
     <a href="parada-2026.html">25ª Parada pela Diversidade Sexual do Ceará</a>
     <span class="mobile-subnav-label">Projetos</span>
@@ -374,280 +492,330 @@
     <a href="index.html#contato">Entre em Contato</a>
   </nav>
 
-<main class="page-content" id="content">
+  <main class="page-content" id="content">
 
-  <!-- BANNER -->
-  <img class="project-banner" src="assets/images/capasite_TravesTI.png" alt="Projeto TRAVES-TI">
-  <div class="divider-img" aria-hidden="true"></div>
+    <!-- BANNER -->
+    <img class="project-banner" src="assets/images/capasite_TravesTI.png" alt="Projeto TRAVES-TI">
+    <div class="divider-img" aria-hidden="true"></div>
 
-  <div class="project-content">
+    <div class="project-content">
 
-    <h1 style="font-size:1.8rem;color:var(--primary);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">
-      Projeto TRAVES-TI
-    </h1>
+      <h1 style="font-size:1.8rem;color:var(--primary);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">
+        Projeto TRAVES-TI
+      </h1>
 
-    <div class="quote-banner">
-      <p>"Um projeto para ampliar as possibilidades de pessoas trans e travestis viverem bem, por meio da inclusão digital e da navegação em rede".</p>
-    </div>
-
-    <p class="text-lead">
-      O projeto <strong>TRAVES-TI</strong>, desenvolvido pelo <strong>Grupo de Resistência Asa Branca – GRAB</strong>, é uma ação permanente e surgiu como uma iniciativa fundamental na promoção da cidadania, inclusão social e acesso a oportunidades para pessoas travestis e transexuais.
-    </p>
-
-    <div class="pillar-cards">
-
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <i class="fas fa-seedling" aria-hidden="true"></i>
-        </div>
-        <div class="pillar-body">
-          <h5>Inclusão e Autonomia</h5>
-          <p>Em um contexto marcado por desigualdades históricas e pela marginalização das populações trans e travestis no Estado do Ceará, o projeto TRAVES-TI se destaca ao oferecer formação na área de tecnologia da informação, ampliando horizontes profissionais e fortalecendo a autonomia das/es/os participantes.</p>
-        </div>
+      <div class="quote-banner">
+        <p>"Um projeto para ampliar as possibilidades de pessoas trans e travestis viverem bem, por meio da inclusão
+          digital e da navegação em rede".</p>
       </div>
 
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
-        </div>
-        <div class="pillar-body">
-          <h5>Espaço Seguro de Aprendizagem</h5>
-          <p>A proposta vai além da capacitação técnica. O projeto cria um espaço seguro de aprendizagem, acolhimento e troca de experiências, onde identidades são respeitadas e valorizadas — integrando educação digital ao fortalecimento da autoestima e da consciência de direitos.</p>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <i class="fas fa-laptop-code" aria-hidden="true"></i>
-        </div>
-        <div class="pillar-body">
-          <h5>Transformação Social</h5>
-          <p>Ao inserir pessoas trans no campo da tecnologia — um setor em constante crescimento — o TRAVES-TI não apenas amplia possibilidades individuais, mas também desafia estereótipos e promove diversidade em ambientes tradicionalmente excludentes, tornando a sociedade mais plural e justa.</p>
-        </div>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <i class="fas fa-fist-raised" aria-hidden="true"></i>
-        </div>
-        <div class="pillar-body">
-          <h5>Compromisso com Direitos</h5>
-          <p>O projeto TRAVES-TI reafirma o compromisso do <strong>GRAB</strong> com a defesa dos direitos humanos de LGBTQIA+ e com a construção de caminhos concretos para a inclusão — um exemplo inspirador de como educação, tecnologia e ativismo podem caminhar juntos na luta por equidade e dignidade.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <hr class="section-divider">
-
-    <!-- LETRAMENTO DIGITAL -->
-    <span class="section-label">Fase 1 — 2025</span>
-    <h4>Letramento Digital para Travestis e Transexuais</h4>
-
-    <p>
-      A primeira fase do projeto aconteceu no ano de <strong>2025</strong> e teve como apoio o <strong>Serviço Federal de Processamento de Dados – SERPRO</strong>, a partir do Edital <em>"Agora 3T: Tecnologia para pessoas Trans e Travestis"</em>, onde tal recurso financeiro foi fundamental para o início da iniciativa.
-    </p>
-
-    <p>
-      A iniciativa teve como objetivo central a realização de um <strong>Curso de Letramento Digital</strong>, possibilitando uma melhoria da qualidade de vida de travestis e transexuais do Ceará, mais especificamente na capital Fortaleza e Região Metropolitana, visto que as políticas de empregabilidade para trans e travestis no Ceará ainda são bastante escassas.
-    </p>
-
-    <!-- STATS -->
-    <div class="stat-cards">
-      <div class="stat-card">
-        <span class="stat-number">~40</span>
-        <span class="stat-label">Pessoas capacitadas</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">2</span>
-        <span class="stat-label">Turmas formadas</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">3</span>
-        <span class="stat-label">Módulos do curso</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-number">2025</span>
-        <span class="stat-label">Ano de realização</span>
-      </div>
-    </div>
-
-    <p>
-      Como resultados da primeira fase do projeto, foi possível capacitar cerca de <strong>40 pessoas trans e travestis</strong> para a inclusão tecnológica através de um Curso de Letramento Digital, desenvolvendo habilidades em tecnologias da informação, redes sociais, marketing digital e fotografia. O curso abordou conteúdos de Inclusão Digital e Ferramentas Básicas, Produção de Conteúdo e Estratégias Digitais, Empreendedorismo Digital, Gerenciamento de canal pessoal e monetização de perfil nas redes.
-    </p>
-
-    <hr class="section-divider">
-
-    <!-- O PROJETO POSSIBILITOU -->
-    <span class="section-label">Resultados</span>
-    <h4>O Projeto Possibilitou</h4>
-    <ul class="icon-list">
-      <li>
-        <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
-        Ensinar as/es/os participantes como utilizar o celular para a construção de vídeos, cards e fotografia, contribuindo com a inclusão digital de tais sujeitos;
-      </li>
-      <li>
-        <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
-        Ensinar as/es/os participantes como criar e desenvolver perfis pessoais e comerciais em redes sociais e outros aplicativos afins, utilizando ferramentas e plataformas gratuitas;
-      </li>
-      <li>
-        <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
-        Construção de um portfólio de materiais produzidos com fotografias, vídeos e cards;
-      </li>
-      <li>
-        <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
-        Realização de uma pesquisa sobre a situação econômica e social das pessoas trans e travestis participantes do curso, de forma a contribuir com a criação e fortalecimento de políticas públicas específicas de empregabilidade para travestis e transexuais;
-      </li>
-      <li>
-        <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
-        Capacitação e empoderamento das/des/dos participantes para utilizar as ferramentas digitais de forma estratégica, garantindo maior independência e segurança online.
-      </li>
-    </ul>
-
-    <!-- PARCERIAS -->
-    <div class="callout-box">
-      <div class="callout-title">
-        <i class="fas fa-handshake" aria-hidden="true"></i> Parcerias e Ações Complementares
-      </div>
-      <p style="margin:0;">
-        Além da formação digital, o projeto construiu uma rede de apoio que garantiu acesso a saúde bucal, cestas básicas, encaminhamentos para o mercado de trabalho e para serviços especializados em centros de referência estadual e municipal. As duas turmas se consolidaram como uma rede de afetos, formação política, ativismo e artivismo — com atuação na <strong>Parada pela Diversidade Sexual do Ceará</strong> e no movimento de Luta contra a Aids do Ceará.
+      <p class="text-lead">
+        O projeto <strong>TRAVES-TI</strong>, desenvolvido pelo <strong>Grupo de Resistência Asa Branca – GRAB</strong>,
+        é uma ação permanente e surgiu como uma iniciativa fundamental na promoção da cidadania, inclusão social e
+        acesso a oportunidades para pessoas travestis e transexuais.
       </p>
-      <div class="partnership-tags" style="margin-top:14px;">
-        <span class="partnership-tag"><i class="fas fa-tooth"></i> Saúde Bucal</span>
-        <span class="partnership-tag"><i class="fas fa-box-open"></i> Cestas Básicas</span>
-        <span class="partnership-tag"><i class="fas fa-briefcase"></i> Mercado de Trabalho</span>
-        <span class="partnership-tag"><i class="fas fa-map-marker-alt"></i> Centros de Referência</span>
-        <span class="partnership-tag"><i class="fas fa-rainbow"></i> Parada LGBTQIA+</span>
-        <span class="partnership-tag"><i class="fas fa-ribbon"></i> Luta contra a Aids</span>
+
+      <div class="pillar-cards">
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-seedling" aria-hidden="true"></i>
+          </div>
+          <div class="pillar-body">
+            <h5>Inclusão e Autonomia</h5>
+            <p>Em um contexto marcado por desigualdades históricas e pela marginalização das populações trans e
+              travestis no Estado do Ceará, o projeto TRAVES-TI se destaca ao oferecer formação na área de tecnologia da
+              informação, ampliando horizontes profissionais e fortalecendo a autonomia das/es/os participantes.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-hand-holding-heart" aria-hidden="true"></i>
+          </div>
+          <div class="pillar-body">
+            <h5>Espaço Seguro de Aprendizagem</h5>
+            <p>A proposta vai além da capacitação técnica. O projeto cria um espaço seguro de aprendizagem, acolhimento
+              e troca de experiências, onde identidades são respeitadas e valorizadas — integrando educação digital ao
+              fortalecimento da autoestima e da consciência de direitos.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-laptop-code" aria-hidden="true"></i>
+          </div>
+          <div class="pillar-body">
+            <h5>Transformação Social</h5>
+            <p>Ao inserir pessoas trans no campo da tecnologia — um setor em constante crescimento — o TRAVES-TI não
+              apenas amplia possibilidades individuais, mas também desafia estereótipos e promove diversidade em
+              ambientes tradicionalmente excludentes, tornando a sociedade mais plural e justa.</p>
+          </div>
+        </div>
+
+        <div class="pillar-card">
+          <div class="pillar-icon">
+            <i class="fas fa-fist-raised" aria-hidden="true"></i>
+          </div>
+          <div class="pillar-body">
+            <h5>Compromisso com Direitos</h5>
+            <p>O projeto TRAVES-TI reafirma o compromisso do <strong>GRAB</strong> com a defesa dos direitos humanos de
+              LGBTQIA+ e com a construção de caminhos concretos para a inclusão — um exemplo inspirador de como
+              educação, tecnologia e ativismo podem caminhar juntos na luta por equidade e dignidade.</p>
+          </div>
+        </div>
+
       </div>
-    </div>
 
-    <hr class="section-divider">
+      <hr class="section-divider">
 
-    <!-- PERSPECTIVAS FUTURAS -->
-    <div class="highlight-card">
-      <span class="section-label">Próximos Passos</span>
-      <h4>Perspectivas Futuras</h4>
+      <!-- LETRAMENTO DIGITAL -->
+      <span class="section-label">Fase 1 — 2025</span>
+      <h4>Letramento Digital para Travestis e Transexuais</h4>
+
       <p>
-        Propõe-se a continuidade da iniciativa com a implementação de um novo ciclo formativo. Essa nova etapa tem como objetivo aprofundar os conhecimentos tecnológicos das pessoas participantes, alinhando-as às demandas emergentes do mercado de trabalho, ampliando ainda mais suas possibilidades de inserção profissional qualificada.
+        A primeira fase do projeto aconteceu no ano de <strong>2025</strong> e teve como apoio o <strong>Serviço Federal
+          de Processamento de Dados – SERPRO</strong>, a partir do Edital <em>"Agora 3T: Tecnologia para pessoas Trans e
+          Travestis"</em>, onde tal recurso financeiro foi fundamental para o início da iniciativa.
       </p>
+
       <p>
-        A metodologia seguirá priorizando um ambiente seguro e acolhedor, com acompanhamento pedagógico contínuo, apoio psicossocial e incentivo ao protagonismo dos participantes. Também serão estimuladas parcerias com empresas, instituições de ensino e profissionais da área de tecnologia, visando ampliar oportunidades de estágio, emprego e <em>networking</em>.
+        A iniciativa teve como objetivo central a realização de um <strong>Curso de Letramento Digital</strong>,
+        possibilitando uma melhoria da qualidade de vida de travestis e transexuais do Ceará, mais especificamente na
+        capital Fortaleza e Região Metropolitana, visto que as políticas de empregabilidade para trans e travestis no
+        Ceará ainda são bastante escassas.
       </p>
+
+      <!-- STATS -->
+      <div class="stat-cards">
+        <div class="stat-card">
+          <span class="stat-number">~40</span>
+          <span class="stat-label">Pessoas capacitadas</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2</span>
+          <span class="stat-label">Turmas formadas</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Módulos do curso</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">2025</span>
+          <span class="stat-label">Ano de realização</span>
+        </div>
+      </div>
+
       <p>
-        Como resultados esperados, destaca-se a formação de uma nova geração de profissionais trans e travestis qualificadas/es/os, a ampliação da diversidade no setor tecnológico e o fortalecimento da autonomia econômica dessas populações. Assim, a <strong>continuidade do projeto prevista para o segundo semestre de 2026</strong> representa um passo estratégico e necessário para acompanhar as transformações do mundo do trabalho, reafirmando o compromisso com a inclusão, a equidade e a construção de futuros mais justos.
+        Como resultados da primeira fase do projeto, foi possível capacitar cerca de <strong>40 pessoas trans e
+          travestis</strong> para a inclusão tecnológica através de um Curso de Letramento Digital, desenvolvendo
+        habilidades em tecnologias da informação, redes sociais, marketing digital e fotografia. O curso abordou
+        conteúdos de Inclusão Digital e Ferramentas Básicas, Produção de Conteúdo e Estratégias Digitais,
+        Empreendedorismo Digital, Gerenciamento de canal pessoal e monetização de perfil nas redes.
       </p>
-    </div>
 
-    <hr class="section-divider">
+      <hr class="section-divider">
 
-    <!-- MÓDULOS -->
-    <h4>Conteúdo e Cronograma</h4>
-    <div class="modules-list">
+      <!-- O PROJETO POSSIBILITOU -->
+      <span class="section-label">Resultados</span>
+      <h4>O Projeto Possibilitou</h4>
+      <ul class="icon-list">
+        <li>
+          <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
+          Ensinar as/es/os participantes como utilizar o celular para a construção de vídeos, cards e fotografia,
+          contribuindo com a inclusão digital de tais sujeitos;
+        </li>
+        <li>
+          <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
+          Ensinar as/es/os participantes como criar e desenvolver perfis pessoais e comerciais em redes sociais e outros
+          aplicativos afins, utilizando ferramentas e plataformas gratuitas;
+        </li>
+        <li>
+          <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
+          Construção de um portfólio de materiais produzidos com fotografias, vídeos e cards;
+        </li>
+        <li>
+          <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
+          Realização de uma pesquisa sobre a situação econômica e social das pessoas trans e travestis participantes do
+          curso, de forma a contribuir com a criação e fortalecimento de políticas públicas específicas de
+          empregabilidade para travestis e transexuais;
+        </li>
+        <li>
+          <span class="li-icon"><i class="fas fa-check" aria-hidden="true"></i></span>
+          Capacitação e empoderamento das/des/dos participantes para utilizar as ferramentas digitais de forma
+          estratégica, garantindo maior independência e segurança online.
+        </li>
+      </ul>
 
-      <div class="module-item open">
-        <div class="module-header">
-          MÓDULO 1: Inclusão Digital e Ferramentas Básicas
-          <span class="chevron">▼</span>
+      <!-- PARCERIAS -->
+      <div class="callout-box">
+        <div class="callout-title">
+          <i class="fas fa-handshake" aria-hidden="true"></i> Parcerias e Ações Complementares
         </div>
-        <div class="module-body">
-          <ul>
-            <li>Introdução à Inclusão Digital e Cidadania</li>
-            <li>Informática Básica para Celular e Internet</li>
-            <li>Redes Sociais – Perfis Pessoais e Comerciais</li>
-          </ul>
+        <p style="margin:0;">
+          Além da formação digital, o projeto construiu uma rede de apoio que garantiu acesso a saúde bucal, cestas
+          básicas, encaminhamentos para o mercado de trabalho e para serviços especializados em centros de referência
+          estadual e municipal. As duas turmas se consolidaram como uma rede de afetos, formação política, ativismo e
+          artivismo — com atuação na <strong>Parada pela Diversidade Sexual do Ceará</strong> e no movimento de Luta
+          contra a Aids do Ceará.
+        </p>
+        <div class="partnership-tags" style="margin-top:14px;">
+          <span class="partnership-tag"><i class="fas fa-tooth"></i> Saúde Bucal</span>
+          <span class="partnership-tag"><i class="fas fa-box-open"></i> Cestas Básicas</span>
+          <span class="partnership-tag"><i class="fas fa-briefcase"></i> Mercado de Trabalho</span>
+          <span class="partnership-tag"><i class="fas fa-map-marker-alt"></i> Centros de Referência</span>
+          <span class="partnership-tag"><i class="fas fa-rainbow"></i> Parada LGBTQIA+</span>
+          <span class="partnership-tag"><i class="fas fa-ribbon"></i> Luta contra a Aids</span>
         </div>
       </div>
 
-      <div class="module-item">
-        <div class="module-header">
-          MÓDULO 2: Produção de Conteúdo e Estratégias Digitais
-          <span class="chevron">▼</span>
-        </div>
-        <div class="module-body">
-          <ul>
-            <li>Fotografia e Edição para Redes Sociais</li>
-            <li>Vídeo Marketing – Criação de Conteúdos Atraentes</li>
-            <li>Estratégias de Marketing Digital para Redes Sociais</li>
-            <li>Monetização nas Redes e Geração de Renda Digital</li>
-          </ul>
-        </div>
+      <hr class="section-divider">
+
+      <!-- PERSPECTIVAS FUTURAS -->
+      <div class="highlight-card">
+        <span class="section-label">Próximos Passos</span>
+        <h4>Perspectivas Futuras</h4>
+        <p>
+          Propõe-se a continuidade da iniciativa com a implementação de um novo ciclo formativo. Essa nova etapa tem
+          como objetivo aprofundar os conhecimentos tecnológicos das pessoas participantes, alinhando-as às demandas
+          emergentes do mercado de trabalho, ampliando ainda mais suas possibilidades de inserção profissional
+          qualificada.
+        </p>
+        <p>
+          A metodologia seguirá priorizando um ambiente seguro e acolhedor, com acompanhamento pedagógico contínuo,
+          apoio psicossocial e incentivo ao protagonismo dos participantes. Também serão estimuladas parcerias com
+          empresas, instituições de ensino e profissionais da área de tecnologia, visando ampliar oportunidades de
+          estágio, emprego e <em>networking</em>.
+        </p>
+        <p>
+          Como resultados esperados, destaca-se a formação de uma nova geração de profissionais trans e travestis
+          qualificadas/es/os, a ampliação da diversidade no setor tecnológico e o fortalecimento da autonomia econômica
+          dessas populações. Assim, a <strong>continuidade do projeto prevista para o segundo semestre de 2026</strong>
+          representa um passo estratégico e necessário para acompanhar as transformações do mundo do trabalho,
+          reafirmando o compromisso com a inclusão, a equidade e a construção de futuros mais justos.
+        </p>
       </div>
 
-      <div class="module-item">
-        <div class="module-header">
-          MÓDULO 3: Empreendedorismo Digital e Monetização
-          <span class="chevron">▼</span>
-        </div>
-        <div class="module-body">
-          <ul>
-            <li>Introdução ao Empreendedorismo Digital</li>
-            <li>Gerenciamento de canal pessoal e monetização de perfil nas redes</li>
-            <li>Planejamento de Conteúdo e Encerramento</li>
-          </ul>
-        </div>
+      <!-- CTA -->
+      <div class="cta-strip">
+        <h3>Quer saber mais ou apoiar o projeto?</h3>
+        <p>Entre em contato com a gente e descubra como fazer parte desta iniciativa de inclusão digital e
+          transformação social.</p>
+        <a href="index.html#contato" class="cta-btn">
+          <i class="fas fa-envelope" aria-hidden="true"></i>
+          Entre em Contato
+        </a>
       </div>
 
+      <hr class="section-divider">
+
+      <!-- MÓDULOS -->
+      <h4>Conteúdo e Cronograma</h4>
+      <div class="modules-list">
+
+        <div class="module-item open">
+          <div class="module-header">
+            MÓDULO 1: Inclusão Digital e Ferramentas Básicas
+            <span class="chevron">▼</span>
+          </div>
+          <div class="module-body">
+            <ul>
+              <li>Introdução à Inclusão Digital e Cidadania</li>
+              <li>Informática Básica para Celular e Internet</li>
+              <li>Redes Sociais – Perfis Pessoais e Comerciais</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <div class="module-header">
+            MÓDULO 2: Produção de Conteúdo e Estratégias Digitais
+            <span class="chevron">▼</span>
+          </div>
+          <div class="module-body">
+            <ul>
+              <li>Fotografia e Edição para Redes Sociais</li>
+              <li>Vídeo Marketing – Criação de Conteúdos Atraentes</li>
+              <li>Estratégias de Marketing Digital para Redes Sociais</li>
+              <li>Monetização nas Redes e Geração de Renda Digital</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="module-item">
+          <div class="module-header">
+            MÓDULO 3: Empreendedorismo Digital e Monetização
+            <span class="chevron">▼</span>
+          </div>
+          <div class="module-body">
+            <ul>
+              <li>Introdução ao Empreendedorismo Digital</li>
+              <li>Gerenciamento de canal pessoal e monetização de perfil nas redes</li>
+              <li>Planejamento de Conteúdo e Encerramento</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="quote-banner" style="margin-top:32px;">
+        <p>"Educação, tecnologia e ativismo caminhando juntos na luta por equidade e dignidade."</p>
+      </div>
+
+      <!-- GALERIA DE FOTOS -->
+      <h4>Fotos do Projeto</h4>
+      <div class="traves-gallery">
+        <img src="assets/images/Design-sem-nome-12-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-13-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-17-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-11-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-10-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-9-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-8-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-7-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-6-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-5-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-4-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-15-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-2-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-14-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-22-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-21-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-20-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-19-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+        <img src="assets/images/Design-sem-nome-18-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
+      </div>
+
+    </div><!-- end .project-content -->
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
+    <button class="lightbox-close" aria-label="Fechar">&times;</button>
+    <div class="lightbox-img-wrap">
+      <button class="lightbox-nav prev" aria-label="Imagem anterior">&#8249;</button>
+      <img id="lightbox-main-img" src="" alt="">
+      <button class="lightbox-nav next" aria-label="Próxima imagem">&#8250;</button>
     </div>
-
-    <div class="quote-banner" style="margin-top:32px;">
-      <p>"Educação, tecnologia e ativismo caminhando juntos na luta por equidade e dignidade."</p>
-    </div>
-
-    <!-- GALERIA DE FOTOS -->
-    <h4>Fotos do Projeto</h4>
-    <div class="traves-gallery">
-      <img src="assets/images/Design-sem-nome-12-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-13-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-17-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-11-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-10-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-9-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-8-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-7-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-6-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-5-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-4-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-15-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-2-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-14-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-22-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-21-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-20-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-19-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-      <img src="assets/images/Design-sem-nome-18-2048x1152.jpg" alt="TRAVES-TI" loading="lazy">
-    </div>
-
-  </div><!-- end .project-content -->
-
-</main>
-
-<!-- LIGHTBOX -->
-<div class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Galeria de imagens">
-  <button class="lightbox-close" aria-label="Fechar">&times;</button>
-  <div class="lightbox-img-wrap">
-    <button class="lightbox-nav prev" aria-label="Imagem anterior">&#8249;</button>
-    <img id="lightbox-main-img" src="" alt="">
-    <button class="lightbox-nav next" aria-label="Próxima imagem">&#8250;</button>
+    <div class="lightbox-caption"></div>
+    <div class="lightbox-counter"></div>
   </div>
-  <div class="lightbox-caption"></div>
-  <div class="lightbox-counter"></div>
-</div>
 
-<!-- FOOTER -->
-<footer class="site-footer">
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>GRAB Asa Branca</h4>
+        <h4>GRAB</h4>
         <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
         <div class="footer-socials">
-          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894"
-            target="_blank" rel="noopener" aria-label="Facebook">
+          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank"
+            rel="noopener" aria-label="Facebook">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
-          <a class="social-link" href="https://www.instagram.com/grabasabranca"
-            target="_blank" rel="noopener" aria-label="Instagram">
+          <a class="social-link" href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener"
+            aria-label="Instagram">
             <i class="fab fa-instagram" aria-hidden="true"></i>
           </a>
         </div>
@@ -668,17 +836,18 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2024 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p>
+      <p>&copy; 2026 GRAB &mdash; Todos os Direitos Reservados</p>
     </div>
   </footer>
 
-<button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
+  <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
 
-<script src="main.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    if (window.initGallery) window.initGallery();
-  });
-</script>
+  <script src="main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      if (window.initGallery) window.initGallery();
+    });
+  </script>
 </body>
+
 </html>
