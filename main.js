@@ -5,25 +5,6 @@
 document.addEventListener('DOMContentLoaded', function () {
 
   // ===========================
-  // HAMBURGER / MOBILE NAV
-  // ===========================
-  const hamburger = document.querySelector('.hamburger');
-  const mobileNav = document.querySelector('.mobile-nav');
-  if (hamburger && mobileNav) {
-    hamburger.addEventListener('click', function () {
-      hamburger.classList.toggle('open');
-      mobileNav.classList.toggle('open');
-    });
-    // Close on link click
-    mobileNav.querySelectorAll('a').forEach(function (a) {
-      a.addEventListener('click', function () {
-        hamburger.classList.remove('open');
-        mobileNav.classList.remove('open');
-      });
-    });
-  }
-
-  // ===========================
   // BACK TO TOP
   // ===========================
   const backToTop = document.querySelector('.back-to-top');

@@ -1466,8 +1466,10 @@
    =========================== */
 .project-banner {
   width: 100%;
-  max-height: 480px;
+  height: 56vh;
+  min-height: 320px;
   object-fit: cover;
+  object-position: center top;
   display: block;
 }
 
