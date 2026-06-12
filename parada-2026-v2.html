@@ -13,40 +13,67 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* ── Paleta da identidade visual (complementa o style.css) ── */
+    /* ---- Paleta da Identidade Visual 25ª Parada ---- */
     :root {
-      --pride-red: #E40303;
+      --pride-red:    #E40303;
       --pride-orange: #FF8C00;
       --pride-yellow: #FFED00;
-      --pride-green: #008026;
-      --pride-blue: #004DFF;
+      --pride-green:  #008026;
+      --pride-blue:   #004DFF;
       --pride-violet: #750787;
-      --pride-black: #1a1a1a;
-      --pride-brown: #613915;
-      --pride-lblue: #75AADB;
-      --pride-pink: #FFAFC8;
+      --pride-black:  #1a1a1a;
+      --pride-brown:  #613915;
+      --pride-lblue:  #75AADB;
+      --pride-pink:   #FFAFC8;
     }
 
-    /* ── Faixa arco-íris estendida (inclui trans + antirracista) ── */
+    /* ---- Faixa arco-íris decorativa ---- */
     .rainbow-stripe {
       width: 100%;
-      height: 8px;
+      height: 7px;
       background: linear-gradient(to right,
-          #000 0%, #000 5%,
-          #613915 5%, #613915 11%,
-          #75AADB 11%, #75AADB 17%,
-          #FFAFC8 17%, #FFAFC8 22%,
-          #fff 22%, #fff 27%,
-          #E40303 27%, #E40303 40%,
-          #FF8C00 40%, #FF8C00 52%,
-          #FFED00 52%, #FFED00 64%,
-          #008026 64%, #008026 76%,
-          #004DFF 76%, #004DFF 88%,
-          #750787 88%, #750787 100%);
+        #000 0%, #000 5%,
+        #613915 5%, #613915 11%,
+        #75AADB 11%, #75AADB 17%,
+        #FFAFC8 17%, #FFAFC8 23%,
+        #ffffff 23%, #ffffff 28%,
+        #E40303 28%, #E40303 40%,
+        #FF8C00 40%, #FF8C00 52%,
+        #FFED00 52%, #FFED00 64%,
+        #008026 64%, #008026 76%,
+        #004DFF 76%, #004DFF 88%,
+        #750787 88%, #750787 100%
+      );
       display: block;
     }
 
-    /* ── Faixa do manifesto político ── */
+    /* ---- Layout duas colunas: tabela + selo ---- */
+    .schedule-layout {
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .schedule-col-seal {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .schedule-col-seal img {
+      width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 16px rgba(0,0,0,0.14));
+      transition: transform 0.28s;
+    }
+
+    .schedule-col-seal img:hover {
+      transform: scale(1.03);
+    }
+
+    /* ---- Faixa do Manifesto ---- */
     .manifesto-banner {
       padding: 0;
       margin: 0;
@@ -55,8 +82,13 @@
 
     .manifesto-banner-inner {
       background: linear-gradient(135deg,
-          #E40303 0%, #FF8C00 20%, #FFED00 38%,
-          #008026 56%, #75AADB 74%, #750787 100%);
+        #E40303 0%,
+        #FF8C00 20%,
+        #FFED00 38%,
+        #008026 56%,
+        #75AADB 74%,
+        #750787 100%
+      );
       padding: 36px 32px;
       text-align: center;
     }
@@ -67,7 +99,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
-      color: rgba(0, 0, 0, 0.55);
+      color: rgba(0,0,0,0.55);
       margin-bottom: 10px;
     }
 
@@ -81,128 +113,14 @@
       line-height: 1.35;
       max-width: 820px;
       margin: 0 auto;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.25);
     }
 
-    /* ── Destaque do Selo-1 (principal) ── */
-    .selo-destaque {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 40px 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .selo-destaque__label {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: var(--text-muted);
-    }
-
-    .selo-destaque__img {
-      max-width: 340px;
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 6px 20px rgba(123, 45, 139, 0.15));
-      transition: transform 0.3s, filter 0.3s;
-    }
-
-    .selo-destaque__img:hover {
-      transform: scale(1.03);
-      filter: drop-shadow(0 10px 28px rgba(123, 45, 139, 0.22));
-    }
-
-    /* ── Layout duas colunas: tabela + selo ── */
-    .schedule-layout {
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      gap: 32px;
-      align-items: start;
-      margin-bottom: 8px;
-    }
-
-    .schedule-col-seal {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-    }
-
-    .schedule-col-seal__sticky {
-      position: sticky;
-      top: calc(var(--nav-height) + 20px);
-      width: 100%;
-    }
-
-    .schedule-col-seal img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.14));
-      transition: transform 0.28s, filter 0.28s;
-    }
-
-    .schedule-col-seal img:hover {
-      transform: scale(1.03);
-      filter: drop-shadow(0 8px 28px rgba(0, 0, 0, 0.20));
-    }
-
-    /* ── Cartão de data/local do evento ── */
-    .event-info-card {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-left: 5px solid var(--secondary);
-      border-radius: var(--radius-sm);
-      padding: 18px 24px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 12px rgba(123, 45, 139, 0.07);
-    }
-
-    .event-info-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: var(--text);
-      font-size: 0.95rem;
-      font-weight: 600;
-    }
-
-    .event-info-item i {
-      color: var(--secondary);
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .event-info-item .value {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      color: var(--primary);
-      font-size: 1rem;
-    }
-
-    .event-info-item .label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--text-muted);
-      display: block;
-      margin-bottom: 1px;
-    }
-
-    /* ── Tabela de programação ── */
+    /* ---- Tabela de programação ---- */
     .schedule-table {
       width: 100%;
       border-collapse: collapse;
-      margin: 0 0 40px;
+      margin: 20px 0 40px;
       font-size: 0.95rem;
       border-radius: 12px;
       overflow: hidden;
@@ -225,8 +143,12 @@
 
     .schedule-table td {
       padding: 13px 20px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid #e8e0f0;
       vertical-align: middle;
+    }
+
+    .schedule-table tbody tr:nth-child(odd) td {
+      background: #fff;
     }
 
     .schedule-table tbody tr:last-child td {
@@ -238,12 +160,20 @@
     }
 
     .schedule-table tbody tr:nth-child(even) td {
-      background: var(--bg-light);
+      background: #faf5ff;
     }
 
     .schedule-table tbody tr:hover td {
-      background: rgba(233, 30, 140, 0.05);
+      background: rgba(233, 30, 140, 0.06);
       transition: background 0.2s;
+    }
+
+    .schedule-table .time-cell {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      color: #7B2D8B;
+      white-space: nowrap;
+      font-size: 1rem;
     }
 
     .time-badge {
@@ -257,10 +187,9 @@
       letter-spacing: 0.3px;
       min-width: 76px;
       text-align: center;
-      font-family: 'Syne', sans-serif;
     }
 
-    /* ── Grid da Programação Alusiva ── */
+    /* ---- Programação Alusiva ---- */
     .alusiva-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -270,16 +199,16 @@
 
     .alusiva-card {
       background: #fff;
-      border: 1px solid var(--border);
+      border: 1px solid #e4e4e4;
       border-top: 4px solid #111;
       border-radius: 12px;
       padding: 20px 22px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       transition: box-shadow 0.2s, transform 0.2s;
     }
 
     .alusiva-card:hover {
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.10);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
       transform: translateY(-2px);
     }
 
@@ -314,19 +243,19 @@
       width: 14px;
     }
 
-    /* ── Destaque: próximo evento / hoje ── */
+    /* ---- Destaque: próximo evento / hoje ---- */
     .alusiva-card--next {
-      background: linear-gradient(135deg, rgba(255, 237, 0, 0.09) 0%, rgba(255, 140, 0, 0.04) 100%);
+      background: linear-gradient(135deg, rgba(255,237,0,0.09) 0%, rgba(255,140,0,0.04) 100%);
       border-top-color: var(--pride-orange);
-      border-color: rgba(255, 140, 0, 0.30);
-      box-shadow: 0 3px 14px rgba(255, 140, 0, 0.15);
+      border-color: rgba(255,140,0,0.30);
+      box-shadow: 0 3px 14px rgba(255,140,0,0.15);
     }
 
     .alusiva-card--today {
-      background: linear-gradient(135deg, rgba(228, 3, 3, 0.07) 0%, rgba(116, 7, 135, 0.04) 100%);
+      background: linear-gradient(135deg, rgba(228,3,3,0.07) 0%, rgba(116,7,135,0.04) 100%);
       border-top-color: var(--pride-red);
-      border-color: rgba(228, 3, 3, 0.25);
-      box-shadow: 0 3px 14px rgba(228, 3, 3, 0.15);
+      border-color: rgba(228,3,3,0.25);
+      box-shadow: 0 3px 14px rgba(228,3,3,0.15);
     }
 
     .alusiva-badge {
@@ -343,7 +272,7 @@
     }
 
     .alusiva-badge--next {
-      background: rgba(255, 140, 0, 0.15);
+      background: rgba(255,140,0,0.15);
       color: #7a4300;
     }
 
@@ -355,7 +284,7 @@
     }
 
     .alusiva-badge--today {
-      background: rgba(228, 3, 3, 0.10);
+      background: rgba(228,3,3,0.10);
       color: #a80000;
     }
 
@@ -370,27 +299,18 @@
     }
 
     @keyframes badge-pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.45;
-        transform: scale(0.75);
-      }
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.45; transform: scale(0.75); }
     }
 
-    /* ── Blocos de conteúdo ── */
+    /* ---- Blocos de conteúdo ---- */
     .content-block {
       background: #fff;
       border-radius: 14px;
       padding: 28px 32px;
       margin: 24px 0;
       border-left: 6px solid #111;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
     }
 
     .content-block h4 {
@@ -406,140 +326,77 @@
       margin-bottom: 0;
     }
 
-    .content-block.accent-red {
-      border-left-color: var(--pride-red);
-    }
+    .content-block.accent-red   { border-left-color: var(--pride-red); }
+    .content-block.accent-orange { border-left-color: var(--pride-orange); }
+    .content-block.accent-green  { border-left-color: var(--pride-green); }
+    .content-block.accent-blue   { border-left-color: var(--pride-blue); }
+    .content-block.accent-violet { border-left-color: var(--pride-violet); }
 
-    .content-block.accent-orange {
-      border-left-color: var(--pride-orange);
-    }
+    .content-block.accent-red h4    { color: var(--pride-red); }
+    .content-block.accent-orange h4 { color: #c45c00; }
+    .content-block.accent-green h4  { color: var(--pride-green); }
+    .content-block.accent-blue h4   { color: var(--pride-blue); }
+    .content-block.accent-violet h4 { color: var(--pride-violet); }
 
-    .content-block.accent-green {
-      border-left-color: var(--pride-green);
-    }
-
-    .content-block.accent-blue {
-      border-left-color: var(--pride-blue);
-    }
-
-    .content-block.accent-red h4 {
-      color: var(--pride-red);
-    }
-
-    .content-block.accent-orange h4 {
-      color: #c45c00;
-    }
-
-    .content-block.accent-green h4 {
-      color: var(--pride-green);
-    }
-
-    .content-block.accent-blue h4 {
-      color: var(--pride-blue);
-    }
-
-    /* ── Bloco do tema (fundo escuro) ── */
+    /* ---- Tema: bloco especial com fundo preto ---- */
     .theme-block {
       background: #111;
       border-radius: 16px;
-      margin: 0 0 36px;
+      padding: 36px 36px;
+      margin: 28px 0;
       color: #fff;
-      overflow: hidden;
-    }
-
-    .theme-block__grid {
-      display: grid;
-      grid-template-columns: 1fr 1.5fr;
-    }
-
-    .theme-block__left {
-      padding: 40px 36px;
-      border-right: 1px solid rgba(255, 255, 255, 0.08);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       position: relative;
       overflow: hidden;
     }
 
-    .theme-block__eyebrow {
-      font-size: 0.67rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      color: rgba(255, 255, 255, 0.55) !important;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .theme-block__eyebrow::before {
-      content: '';
-      display: block;
-      width: 20px;
-      height: 2px;
-      flex-shrink: 0;
-      background: linear-gradient(to right,
-          var(--pride-red), var(--pride-orange),
-          var(--pride-yellow), var(--pride-green),
-          var(--pride-blue), var(--pride-violet));
-    }
-
-    .theme-block__headline {
+    .theme-block::after {
+      content: '25';
+      position: absolute;
+      right: -10px;
+      top: -20px;
       font-family: 'Syne', sans-serif;
-      font-size: clamp(1.45rem, 2.6vw, 2rem);
+      font-size: 10rem;
       font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      pointer-events: none;
+      line-height: 1;
+      letter-spacing: -4px;
+    }
+
+    .theme-block h4 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .theme-block .theme-tagline {
+      font-size: 1rem;
+      font-weight: 800;
       color: var(--pride-yellow);
-      line-height: 1.2;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1.4;
+    }
+
+    .theme-block .theme-tagline-2 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--pride-pink);
+      margin-bottom: 18px;
       text-transform: uppercase;
       letter-spacing: 0.3px;
-      margin-bottom: 20px;
+      line-height: 1.4;
     }
 
-    .theme-block__manifesto {
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: #FFAFC8 !important;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      line-height: 1.6;
-      padding-top: 16px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin: 0;
+    .theme-block p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+      line-height: 1.7;
     }
 
-    .theme-block__right {
-      padding: 40px 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .theme-block__seal-box {
-      background: #fff;
-      border-radius: 10px;
-      padding: 16px;
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .theme-block__seal-box img {
-      max-height: 160px;
-      width: auto;
-      max-width: 100%;
-    }
-
-    .theme-block__right p {
-      color: rgba(255, 255, 255, 0.78);
-      font-size: 0.95rem;
-      margin-bottom: 14px;
-      line-height: 1.75;
-    }
-
-    .theme-block__right p:last-child {
+    .theme-block p:last-child {
       margin-bottom: 0;
     }
 
@@ -552,23 +409,7 @@
       color: #fff;
     }
 
-    @media (max-width: 700px) {
-      .theme-block__grid {
-        grid-template-columns: 1fr;
-      }
-
-      .theme-block__left {
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 28px 24px;
-      }
-
-      .theme-block__right {
-        padding: 24px 24px;
-      }
-    }
-
-    /* ── Cabeçalhos de seção com acento arco-íris ── */
+    /* ---- Cabeçalhos de seção com acento arco-íris ---- */
     .section-heading {
       position: relative;
       font-size: 1.15rem;
@@ -591,11 +432,12 @@
       height: 4px;
       border-radius: 4px;
       background: linear-gradient(to right,
-          var(--pride-red), var(--pride-orange), var(--pride-yellow),
-          var(--pride-green), var(--pride-blue), var(--pride-violet));
+        var(--pride-red), var(--pride-orange), var(--pride-yellow),
+        var(--pride-green), var(--pride-blue), var(--pride-violet)
+      );
     }
 
-    /* ── Marcos Legais ── */
+    /* ---- Marcos Legais ---- */
     .legal-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -604,34 +446,17 @@
     }
 
     .legal-card-v2 {
+      background: #fff;
+      border: 1px solid #e4e4e4;
       border-radius: 12px;
-      padding: 22px 24px;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
-      border-top: 5px solid;
-      font-size: 0.9rem;
-      line-height: 1.6;
+      padding: 20px 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-top: 4px solid;
     }
 
-    .legal-card-v2:nth-child(1) {
-      background: rgba(228, 3, 3, 0.06);
-      border: 1px solid rgba(228, 3, 3, 0.2);
-      border-top: 5px solid var(--pride-red);
-      color: #3a0e0e;
-    }
-
-    .legal-card-v2:nth-child(2) {
-      background: rgba(0, 128, 38, 0.06);
-      border: 1px solid rgba(0, 128, 38, 0.2);
-      border-top: 5px solid var(--pride-green);
-      color: #082e12;
-    }
-
-    .legal-card-v2:nth-child(3) {
-      background: rgba(0, 77, 255, 0.06);
-      border: 1px solid rgba(0, 77, 255, 0.2);
-      border-top: 5px solid var(--pride-blue);
-      color: #081030;
-    }
+    .legal-card-v2:nth-child(1) { border-top-color: var(--pride-red); }
+    .legal-card-v2:nth-child(2) { border-top-color: var(--pride-green); }
+    .legal-card-v2:nth-child(3) { border-top-color: var(--pride-blue); }
 
     .legal-card-v2 strong {
       display: block;
@@ -640,22 +465,17 @@
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.4px;
+      color: #111;
       margin-bottom: 8px;
     }
 
-    .legal-card-v2:nth-child(1) strong {
-      color: var(--pride-red);
+    .legal-card-v2 {
+      font-size: 0.9rem;
+      color: #4a4a4a;
+      line-height: 1.55;
     }
 
-    .legal-card-v2:nth-child(2) strong {
-      color: var(--pride-green);
-    }
-
-    .legal-card-v2:nth-child(3) strong {
-      color: var(--pride-blue);
-    }
-
-    /* ── Tabela de público ── */
+    /* ---- Tabela de público ---- */
     .stats-table-v2 {
       width: 100%;
       border-collapse: collapse;
@@ -663,7 +483,7 @@
       font-size: 0.93rem;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
     }
 
     .stats-table-v2 thead tr {
@@ -690,13 +510,8 @@
       border-bottom: none;
     }
 
-    .stats-table-v2 tbody tr:nth-child(odd) td {
-      background: #fff;
-    }
-
-    .stats-table-v2 tbody tr:nth-child(even) td {
-      background: #f8f8f8;
-    }
+    .stats-table-v2 tbody tr:nth-child(odd) td  { background: #fff; }
+    .stats-table-v2 tbody tr:nth-child(even) td { background: #f8f8f8; }
 
     .stats-table-v2 tbody tr:hover td {
       background: rgba(228, 3, 3, 0.04);
@@ -708,57 +523,7 @@
       color: #111;
     }
 
-    /* ── Destaque Selo-3 (entre tabela de público e apoio) ── */
-    .selo-mid {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 32px;
-      margin: 0 0 36px;
-    }
-
-    .selo-mid__img {
-      flex-shrink: 0;
-      width: 200px;
-    }
-
-    .selo-mid__img img {
-      width: 100%;
-      height: auto;
-      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.12));
-      transition: transform 0.28s;
-    }
-
-    .selo-mid__img img:hover {
-      transform: scale(1.04);
-    }
-
-    .selo-mid__text {
-      flex: 1;
-    }
-
-    .selo-mid__text p {
-      font-size: 0.93rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      margin: 0;
-    }
-
-    .selo-mid__text strong {
-      display: block;
-      font-family: 'Syne', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--secondary);
-      margin-bottom: 8px;
-    }
-
-    /* ── Régua de assinatura ── */
+    /* ---- Regua de assinatura ---- */
     .regua-assinatura {
       margin: 32px 0 0;
       text-align: center;
@@ -770,59 +535,14 @@
       border-radius: 8px;
     }
 
-    /* ── Responsivo ── */
+    /* ---- Responsivo ---- */
     @media (max-width: 700px) {
-      .manifesto-banner-inner {
-        padding: 28px 20px;
-      }
-
-      .schedule-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .schedule-col-seal {
-        display: flex;
-        justify-content: center;
-        margin: 12px 0 0;
-      }
-
-      .schedule-col-seal img {
-        max-width: 160px;
-        opacity: 0.85;
-        margin: 0 auto;
-        display: block;
-      }
-
-      .alusiva-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .content-block,
-      .theme-block {
-        padding: 20px;
-      }
-
-      .section-heading {
-        font-size: 1rem;
-      }
-
-      .event-info-card {
-        gap: 14px;
-        padding: 14px 16px;
-      }
-
-      .selo-destaque__img {
-        max-width: 240px;
-      }
-
-      .selo-mid {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .selo-mid__img {
-        width: 160px;
-      }
+      .manifesto-banner-inner { padding: 28px 20px; }
+      .schedule-layout { grid-template-columns: 1fr; }
+      .schedule-col-seal { display: none; }
+      .alusiva-grid { grid-template-columns: 1fr; }
+      .content-block, .theme-block { padding: 20px; }
+      .section-heading { font-size: 1rem; }
     }
   </style>
 </head>
@@ -840,7 +560,8 @@
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="parada-2026.html" class="active">25ª Parada pela Diversidade</a></li>
+          <li><a href="prevencao-combinada.html">Prevenção Combinada</a></li>
+          <li><a href="parada-2026-v2.html" class="active">25ª Parada pela Diversidade</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
               Projetos
@@ -850,8 +571,8 @@
               </svg>
             </a>
             <div class="dropdown-menu" id="dropdown-projetos" role="menu">
-              <a href="prevencao-combinada.html" role="menuitem">Prevenção Combinada</a>
               <a href="traves-ti.html" role="menuitem">TRAVES-TI</a>
+              <a href="#" role="menuitem">Rede</a>
             </div>
           </li>
           <li class="nav-highlight"><a href="index.html#contato">Entre em Contato</a></li>
@@ -874,10 +595,11 @@
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="index.html">Início</a>
-    <a href="parada-2026.html">25ª Parada pela Diversidade Sexual do Ceará</a>
+    <a href="prevencao-combinada.html">Prevenção Combinada</a>
+    <a href="parada-2026-v2.html">25ª Parada pela Diversidade Sexual do Ceará</a>
     <span class="mobile-subnav-label">Projetos</span>
-    <a href="prevencao-combinada.html" class="mobile-subitem">Prevenção Combinada</a>
     <a href="traves-ti.html" class="mobile-subitem">TRAVES-TI</a>
+    <a href="#" class="mobile-subitem">Rede</a>
     <a href="index.html#contato">Entre em Contato</a>
   </nav>
 
@@ -888,7 +610,7 @@
       alt="25ª Parada pela Diversidade Sexual do Ceará – 28 de Junho de 2026">
     <div class="divider-img" aria-hidden="true"></div>
 
-    <!-- FAIXA ARCO-ÍRIS ESTENDIDA -->
+    <!-- FAIXA ARCO-ÍRIS + MANIFESTO POLÍTICO -->
     <span class="rainbow-stripe"></span>
 
     <!-- FAIXA DO MANIFESTO POLÍTICO -->
@@ -904,64 +626,12 @@
 
     <div class="project-content">
 
-      <!-- TEMA -->
-      <div class="theme-block">
-        <div class="theme-block__grid">
-          <div class="theme-block__left">
-            <p class="theme-block__eyebrow">O Tema da 25ª Edição</p>
-            <h2 class="theme-block__headline">25 Anos<br>Combinando<br>de Não Morrer!</h2>
-
-            <div class="theme-block__seal-box">
-              <img src="assets/images/Selo-2-25-Parada.png" alt="Selo – 25ª Parada pela Diversidade Sexual do Ceará">
-            </div>
-          </div>
-          <div class="theme-block__right">
-            <p>
-              A Parada pela Diversidade Sexual do Ceará chega a sua 25ª edição com o tema: <em>"25 anos combinando de
-                não
-                morrer"</em>, que faz referência à célebre frase da escritora Conceição Evaristo. No livro "Olhos
-              d'água",
-              para destacar a capacidade do povo negro de sobreviver ao racismo, a mineira diz: <em>"eles combinaram de
-                nos
-                matar, mas nós combinamos de não morrer"</em>. Assim, a Parada do Ceará aproxima-se ainda mais da agenda
-              antirracista. Afinal, o Brasil é o país que mais mata pessoas LGBTQIA+ no mundo há 17 anos consecutivos.
-            </p>
-            <p>
-              A Parada será realizada no dia 28 de junho de 2026, data em que se celebra o Orgulho LGBTQIA+. Espera-se
-              uma parada de grande celebração, mas também de demonstração das lutas LGBTQIA+ por respeito e cidadania,
-              reunindo cerca de <strong>1,5 milhão de pessoas</strong> na Avenida Beira-Mar em Fortaleza.
-            </p>
-          </div>
-        </div>
-      </div>
-
       <!-- PROGRAMAÇÃO OFICIAL -->
       <h2 class="section-heading" id="programacao-oficial">Programação Oficial</h2>
 
-      <!-- CARTÃO DE DATA / LOCAL DO EVENTO -->
-      <div class="event-info-card">
-        <div class="event-info-item">
-          <i class="fa fa-calendar-alt"></i>
-          <div>
-            <span class="label">Data</span>
-            <span class="value">28 de junho de 2026</span>
-          </div>
-        </div>
-        <div class="event-info-item">
-          <i class="fa fa-clock"></i>
-          <div>
-            <span class="label">Horário</span>
-            <span class="value">15h às 22h</span>
-          </div>
-        </div>
-        <div class="event-info-item">
-          <i class="fa fa-map-marker-alt"></i>
-          <div>
-            <span class="label">Local</span>
-            <span class="value">Avenida Beira-Mar, Fortaleza</span>
-          </div>
-        </div>
-      </div>
+      <p style="color:var(--text-muted);font-weight:600;margin-bottom:12px;">
+        <i class="fa fa-calendar-alt" style="color:var(--secondary);margin-right:6px;"></i>28 de junho de 2026 · Avenida Beira-Mar, Fortaleza
+      </p>
 
       <div class="schedule-layout">
         <div class="schedule-col-main">
@@ -969,49 +639,46 @@
             <table class="schedule-table">
               <thead>
                 <tr>
-                  <th><i class="fa fa-clock" style="margin-right:6px;"></i>Hora</th>
+                  <th><i class="fa fa-clock" style="margin-right:6px;"></i>Horário</th>
                   <th><i class="fa fa-star" style="margin-right:6px;"></i>Atividade</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><span class="time-badge">15h</span></td>
+                  <td class="time-cell"><span class="time-badge">15h</span></td>
                   <td>Concentração em frente à Barraca do Joca</td>
                 </tr>
                 <tr>
-                  <td><span class="time-badge">16h</span></td>
+                  <td class="time-cell"><span class="time-badge">16h</span></td>
                   <td>Abertura oficial da 25ª Parada</td>
                 </tr>
                 <tr>
-                  <td><span class="time-badge">16h30</span></td>
+                  <td class="time-cell"><span class="time-badge">16h30</span></td>
                   <td>Hora da militância LGBTQIA+</td>
                 </tr>
                 <tr>
-                  <td><span class="time-badge">17h30</span></td>
+                  <td class="time-cell"><span class="time-badge">17h30</span></td>
                   <td>Saída da concentração ao pôr do sol</td>
                 </tr>
                 <tr>
-                  <td><span class="time-badge">18h</span></td>
+                  <td class="time-cell"><span class="time-badge">18h</span></td>
                   <td>Minuto de silêncio e protesto contra LGBTIFOBIA</td>
                 </tr>
                 <tr>
-                  <td><span class="time-badge">18h01</span></td>
+                  <td class="time-cell"><span class="time-badge">18h01</span></td>
                   <td>Apresentações artivistas: DJs e Shows</td>
                 </tr>
                 <tr>
-                  <td><span class="time-badge">22h</span></td>
+                  <td class="time-cell"><span class="time-badge">22h</span></td>
                   <td>Encerramento</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-
-        <!-- Selo-3 ao lado da tabela -->
         <div class="schedule-col-seal">
-          <div class="schedule-col-seal__sticky">
-            <img src="assets/images/Selo-3-25-Parada.png" alt="25ª Parada pela Diversidade Sexual do Ceará">
-          </div>
+          <img src="assets/images/Selo-3-25-Parada.png"
+               alt="25ª Parada pela Diversidade Sexual do Ceará">
         </div>
       </div>
 
@@ -1135,20 +802,6 @@
         Programação sujeita a alterações.
       </p>
 
-      <!-- DESTAQUE SELO-3 -->
-      <div class="selo-mid">
-        <div class="selo-mid__img">
-          <img src="assets/images/Selo-3-25-Parada.png" alt="25ª Parada pela Diversidade Sexual do Ceará">
-        </div>
-        <div class="selo-mid__text">
-          <strong>25ª Parada pela Diversidade Sexual do Ceará</strong>
-          <p>
-            Celebrando o Jubileu de Prata do maior evento de visibilidade LGBTQIA+ do estado. A luta por direitos
-            ocupa todo o território cearense — das ruas às urnas, por democracia e contra a misoginia.
-          </p>
-        </div>
-      </div>
-
       <!-- MARCOS LEGAIS -->
       <h2 class="section-heading">Marcos Legais</h2>
       <div class="legal-grid">
@@ -1166,10 +819,30 @@
         </div>
       </div>
 
+      <!-- TEMA: bloco especial com fundo preto, evocando tipografia robusta da IDV -->
+      <div class="theme-block">
+        <h4><i class="fa fa-rainbow" style="margin-right:10px;color:var(--pride-yellow);"></i>O Tema da 25ª Edição</h4>
+        <p class="theme-tagline">25 Anos Combinando de Não Morrer!</p>
+        <p class="theme-tagline-2">Corpos da margem ocupando o centro da política.<br>
+          Das ruas para as urnas, por Democracia e contra a misoginia!</p>
+        <p>
+          A Parada pela Diversidade Sexual do Ceará, chega a sua 25ª edição com o tema: <em>"25 anos combinando de não
+          morrer"</em> que faz referência à célebre frase da escritora Conceição Evaristo. No livro "Olhos d'água",
+          para destacar a capacidade do povo negro de sobreviver ao racismo, a mineira diz: <em>"eles combinaram de nos
+          matar, mas nós combinamos de não morrer"</em>. Assim, a Parada do Ceará aproxima-se ainda mais da agenda
+          antirracista. Afinal, o Brasil é o país que mais mata pessoas LGBTQIA+ no mundo há 17 anos consecutivos.
+        </p>
+        <p>
+          A Parada pela Diversidade Sexual do Ceará será realizada no dia 28 de junho de 2026 (data em que se celebra o
+          Orgulho LGBTQIA+). Espera-se uma parada de grande celebração, mas também de demonstração das lutas LGBTQIA+
+          por respeito e cidadania, reunindo cerca de <strong>1,5 milhão de pessoas</strong> na Avenida Beira-Mar em
+          Fortaleza.
+        </p>
+      </div>
+
       <!-- TRIOS ELÉTRICOS -->
       <div class="content-block accent-orange">
-        <h4><i class="fa fa-music" style="margin-right:10px;color:var(--pride-orange);"></i>Participação de Trios
-          Elétricos</h4>
+        <h4><i class="fa fa-music" style="margin-right:10px;color:var(--pride-orange);"></i>Participação de Trios Elétricos</h4>
         <p>
           Até o momento, oito trios elétricos estão confirmados na 25ª Parada. A programação de cada um será divulgada
           em breve aqui no site. Instituições que desejem colocar trios na avenida têm até 10 de junho para apresentar
@@ -1179,8 +852,7 @@
 
       <!-- AMBULANTES -->
       <div class="content-block accent-green">
-        <h4><i class="fa fa-store" style="margin-right:10px;color:var(--pride-green);"></i>Cadastramento de Ambulantes
-        </h4>
+        <h4><i class="fa fa-store" style="margin-right:10px;color:var(--pride-green);"></i>Cadastramento de Ambulantes</h4>
         <p>
           A Prefeitura Municipal de Fortaleza, através da Secretaria Regional II (SER II), fará o cadastramento de
           ambulantes que tenham interesse de trabalhar no evento. O edital será publicado em breve e disponibilizaremos
@@ -1190,11 +862,10 @@
 
       <!-- DIVERSIDADE E ACESSIBILIDADE -->
       <div class="content-block accent-blue">
-        <h4><i class="fa fa-universal-access" style="margin-right:10px;color:var(--pride-blue);"></i>Diversidade e
-          Acessibilidade</h4>
+        <h4><i class="fa fa-universal-access" style="margin-right:10px;color:var(--pride-blue);"></i>Diversidade e Acessibilidade</h4>
         <p>
           A 25ª Parada pela Diversidade Sexual do Ceará contará com a ala <strong>"Diversidade e
-            Acessibilidade"</strong>, na qual participarão pessoas com deficiência e condições específicas. Além de um
+          Acessibilidade"</strong>, na qual participarão pessoas com deficiência e condições específicas. Além de um
           espaço na avenida, os trios receberão as pessoas com deficiência – caso elas desejem – e intérpretes de libras
           serão disponibilizados para o momento da militância, que marca o início da marcha pela avenida Beira-Mar.
         </p>
@@ -1211,50 +882,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1999</td>
-              <td>500 pessoas</td>
-            </tr>
-            <tr>
-              <td>2001</td>
-              <td>2.500 pessoas</td>
-            </tr>
-            <tr>
-              <td>2002</td>
-              <td>10.000 pessoas</td>
-            </tr>
-            <tr>
-              <td>2003</td>
-              <td>30.000 pessoas</td>
-            </tr>
-            <tr>
-              <td>2004</td>
-              <td>60.000 pessoas</td>
-            </tr>
-            <tr>
-              <td>2005</td>
-              <td>200.000 pessoas</td>
-            </tr>
-            <tr>
-              <td>2006</td>
-              <td>500.000 pessoas</td>
-            </tr>
-            <tr>
-              <td>2007</td>
-              <td>800.000 pessoas</td>
-            </tr>
-            <tr>
-              <td>2008</td>
-              <td>800.000 a 1.000.000 de pessoas</td>
-            </tr>
-            <tr>
-              <td>2009 a 2017</td>
-              <td>1.000.000 de pessoas</td>
-            </tr>
-            <tr>
-              <td>2018 a 2025</td>
-              <td>1.500.000 de pessoas</td>
-            </tr>
+            <tr><td>1999</td><td>500 pessoas</td></tr>
+            <tr><td>2001</td><td>2.500 pessoas</td></tr>
+            <tr><td>2002</td><td>10.000 pessoas</td></tr>
+            <tr><td>2003</td><td>30.000 pessoas</td></tr>
+            <tr><td>2004</td><td>60.000 pessoas</td></tr>
+            <tr><td>2005</td><td>200.000 pessoas</td></tr>
+            <tr><td>2006</td><td>500.000 pessoas</td></tr>
+            <tr><td>2007</td><td>800.000 pessoas</td></tr>
+            <tr><td>2008</td><td>800.000 a 1.000.000 de pessoas</td></tr>
+            <tr><td>2009 a 2017</td><td>1.000.000 de pessoas</td></tr>
+            <tr><td>2018 a 2025</td><td>1.500.000 de pessoas</td></tr>
           </tbody>
         </table>
       </div>
@@ -1263,6 +901,14 @@
       <h2 class="section-heading" style="margin-top:40px;">Apoio</h2>
       <img src="assets/images/apoio-parada-2026.png" alt="Apoiadores da 25ª Parada pela Diversidade Sexual do Ceará"
         style="width:100%;border-radius:8px;" loading="lazy">
+
+      <!-- RÉGUA DE ASSINATURA -->
+      <div class="regua-assinatura">
+        <img src="assets/images/Regua-de-assinatura-parada-SITE-scaled.png"
+          alt="Realização e apoio – GRAB, Parada CE, Ceará da Diversidade, Secretaria da Diversidade"
+          loading="lazy">
+      </div>
+
     </div><!-- end .project-content -->
 
   </main>
@@ -1287,7 +933,9 @@
       <div class="footer-col">
         <h4>Navegação</h4>
         <a href="index.html">Início</a>
-        <a href="parada-2026.html">25ª Parada pela Diversidade</a>
+        <a href="prevencao-combinada.html">Prevenção Combinada</a>
+        <a href="parada-2026-v2.html">25ª Parada pela Diversidade</a>
+        <a href="#">Projetos</a>
         <a href="index.html#contato">Entre em Contato</a>
       </div>
       <div class="footer-col">
