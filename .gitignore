@@ -1,3 +1,13 @@
 .claude
 CLAUDE.md
 CLAUDE.MD
+
+# Dados sensíveis do backend — nunca commitar
+_data/config.ini
+_data/rate_limit.json
+
+# OS generated files
+.DS_Store
+**/.DS_Store
+Thumbs.db
+
