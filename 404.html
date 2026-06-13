@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada — GRAB Asa Branca</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
+  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:    #7B2D8B;
+      --secondary:  #E91E8C;
+      --accent:     #F5A623;
+      --dark:       #0d0d1a;
+      --gradient:   linear-gradient(135deg, #E91E8C 0%, #7B2D8B 100%);
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--dark);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* ── header ── */
+    .header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 76px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      padding: 0 28px;
+      z-index: 10;
+      box-shadow: 0 4px 32px rgba(123,45,139,0.4);
+    }
+    .header img { height: 42px; width: auto; }
+
+    /* ── rainbow stripe bar ── */
+    .rainbow-bar {
+      position: fixed;
+      top: 76px; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(
+        90deg,
+        #FF0018 0%,
+        #FFA52C 17%,
+        #FFFF41 33%,
+        #008018 50%,
+        #0000F9 67%,
+        #86007D 83%,
+        #FF0018 100%
+      );
+      z-index: 9;
+    }
+
+    /* ── main content ── */
+    .page {
+      min-height: 100vh;
+      padding-top: 81px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-inline: 24px;
+      position: relative;
+    }
+
+    /* background glow blobs */
+    .page::before,
+    .page::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .page::before {
+      width: 600px; height: 600px;
+      background: var(--secondary);
+      top: -150px; left: -150px;
+    }
+    .page::after {
+      width: 500px; height: 500px;
+      background: var(--primary);
+      bottom: -120px; right: -120px;
+    }
+
+    /* ── 404 number ── */
+    .error-code {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(120px, 22vw, 220px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -4px;
+      background: linear-gradient(135deg, #FF6FB7 0%, #E91E8C 30%, #7B2D8B 60%, #F5A623 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      position: relative;
+      animation: pulse-glow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse-glow {
+      from { filter: drop-shadow(0 0 20px rgba(233,30,140,0.3)); }
+      to   { filter: drop-shadow(0 0 48px rgba(123,45,139,0.6)); }
+    }
+
+    /* ── divider strip ── */
+    .divider {
+      width: 80px;
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, #E91E8C, #7B2D8B);
+      margin: 0 auto 32px;
+    }
+
+    /* ── text ── */
+    .error-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .error-desc {
+      font-size: 17px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 440px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── CTA button ── */
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #E91E8C, #7B2D8B);
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      padding: 16px 36px;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 8px 32px rgba(233,30,140,0.35);
+      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1),
+                  box-shadow 0.22s cubic-bezier(0.4,0,0.2,1);
+      position: relative;
+      z-index: 1;
+    }
+    .btn-home:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 48px rgba(233,30,140,0.5);
+    }
+    .btn-home svg {
+      width: 18px; height: 18px;
+      transition: transform 0.22s cubic-bezier(0.4,0,0.2,1);
+    }
+    .btn-home:hover svg { transform: translateX(-3px); }
+
+    /* ── footer note ── */
+    .footer-note {
+      margin-top: 64px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.2px;
+    }
+    .footer-note a {
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-note a:hover { color: #E91E8C; }
+
+    /* ── floating rainbow rings ── */
+    .rings {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+    .ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1.5px solid transparent;
+      background: linear-gradient(var(--dark), var(--dark)) padding-box,
+                  linear-gradient(135deg, #E91E8C, #7B2D8B) border-box;
+      opacity: 0.12;
+      animation: float linear infinite;
+    }
+    .ring:nth-child(1) { width: 320px; height: 320px; top: 10%; left: 5%;  animation-duration: 28s; animation-delay: 0s; }
+    .ring:nth-child(2) { width: 180px; height: 180px; top: 60%; left: 80%; animation-duration: 22s; animation-delay: -8s; }
+    .ring:nth-child(3) { width: 240px; height: 240px; top: 80%; left: 20%; animation-duration: 35s; animation-delay: -15s; }
+
+    @keyframes float {
+      0%   { transform: translateY(0)   rotate(0deg); }
+      50%  { transform: translateY(-30px) rotate(180deg); }
+      100% { transform: translateY(0)   rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="index.html" aria-label="GRAB Asa Branca — Início">
+      <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB Asa Branca" height="42">
+    </a>
+  </header>
+
+  <div class="rainbow-bar" role="presentation"></div>
+
+  <div class="rings" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+
+  <main class="page">
+    <p class="error-code" aria-label="Erro 404">404</p>
+    <div class="divider"></div>
+    <h1 class="error-title">Página não encontrada</h1>
+    <p class="error-desc">
+      O endereço que você acessou não existe ou foi movido.<br>
+      Mas a resistência continua — volte para o início.
+    </p>
+    <a href="index.html" class="btn-home">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      Voltar ao início
+    </a>
+
+    <p class="footer-note">
+      GRAB – Grupo de Resistência Asa Branca &nbsp;·&nbsp;
+      <a href="mailto:grab@grab.net.br">grab@grab.net.br</a>
+    </p>
+  </main>
+
+</body>
+</html>

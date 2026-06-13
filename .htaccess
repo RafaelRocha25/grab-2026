@@ -1,0 +1,47 @@
+RewriteEngine On
+
+# Força HTTPS (regra existente do HostGator — não remover)
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
+
+# Rota segura do formulário de contato
+RewriteRule ^api/contato$ /cgi-bin/contato.py [L]
+
+# Bloqueia acesso direto ao diretório de dados sensíveis
+RewriteRule ^_data/ - [F,L]
+
+Options -Indexes
+
+# Página de erro personalizada (oculta versão do Apache)
+ErrorDocument 404 /404.html
+
+# ── Headers de segurança HTTP ──────────────────────────────────────────────────
+<IfModule mod_headers.c>
+    # Bloqueia clickjacking: impede que o site seja embutido em iframes externos
+    Header always set X-Frame-Options "SAMEORIGIN"
+
+    # Impede MIME-type sniffing: navegador respeita o Content-Type declarado
+    Header always set X-Content-Type-Options "nosniff"
+
+    # Controla referrer: envia origem apenas em requisições HTTPS do mesmo domínio
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+    # Desabilita APIs sensíveis do navegador não utilizadas pelo site
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+
+    # Remove headers que revelam versão do servidor e stack tecnológica
+    Header unset Server
+    Header unset X-Powered-By
+
+    # CSP: permite scripts do Google Analytics (inline necessário para o gtag)
+    # e restringe todos os outros recursos à própria origem
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; form-action 'self'; frame-ancestors 'self';"
+</IfModule>
+# ──────────────────────────────────────────────────────────────────────────────
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the "ea-php84" package as the default "PHP" programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php84___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
