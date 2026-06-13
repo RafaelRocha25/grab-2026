@@ -784,6 +784,10 @@
                 <label for="mensagem">Mensagem</label>
                 <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem..." required></textarea>
               </div>
+              <div style="display:none" aria-hidden="true">
+                <label for="website">Website</label>
+                <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+              </div>
               <button type="submit" class="btn-submit">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                   stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -1251,7 +1255,6 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
     /* === FORMULÁRIO === */
-    const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbyMQmp5Qm2-cT6_6H90mcPW2HkC3h6ZIfDKfVQUliRVx5N6SwzK9kLKco0ffTNkyXsdqg/exec';
     const form = document.getElementById('contact-form');
 
     const successModal = document.getElementById('form-success-modal');
@@ -1346,18 +1349,22 @@
         email:     document.getElementById('email').value.trim(),
         assunto:   document.getElementById('assunto').value.trim(),
         mensagem:  document.getElementById('mensagem').value.trim(),
-        datahora:  datahora
+        website:   document.getElementById('website').value
       };
 
       try {
-        await fetch(SHEETS_URL, {
+        const res  = await fetch('/api/contato', {
           method:  'POST',
-          mode:    'no-cors',
           headers: { 'Content-Type': 'application/json' },
           body:    JSON.stringify(payload)
         });
-        form.reset();
-        openFeedbackModal(successModal);
+        const data = await res.json();
+        if (data.ok) {
+          form.reset();
+          openFeedbackModal(successModal);
+        } else {
+          openFeedbackModal(errorModal);
+        }
       } catch (err) {
         openFeedbackModal(errorModal);
       } finally {
