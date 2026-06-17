@@ -35,7 +35,7 @@ ErrorDocument 404 /404.html
 
     # CSP: permite scripts do Google Analytics (inline necessário para o gtag)
     # e restringe todos os outros recursos à própria origem
-    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; form-action 'self'; frame-ancestors 'self';"
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; img-src 'self' data: https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com; form-action 'self'; frame-ancestors 'self';"
 </IfModule>
 # ──────────────────────────────────────────────────────────────────────────────
 

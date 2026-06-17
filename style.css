@@ -1034,7 +1034,7 @@
     }
     .info-text a:hover { color: var(--secondary); }
 
-    .info-socials { display: flex; gap: 10px; margin-top: 4px; }
+    .info-socials { display: flex; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
 
     .info-social-btn {
       display: inline-flex;
@@ -1050,6 +1050,31 @@
       cursor: pointer;
     }
     .info-social-btn:hover { background: var(--primary); color: #fff; }
+
+    .info-social-btn--parada {
+      position: relative;
+      background: var(--gradient);
+      color: #fff;
+      overflow: visible;
+    }
+    .info-social-btn--parada:hover {
+      background: var(--primary-dark);
+      color: #fff;
+    }
+    .info-social-btn--parada .parada-badge {
+      position: static;
+      transform: none;
+      animation: none;
+      box-shadow: none;
+      font-size: 9px;
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.4);
+      font-weight: 800;
+      letter-spacing: 0;
+    }
 
     /* ===========================
        ANIMATIONS
@@ -1142,6 +1167,83 @@
       box-shadow: 0 6px 20px rgba(233,30,140,0.4);
     }
 
+    /* ===== 25ª Parada Instagram — ícone especial ===== */
+    @keyframes parada-hue-spin {
+      to { filter: hue-rotate(360deg) brightness(1.1); }
+    }
+    @keyframes parada-badge-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255,220,50,0.7); }
+      50%       { box-shadow: 0 0 0 4px rgba(255,220,50,0); }
+    }
+
+    .parada-insta-link {
+      position: relative !important;
+      background: conic-gradient(
+        from 180deg,
+        #e40303 0%,
+        #ff8c00 16%,
+        #ffed00 33%,
+        #008026 50%,
+        #00aeef 67%,
+        #750787 83%,
+        #e40303 100%
+      ) !important;
+      padding: 2.5px !important;
+      box-sizing: border-box !important;
+      overflow: visible !important;
+      animation: parada-hue-spin 6s linear infinite;
+    }
+    .parada-insta-link::before {
+      content: '';
+      position: absolute;
+      inset: 2.5px;
+      border-radius: 50%;
+      background: #130824;
+      z-index: 0;
+    }
+    .parada-insta-link i {
+      position: relative !important;
+      z-index: 1 !important;
+      background: conic-gradient(
+        from 180deg,
+        #e40303, #ff8c00, #ffed00, #008026, #00aeef, #750787, #e40303
+      );
+      -webkit-background-clip: text !important;
+      background-clip: text !important;
+      -webkit-text-fill-color: transparent !important;
+      filter: brightness(1.4);
+    }
+    .parada-insta-link:hover {
+      transform: translateY(-3px) scale(1.12) !important;
+      box-shadow: 0 0 22px rgba(255,100,200,0.55), 0 0 8px rgba(255,200,50,0.4) !important;
+      background: conic-gradient(
+        from 0deg,
+        #e40303, #ff8c00, #ffed00, #008026, #00aeef, #750787, #e40303
+      ) !important;
+    }
+    .parada-insta-link:hover::before { background: #1e0a35; }
+
+    .parada-badge {
+      position: absolute;
+      top: -6px;
+      right: -7px;
+      background: linear-gradient(135deg, #ffe44d 0%, #ff8c00 100%);
+      color: #1a0530;
+      font-size: 6.5px;
+      font-weight: 900;
+      padding: 1.5px 3px;
+      border-radius: 4px;
+      z-index: 3;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      line-height: 1.3;
+      border: 1px solid rgba(255,255,255,0.55);
+      box-shadow: 0 1px 5px rgba(0,0,0,0.45);
+      pointer-events: none;
+      font-family: inherit;
+      animation: parada-badge-pulse 2.5s ease-in-out infinite;
+    }
+
     .footer-divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); }
 
     .footer-bottom {
@@ -1151,6 +1253,86 @@
       text-align: center;
     }
     .footer-bottom p { font-size: 13px; color: rgba(255,255,255,0.3); }
+
+    /* ===== @paradaceoficial — Instagram CTA ===== */
+    .parada-insta-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px 8px 8px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      margin-top: 20px;
+      border: 2.5px solid transparent;
+      background-image:
+        linear-gradient(#fdf9ff, #fdf9ff),
+        conic-gradient(from 180deg,
+          #e40303 0%, #ff8c00 16%, #ffed00 33%,
+          #008026 50%, #00aeef 67%, #750787 83%, #e40303 100%
+        );
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 2px 14px rgba(123,45,139,0.1);
+    }
+    .parada-insta-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(123,45,139,0.18), 0 0 0 1px rgba(233,30,140,0.12);
+      text-decoration: none;
+    }
+    .parada-insta-cta__icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: conic-gradient(
+        from 180deg,
+        #e40303, #ff8c00, #ffed00, #008026, #00aeef, #750787, #e40303
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: #fff;
+      flex-shrink: 0;
+      transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .parada-insta-cta:hover .parada-insta-cta__icon {
+      transform: rotate(15deg) scale(1.08);
+    }
+    .parada-insta-cta__text {
+      font-size: 13px;
+      color: #4a1a6e;
+      line-height: 1.3;
+    }
+    .parada-insta-cta__text strong {
+      color: #2d0a45;
+      font-weight: 700;
+    }
+    .parada-insta-cta__handle {
+      background: linear-gradient(135deg, #7B2D8B, #E91E8C);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    .parada-insta-cta__arrow {
+      font-size: 13px;
+      color: #E91E8C;
+      opacity: 0;
+      transform: translate(-4px, 0);
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      flex-shrink: 0;
+    }
+    .parada-insta-cta:hover .parada-insta-cta__arrow {
+      opacity: 1;
+      transform: translate(0, -2px);
+    }
+    @media (max-width: 480px) {
+      .parada-insta-cta__text { display: none; }
+    }
 
     /* ===========================
        25ª PARADA – SEÇÃO HOME
