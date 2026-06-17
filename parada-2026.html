@@ -6,7 +6,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-C7CV47BFS0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-C7CV47BFS0');
@@ -14,8 +14,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>25ª Parada pela Diversidade Sexual do Ceará 2026 | GRAB – Grupo de Resistência Asa Branca</title>
-  <meta name="description" content="A 25ª Parada pela Diversidade Sexual do Ceará acontece em 28 de junho de 2026, na Avenida Beira-Mar, em Fortaleza. Confira o tema, programação e como participar do maior evento LGBTI+ do Ceará.">
-  <meta name="keywords" content="25ª Parada Diversidade Sexual Ceará, Parada LGBTI Fortaleza 2026, GRAB, Grupo de Resistência Asa Branca, diversidade sexual, Beira-Mar Fortaleza, evento LGBTI, Parada Gay Ceará">
+  <meta name="description"
+    content="A 25ª Parada pela Diversidade Sexual do Ceará acontece em 28 de junho de 2026, na Avenida Beira-Mar, em Fortaleza. Confira o tema, programação e como participar do maior evento LGBTI+ do Ceará.">
+  <meta name="keywords"
+    content="25ª Parada Diversidade Sexual Ceará, Parada LGBTI Fortaleza 2026, GRAB, Grupo de Resistência Asa Branca, diversidade sexual, Beira-Mar Fortaleza, evento LGBTI, Parada Gay Ceará">
   <meta name="author" content="GRAB – Grupo de Resistência Asa Branca">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.grab.net.br/parada-2026.html">
@@ -24,7 +26,8 @@
   <meta property="og:site_name" content="GRAB – Grupo de Resistência Asa Branca">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="25ª Parada pela Diversidade Sexual do Ceará 2026 | GRAB">
-  <meta property="og:description" content="A 25ª Parada pela Diversidade Sexual do Ceará acontece em 28 de junho de 2026, na Avenida Beira-Mar, em Fortaleza. O maior evento LGBTI+ do Ceará.">
+  <meta property="og:description"
+    content="A 25ª Parada pela Diversidade Sexual do Ceará acontece em 28 de junho de 2026, na Avenida Beira-Mar, em Fortaleza. O maior evento LGBTI+ do Ceará.">
   <meta property="og:url" content="https://www.grab.net.br/parada-2026.html">
   <meta property="og:image" content="https://www.grab.net.br/assets/images/banner-parada-25.png">
   <meta property="og:image:width" content="1200">
@@ -34,7 +37,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@grabasabranca">
   <meta name="twitter:title" content="25ª Parada pela Diversidade Sexual do Ceará 2026 | GRAB">
-  <meta name="twitter:description" content="28 de junho de 2026, Avenida Beira-Mar, Fortaleza. O maior evento LGBTI+ do Ceará organizado pelo GRAB.">
+  <meta name="twitter:description"
+    content="28 de junho de 2026, Avenida Beira-Mar, Fortaleza. O maior evento LGBTI+ do Ceará organizado pelo GRAB.">
   <meta name="twitter:image" content="https://www.grab.net.br/assets/images/banner-parada-25.png">
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
@@ -615,6 +619,11 @@
       color: #fff;
     }
 
+    /* Corrige o "25ª Parada" dentro do CTA no fundo escuro do theme-block */
+    .theme-block .parada-insta-cta__text strong {
+      color: #2d0a45;
+    }
+
     @media (max-width: 700px) {
       .theme-block__grid {
         grid-template-columns: 1fr;
@@ -956,11 +965,16 @@
         </ul>
       </nav>
       <div class="header-socials">
-        <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram">
+        <a href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener" aria-label="Instagram GRAB">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank" rel="noopener"
-          aria-label="Facebook">
+        <a href="https://www.instagram.com/paradaceoficial" target="_blank" rel="noopener"
+          aria-label="Instagram 25ª Parada" class="parada-insta-link">
+          <i class="fab fa-instagram"></i>
+          <span class="parada-badge">25ª</span>
+        </a>
+        <a href="https://www.facebook.com/people/Grupo-de-Resist%C3%AAncia-Asa-Branca-GRAB/100064395951488/?locale=pt_BR"
+          target="_blank" rel="noopener" aria-label="Facebook">
           <i class="fab fa-facebook-f"></i>
         </a>
       </div>
@@ -1029,6 +1043,15 @@
               uma parada de grande celebração, mas também de demonstração das lutas LGBTQIA+ por respeito e cidadania,
               reunindo cerca de <strong>1,5 milhão de pessoas</strong> na Avenida Beira-Mar em Fortaleza.
             </p>
+            <a href="https://www.instagram.com/paradaceoficial" target="_blank" rel="noopener" class="parada-insta-cta"
+              aria-label="Siga a 25ª Parada no Instagram @paradaceoficial">
+              <span class="parada-insta-cta__icon">
+                <i class="fab fa-instagram" aria-hidden="true"></i>
+              </span>
+              <span class="parada-insta-cta__text">Siga a <strong>25ª Parada</strong> no Instagram</span>
+              <span class="parada-insta-cta__handle">@paradaceoficial</span>
+              <span class="parada-insta-cta__arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </div>
@@ -1139,16 +1162,53 @@
         <div class="alusiva-card" data-date="2026-06-18">
           <h5>Exposição 25 Anos – Parada pela Diversidade Sexual do Ceará</h5>
           <div class="alusiva-meta">
-            <span><i class="fa fa-calendar-alt"></i>18/06/2026 (Quinta-feira)</span>
-            <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+            <span><i class="fa fa-calendar-alt"></i>18/06/2026 (Quinta-feira) – 19h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Salão Nobre da Reitoria da UFC</span>
             <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
           </div>
         </div>
 
-        <div class="alusiva-card" data-date="2026-06-21">
-          <h5>4º Pedal do Orgulho</h5>
+        <div class="alusiva-card" data-date="2026-06-20">
+          <h5>Pré Parada da Diversidade Sexual e Feira de Empreendedorismo LGBTQIA+ de Fortaleza</h5>
           <div class="alusiva-meta">
-            <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 7h</span>
+            <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 16h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Centro Cultural Belchior – Praia de Iracema</span>
+            <span><i class="fa fa-users"></i>Coordenadoria Especial da Diversidade de Fortaleza e Ciranda da
+              Marias</span>
+          </div>
+        </div>
+
+        <div class="alusiva-card" data-date="2026-06-20">
+          <h5>Mostra FOR RAINBOW ORGULHO</h5>
+          <div class="alusiva-meta">
+            <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 18h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Praça do MIS – Museu da Imagem e do Som</span>
+            <span><i class="fa fa-users"></i>CENAPOP – For Rainbow</span>
+          </div>
+        </div>
+
+        <div class="alusiva-card" data-date="2026-06-20">
+          <h5>Arraiá da Comadre Associação dos Surdos LGBT</h5>
+          <div class="alusiva-meta">
+            <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 19h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Av. Bezerra de Menezes, 549 – Fortaleza</span>
+            <span><i class="fa fa-users"></i>Associação dos Surdos LGBTs do Ceará</span>
+          </div>
+        </div>
+
+        <div class="alusiva-card" data-date="2026-06-20">
+          <h5>Parada da Diversidade de Guaiuba</h5>
+          <div class="alusiva-meta">
+            <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 20h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Em frente o Buteco de Rua, Guaiúba-CE</span>
+            <span><i class="fa fa-users"></i>APLOSG Guaiúba</span>
+          </div>
+        </div>
+
+        <div class="alusiva-card" data-date="2026-06-21">
+          <h5>5º Pedal do Orgulho</h5>
+          <div class="alusiva-meta">
+            <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 7h30</span>
             <span><i class="fa fa-map-marker-alt"></i>Passeio Público de Fortaleza</span>
             <span><i class="fa fa-users"></i>AMOR / Prefeitura Municipal de Fortaleza</span>
           </div>
@@ -1166,8 +1226,8 @@
         <div class="alusiva-card" data-date="2026-06-24">
           <h5>Coletiva de Imprensa da 25ª Parada</h5>
           <div class="alusiva-meta">
-            <span><i class="fa fa-calendar-alt"></i>24/06/2026 (Quarta-feira)</span>
-            <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+            <span><i class="fa fa-calendar-alt"></i>24/06/2026 (Quarta-feira) – 10h</span>
+            <span><i class="fa fa-map-marker-alt"></i>ADUFC</span>
             <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
           </div>
         </div>
@@ -1175,8 +1235,8 @@
         <div class="alusiva-card" data-date="2026-06-25">
           <h5>Seminário-Ato da 25ª Parada pela Diversidade Sexual do Ceará</h5>
           <div class="alusiva-meta">
-            <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 15h</span>
-            <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+            <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 15h às 18h</span>
+            <span><i class="fa fa-map-marker-alt"></i>ADUFC</span>
             <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
           </div>
         </div>
@@ -1184,9 +1244,19 @@
         <div class="alusiva-card" data-date="2026-06-25">
           <h5>Esquenta da Parada (Ato-Show)</h5>
           <div class="alusiva-meta">
-            <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira)</span>
-            <span><i class="fa fa-map-marker-alt"></i>A definir</span>
+            <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 18h</span>
+            <span><i class="fa fa-map-marker-alt"></i>É SIM - BAR E RESTAURANTE</span>
             <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
+          </div>
+        </div>
+
+        <div class="alusiva-card" data-date="2026-06-26">
+          <h5>Projeto RetifiAção – Mutirão de Retificação de Nome Social</h5>
+          <div class="alusiva-meta">
+            <span><i class="fa fa-calendar-alt"></i>26/06/2026 (Sexta-feira) – 8h às 12h</span>
+            <span><i class="fa fa-map-marker-alt"></i>UNINASSAU PARANGADA</span>
+            <span><i class="fa fa-users"></i>Coordenadoria Especial da Diversidade / Centro de Referência LGBTQIA+
+              Janaína Dutra</span>
           </div>
         </div>
 
@@ -1195,6 +1265,15 @@
           <div class="alusiva-meta">
             <span><i class="fa fa-calendar-alt"></i>26/06/2026 (Sexta-feira) – 18h</span>
             <span><i class="fa fa-map-marker-alt"></i>Concha Acústica / UFC</span>
+            <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
+          </div>
+        </div>
+
+        <div class="alusiva-card" data-date="2026-06-27">
+          <h5>Treinão da Diversidade</h5>
+          <div class="alusiva-meta">
+            <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) – 6h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Shopping Rio Mar Fortaleza (Papicu)</span>
             <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
           </div>
         </div>
@@ -1211,8 +1290,8 @@
         <div class="alusiva-card" data-date="2026-06-27">
           <h5>I Encontro de Homens Gays do Ceará</h5>
           <div class="alusiva-meta">
-            <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado)</span>
-            <span><i class="fa fa-map-marker-alt"></i>Em construção</span>
+            <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) - 13h</span>
+            <span><i class="fa fa-map-marker-alt"></i>Centro Dragão do Mar de Arte e Cultura</span>
             <span><i class="fa fa-users"></i>LGBTs do Bonsucesso</span>
           </div>
         </div>
@@ -1272,17 +1351,6 @@
           Até o momento, oito trios elétricos estão confirmados na 25ª Parada. A programação de cada um será divulgada
           em breve aqui no site. Instituições que desejem colocar trios na avenida têm até 10 de junho para apresentar
           solicitação e documentação ao GRAB.
-        </p>
-      </div>
-
-      <!-- AMBULANTES -->
-      <div class="content-block accent-green">
-        <h4><i class="fa fa-store" style="margin-right:10px;color:var(--pride-green);"></i>Cadastramento de Ambulantes
-        </h4>
-        <p>
-          A Prefeitura Municipal de Fortaleza, através da Secretaria Regional II (SER II), fará o cadastramento de
-          ambulantes que tenham interesse de trabalhar no evento. O edital será publicado em breve e disponibilizaremos
-          aqui.
         </p>
       </div>
 
@@ -1358,9 +1426,9 @@
       </div>
 
       <!-- APOIADORES -->
-      <!--<h2 class="section-heading" style="margin-top:40px;">Apoio</h2>
-      <img src="assets/images/" alt="Apoiadores da 25ª Parada pela Diversidade Sexual do Ceará"
-        style="width:100%;border-radius:8px;" loading="lazy">-->
+      <h2 class="section-heading" style="margin-top:40px;">Apoio</h2>
+      <img src="assets/images/apoio-logos-parceiros.png" alt="Apoiadores da 25ª Parada pela Diversidade Sexual do Ceará"
+        style="width:100%;border-radius:8px;" loading="lazy">
 
     </div><!-- end .project-content -->
 
@@ -1373,13 +1441,19 @@
         <h4>GRAB Asa Branca</h4>
         <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
         <div class="footer-socials">
-          <a class="social-link" href="https://www.facebook.com/profile.php?id=100011182606894" target="_blank"
-            rel="noopener" aria-label="Facebook">
+          <a class="social-link"
+            href="https://www.facebook.com/people/Grupo-de-Resist%C3%AAncia-Asa-Branca-GRAB/100064395951488/?locale=pt_BR"
+            target="_blank" rel="noopener" aria-label="Facebook">
             <i class="fab fa-facebook-f" aria-hidden="true"></i>
           </a>
           <a class="social-link" href="https://www.instagram.com/grabasabranca" target="_blank" rel="noopener"
-            aria-label="Instagram">
+            aria-label="Instagram GRAB">
             <i class="fab fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a class="social-link parada-insta-link" href="https://www.instagram.com/paradaceoficial" target="_blank"
+            rel="noopener" aria-label="Instagram 25ª Parada">
+            <i class="fab fa-instagram" aria-hidden="true"></i>
+            <span class="parada-badge">25ª</span>
           </a>
         </div>
       </div>
@@ -1394,7 +1468,7 @@
         <p>Rua Paulino Nogueira, 247, Benfica<br>Fortaleza – CE</p>
         <br>
         <h4>Contato</h4>
-        <a href="mailto:grab@grab.net.br">grab@grab.net.br</a>
+        <a href="mailto:grab.grupoasabranca@gmail.com">grab.grupoasabranca@gmail.com</a>
       </div>
     </div>
     <hr class="footer-divider">
