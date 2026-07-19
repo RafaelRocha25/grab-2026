@@ -40,431 +40,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    .sponsors-row {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      flex-wrap: wrap;
-      margin: 24px 0;
-    }
-
-    .traves-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 12px;
-      margin: 24px 0;
-    }
-
-    .traves-gallery img {
-      width: 100%;
-      border-radius: 6px;
-      aspect-ratio: 16/9;
-      object-fit: cover;
-      cursor: pointer;
-      transition: transform 0.3s, filter 0.3s;
-    }
-
-    .traves-gallery img:hover {
-      transform: scale(1.05);
-      filter: brightness(0.85);
-    }
-
-    .quote-banner {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      padding: 36px 40px;
-      border-radius: 16px;
-      margin: 32px 0;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .quote-banner::before {
-      content: '\201C';
-      position: absolute;
-      top: -10px;
-      left: 20px;
-      font-size: 8rem;
-      font-family: 'Syne', sans-serif;
-      color: rgba(255, 255, 255, 0.12);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .quote-banner p {
-      font-size: 1.15rem;
-      font-style: italic;
-      font-family: 'Syne', sans-serif;
-      font-weight: 600;
-      line-height: 1.7;
-      margin: 0;
-      color: #fff !important;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* STAT CARDS */
-    .stat-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 16px;
-      margin: 28px 0;
-    }
-
-    .stat-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px 16px;
-      text-align: center;
-      border-top: 4px solid var(--primary);
-      box-shadow: 0 4px 16px rgba(123, 45, 139, 0.08);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(123, 45, 139, 0.15);
-    }
-
-    .stat-card .stat-number {
-      font-size: 2.4rem;
-      font-weight: 800;
-      font-family: 'Syne', sans-serif;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      display: block;
-      line-height: 1;
-    }
-
-    .stat-card .stat-label {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 0.6px;
-      margin-top: 8px;
-      display: block;
-      font-weight: 600;
-    }
-
-    /* TEXT LEAD */
-    .text-lead {
-      font-size: 1.08rem;
-      color: var(--primary-dark);
-      font-weight: 500;
-      line-height: 1.75;
-      border-left: 4px solid var(--secondary);
-      padding: 4px 0 4px 20px;
-      margin: 24px 0;
-    }
-
-    /* SECTION LABEL */
-    .section-label {
-      display: inline-block;
-      background: var(--gradient);
-      color: #fff;
-      font-size: 0.62rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 4px 10px;
-      border-radius: 4px;
-      margin-bottom: 6px;
-    }
-
-    /* ICON LIST */
-    .icon-list {
-      list-style: none;
-      margin: 20px 0;
-      display: grid;
-      gap: 10px;
-    }
-
-    .icon-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      padding: 14px 18px;
-      background: #faf5ff;
-      border-radius: 10px;
-      border-left: 3px solid var(--secondary);
-      font-size: 0.95rem;
-      line-height: 1.55;
-      color: var(--text);
-    }
-
-    .icon-list li .li-icon {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: #fff;
-      font-size: 0.7rem;
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* PARTNERSHIP TAGS */
-    .partnership-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 16px 0 8px;
-    }
-
-    .partnership-tag {
-      background: rgba(123, 45, 139, 0.08);
-      border: 1px solid rgba(123, 45, 139, 0.25);
-      color: var(--primary);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 5px 13px;
-      border-radius: 20px;
-    }
-
-    /* HIGHLIGHT CARD (Perspectivas) */
-    .highlight-card {
-      background: linear-gradient(135deg, #4a1260, var(--primary));
-      color: #fff;
-      padding: 36px;
-      border-radius: 20px;
-      margin: 36px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .highlight-card::before {
-      content: '';
-      position: absolute;
-      top: -50px;
-      right: -50px;
-      width: 180px;
-      height: 180px;
-      background: rgba(255, 255, 255, 0.06);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .highlight-card::after {
-      content: '';
-      position: absolute;
-      bottom: -70px;
-      left: 30px;
-      width: 240px;
-      height: 240px;
-      background: rgba(233, 30, 140, 0.18);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .highlight-card .section-label {
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-    }
-
-    .highlight-card h4 {
-      color: #fff;
-      font-size: 1.25rem;
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .highlight-card p {
-      color: rgba(255, 255, 255, 0.9);
-      position: relative;
-      z-index: 1;
-      margin-bottom: 14px;
-      line-height: 1.7;
-    }
-
-    .highlight-card p:last-child {
-      margin-bottom: 0;
-    }
-
-    .highlight-card strong {
-      color: #fff;
-    }
-
-    /* CALLOUT BOX (Parcerias) */
-    .callout-box {
-      background: linear-gradient(135deg, #fff8f0, #fff0f8);
-      border: 1px solid rgba(233, 30, 140, 0.2);
-      border-left: 4px solid var(--accent);
-      border-radius: 12px;
-      padding: 20px 24px;
-      margin: 24px 0;
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text);
-    }
-
-    .callout-box .callout-title {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      color: var(--accent-dark);
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* SECTION DIVIDER */
-    .section-divider {
-      border: none;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--border), transparent);
-      margin: 36px 0;
-    }
-
-    /* CTA STRIP */
-    .cta-strip {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--secondary));
-      border-radius: 20px;
-      padding: 48px 40px;
-      text-align: center;
-      margin: 40px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-strip::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 220px;
-      height: 220px;
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .cta-strip::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -40px;
-      width: 280px;
-      height: 280px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .cta-strip h3 {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-strip p {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 1rem;
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 1;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: var(--primary);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 15px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-      color: var(--secondary);
-    }
-
-    /* PILLAR CARDS */
-    .pillar-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 28px 0;
-    }
-
-    @media (max-width: 640px) {
-      .pillar-cards {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .pillar-card {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px 20px;
-      box-shadow: 0 2px 12px rgba(123, 45, 139, 0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .pillar-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 28px rgba(123, 45, 139, 0.13);
-    }
-
-    .pillar-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #fff;
-      font-size: 1rem;
-    }
-
-    .pillar-body h5 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.92rem;
-      color: var(--primary-dark);
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .pillar-body p {
-      font-size: 0.9rem;
-      line-height: 1.65;
-      color: var(--text-muted);
-      margin: 0;
-    }
-  </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Dados estruturados JSON-LD -->
   <script type="application/ld+json">
@@ -504,13 +85,13 @@
   <!-- HEADER -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a class="site-logo" href="index.html" aria-label="GRAB — Início">
-        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB" height="42">
+      <a class="site-logo" href="index.html" aria-label="GRAB Asa Branca — Início">
+        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB Asa Branca" height="42">
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="parada-2026.html">25ª Parada pela Diversidade</a></li>
+          <li><a href="historico-paradas.html">Histórico das Paradas</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
               Projetos
@@ -548,7 +129,7 @@
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="index.html">Início</a>
-    <a href="parada-2026.html">25ª Parada pela Diversidade Sexual do Ceará</a>
+    <a href="historico-paradas.html">Histórico das Paradas</a>
     <span class="mobile-subnav-label">Projetos</span>
     <a href="prevencao-combinada.html" class="mobile-subitem">Prevenção Combinada</a>
     <a href="traves-ti.html" class="mobile-subitem">TRAVES-TI</a>
@@ -563,7 +144,7 @@
 
     <div class="project-content">
 
-      <h1 style="font-size:1.8rem;color:var(--primary);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">
+      <h1 class="page-title">
         Projeto TRAVES-TI
       </h1>
 
@@ -715,14 +296,14 @@
         <div class="callout-title">
           <i class="fas fa-handshake" aria-hidden="true"></i> Parcerias e Ações Complementares
         </div>
-        <p style="margin:0;">
+        <p>
           Além da formação digital, o projeto construiu uma rede de apoio que garantiu acesso a saúde bucal, cestas
           básicas, encaminhamentos para o mercado de trabalho e para serviços especializados em centros de referência
           estadual e municipal. As duas turmas se consolidaram como uma rede de afetos, formação política, ativismo e
           artivismo — com atuação na <strong>Parada pela Diversidade Sexual do Ceará</strong> e no movimento de Luta
           contra a Aids do Ceará.
         </p>
-        <div class="partnership-tags" style="margin-top:14px;">
+        <div class="partnership-tags">
           <span class="partnership-tag"><i class="fas fa-tooth"></i> Saúde Bucal</span>
           <span class="partnership-tag"><i class="fas fa-box-open"></i> Cestas Básicas</span>
           <span class="partnership-tag"><i class="fas fa-briefcase"></i> Mercado de Trabalho</span>
@@ -821,7 +402,7 @@
 
       </div>
 
-      <div class="quote-banner" style="margin-top:32px;">
+      <div class="quote-banner">
         <p>"Educação, tecnologia e ativismo caminhando juntos na luta por equidade e dignidade."</p>
       </div>
 
@@ -870,7 +451,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>GRAB</h4>
+        <h4>GRAB Asa Branca</h4>
         <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
         <div class="footer-socials">
           <a class="social-link" href="https://www.facebook.com/people/Grupo-de-Resist%C3%AAncia-Asa-Branca-GRAB/100064395951488/?locale=pt_BR" target="_blank"
@@ -891,7 +472,9 @@
       <div class="footer-col">
         <h4>Navegação</h4>
         <a href="index.html">Início</a>
-        <a href="parada-2026.html">25ª Parada pela Diversidade</a>
+        <a href="historico-paradas.html">Histórico das Paradas</a>
+        <a href="prevencao-combinada.html">Prevenção Combinada</a>
+        <a href="traves-ti.html">TRAVES-TI</a>
         <a href="index.html#contato">Entre em Contato</a>
       </div>
       <div class="footer-col">
@@ -904,11 +487,16 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2026 GRAB &mdash; Todos os Direitos Reservados</p>
+      <p>&copy; 2026 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <script src="main.js"></script>
   <script>

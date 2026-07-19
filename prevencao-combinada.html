@@ -40,255 +40,12 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
   <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
   <link rel="apple-touch-icon" href="assets/images/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* ── grade de thumbnails ── */
-    .video-thumbs {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin: 24px 0;
-    }
-
-    .video-thumb {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      cursor: pointer;
-    }
-
-    .video-thumb-img {
-      position: relative;
-      aspect-ratio: 9 / 16;
-      border-radius: 10px;
-      overflow: hidden;
-      background: #111;
-    }
-
-    .video-thumb-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease, filter 0.3s ease;
-    }
-
-    .video-thumb:hover .video-thumb-img img {
-      transform: scale(1.04);
-      filter: brightness(0.75);
-    }
-
-    .video-thumb-play {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-    }
-
-    .video-thumb-play svg {
-      width: 52px;
-      height: 52px;
-      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
-      transition: transform 0.2s ease;
-    }
-
-    .video-thumb:hover .video-thumb-play svg {
-      transform: scale(1.12);
-    }
-
-    .video-thumb-label {
-      font-size: 13px;
-      color: var(--text-light);
-      font-family: 'Montserrat', sans-serif;
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    /* ── modal de vídeo ── */
-    .video-modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.88);
-      z-index: 1000;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .video-modal-overlay.open {
-      display: flex;
-    }
-
-    .video-modal-box {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-height: 90vh;
-    }
-
-    .video-modal-box video {
-      max-height: 82vh;
-      max-width: 100%;
-      border-radius: 10px;
-      background: #000;
-      display: block;
-    }
-
-    .video-modal-close {
-      position: absolute;
-      top: -40px;
-      right: 0;
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 32px;
-      line-height: 1;
-      cursor: pointer;
-      padding: 4px 8px;
-      opacity: 0.8;
-      transition: opacity 0.2s;
-    }
-
-    .video-modal-close:hover {
-      opacity: 1;
-    }
-
-    .video-modal-title {
-      color: #fff;
-      font-size: 14px;
-      margin-top: 12px;
-      font-family: 'Montserrat', sans-serif;
-      opacity: 0.8;
-    }
-
-    @media (max-width: 600px) {
-      .video-thumbs {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    .services-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 16px 0;
-      font-size: 0.9rem;
-    }
-
-    .services-table th {
-      background: var(--primary);
-      color: #fff;
-      padding: 12px 16px;
-      text-align: left;
-      font-family: 'Montserrat', sans-serif;
-      text-transform: uppercase;
-      font-size: 0.8rem;
-      letter-spacing: 0.5px;
-    }
-
-    .services-table td {
-      padding: 10px 16px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-
-    .services-table tr:nth-child(even) td {
-      background: var(--bg-light);
-    }
-
-    .services-table td strong {
-      color: var(--primary);
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    @media (max-width: 600px) {
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* CTA STRIP */
-    .cta-strip {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--secondary));
-      border-radius: 20px;
-      padding: 48px 40px;
-      text-align: center;
-      margin: 40px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-strip::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 220px;
-      height: 220px;
-      background: rgba(255, 255, 255, 0.07);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .cta-strip::after {
-      content: '';
-      position: absolute;
-      bottom: -80px;
-      left: -40px;
-      width: 280px;
-      height: 280px;
-      background: rgba(0, 0, 0, 0.1);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    .cta-strip h3 {
-      color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cta-strip p {
-      color: rgba(255, 255, 255, 0.85);
-      font-size: 1rem;
-      margin-bottom: 28px;
-      position: relative;
-      z-index: 1;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .cta-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #fff;
-      color: var(--primary);
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 15px 36px;
-      border-radius: 50px;
-      text-decoration: none;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.2s, box-shadow 0.2s, color 0.2s;
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
-    }
-
-    .cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-      color: var(--secondary);
-    }
-  </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Dados estruturados JSON-LD -->
   <script type="application/ld+json">
@@ -327,13 +84,13 @@
   <!-- HEADER -->
   <header class="site-header" id="site-header">
     <div class="header-inner">
-      <a class="site-logo" href="index.html" aria-label="GRAB — Início">
-        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB" height="42">
+      <a class="site-logo" href="index.html" aria-label="GRAB Asa Branca — Início">
+        <img src="assets/images/cropped-cropped-cropped-Logo-GRAB-Horizontal.png" alt="GRAB Asa Branca" height="42">
       </a>
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
           <li><a href="index.html">Início</a></li>
-          <li><a href="parada-2026.html">25ª Parada pela Diversidade</a></li>
+          <li><a href="historico-paradas.html">Histórico das Paradas</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
               Projetos
@@ -371,7 +128,7 @@
 
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="index.html">Início</a>
-    <a href="parada-2026.html">25ª Parada pela Diversidade Sexual do Ceará</a>
+    <a href="historico-paradas.html">Histórico das Paradas</a>
     <span class="mobile-subnav-label">Projetos</span>
     <a href="prevencao-combinada.html" class="mobile-subitem">Prevenção Combinada</a>
     <a href="traves-ti.html" class="mobile-subitem">TRAVES-TI</a>
@@ -386,7 +143,7 @@
 
     <div class="project-content">
 
-      <h1 style="font-size:1.8rem;color:var(--primary);margin-bottom:24px;text-transform:uppercase;letter-spacing:1px;">
+      <h1 class="page-title">
         Prevenção Combinada: Comunique Essa Ideia
       </h1>
 
@@ -470,7 +227,7 @@
       </div>
 
       <!-- OBJETIVO GERAL -->
-      <div class="about-grid" style="margin:32px 0;gap:32px;">
+      <div class="content-grid">
         <div>
           <h4>Objetivo Geral</h4>
           <p>
@@ -481,7 +238,7 @@
           </p>
         </div>
         <div>
-          <img src="assets/images/img.webp" alt="Prevenção Combinada" style="border-radius:8px;width:100%;"
+          <img src="assets/images/img.webp" alt="Ação do projeto Prevenção Combinada" class="img-full"
             loading="lazy">
         </div>
       </div>
@@ -519,9 +276,9 @@
       <!-- SERVIÇOS SUS -->
       <h4>Serviços do Sistema Único de Saúde – SUS e Socioassistenciais em Fortaleza-CE</h4>
 
-      <h5
-        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+      <h5 class="table-subtitle">
         Serviços de PrEP (Profilaxia Pré-Exposição)</h5>
+      <div class="table-scroll">
       <table class="services-table">
         <thead>
           <tr>
@@ -558,10 +315,11 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
-      <h5
-        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+      <h5 class="table-subtitle">
         Serviços de PEP (Profilaxia Pós-Exposição – até 72h)</h5>
+      <div class="table-scroll">
       <table class="services-table">
         <thead>
           <tr>
@@ -578,10 +336,11 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
-      <h5
-        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+      <h5 class="table-subtitle">
         Somente em Casos de Violência Sexual</h5>
+      <div class="table-scroll">
       <table class="services-table">
         <thead>
           <tr>
@@ -603,18 +362,18 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <div class="info-box">
         <p><strong>Exames de HIV, Sífilis, Hepatite B e Vacinação para Hepatite B:</strong></p>
         <p>Disponíveis em todas as <strong>118 Unidades de Atenção Primária à Saúde – UAPS (Postos de Saúde)</strong> de
           Fortaleza.</p>
-        <p><a href="https://saude.fortaleza.ce.gov.br/postos-de-saude" target="_blank" rel="noopener"
-            style="color:var(--secondary);font-weight:700;">Ver endereços dos postos →</a></p>
+        <p><a href="https://saude.fortaleza.ce.gov.br/postos-de-saude" target="_blank" rel="noopener">Ver endereços dos postos →</a></p>
       </div>
 
-      <h5
-        style="margin:20px 0 10px;color:var(--secondary);font-size:0.95rem;text-transform:uppercase;letter-spacing:0.5px;">
+      <h5 class="table-subtitle">
         Apoio para LGBTI+ em Situações de Violências</h5>
+      <div class="table-scroll">
       <table class="services-table">
         <thead>
           <tr>
@@ -646,6 +405,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
 
       <div class="info-box">
         <p><strong>Onde conseguir preservativos e gel lubrificante:</strong></p>
@@ -657,7 +417,7 @@
       <h4>Ações de Comunicação em Prevenção Combinada</h4>
 
       <div id="gallery-prev" class="gallery-grid"></div>
-      <div class="gallery-pages" style="margin-top:16px;">
+      <div class="gallery-pages">
         <button class="btn-first" title="Primeira página">|&laquo;</button>
         <button class="btn-prev" title="Página anterior">&laquo;</button>
         <span class="gallery-page-info"></span>
@@ -672,181 +432,181 @@
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="184"
                 src="assets/images/IMG_7388.jpg" data-src="assets/images/IMG_7388.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7389.jpg" data-image-id="185"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="185"
                 src="assets/images/IMG_7389.jpg" data-src="assets/images/IMG_7389.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7386.jpg" data-image-id="186"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="186"
                 src="assets/images/IMG_7386.jpg" data-src="assets/images/IMG_7386.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7387.jpg" data-image-id="187"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="187"
                 src="assets/images/IMG_7387.jpg" data-src="assets/images/IMG_7387.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7392.jpg" data-image-id="189"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="189"
                 src="assets/images/IMG_7392.jpg" data-src="assets/images/IMG_7392.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7391.jpg" data-image-id="190"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="190"
                 src="assets/images/IMG_7391.jpg" data-src="assets/images/IMG_7391.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7393.jpg" data-image-id="191"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="191"
                 src="assets/images/IMG_7393.jpg" data-src="assets/images/IMG_7393.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7394.jpg" data-image-id="192"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="192"
                 src="assets/images/IMG_7394.jpg" data-src="assets/images/IMG_7394.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7395.jpg" data-image-id="193"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="193"
                 src="assets/images/IMG_7395.jpg" data-src="assets/images/IMG_7395.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7397.jpg" data-image-id="194"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="194"
                 src="assets/images/IMG_7397.jpg" data-src="assets/images/IMG_7397.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7398.jpg" data-image-id="195"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="195"
                 src="assets/images/IMG_7398.jpg" data-src="assets/images/IMG_7398.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7400.jpg" data-image-id="196"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="196"
                 src="assets/images/IMG_7400.jpg" data-src="assets/images/IMG_7400.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7399.jpg" data-image-id="197"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="197"
                 src="assets/images/IMG_7399.jpg" data-src="assets/images/IMG_7399.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7402.jpg" data-image-id="198"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="198"
                 src="assets/images/IMG_7402.jpg" data-src="assets/images/IMG_7402.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7403.jpg" data-image-id="199"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="199"
                 src="assets/images/IMG_7403.jpg" data-src="assets/images/IMG_7403.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7408.jpg" data-image-id="200"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="200"
                 src="assets/images/IMG_7408.jpg" data-src="assets/images/IMG_7408.jpg" data-width="500.00"
-                data-height="281.00" alt="" title="" /> </div>
+                data-height="281.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7409.jpg" data-image-id="201"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="201"
                 src="assets/images/IMG_7409.jpg" data-src="assets/images/IMG_7409.jpg" data-width="500.00"
-                data-height="281.00" alt="" title="" /> </div>
+                data-height="281.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7410.jpg" data-image-id="202"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="202"
                 src="assets/images/IMG_7410.jpg" data-src="assets/images/IMG_7410.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7413.jpg" data-image-id="203"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="203"
                 src="assets/images/IMG_7413.jpg" data-src="assets/images/IMG_7413.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7411.jpg" data-image-id="204"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="204"
                 src="assets/images/IMG_7411.jpg" data-src="assets/images/IMG_7411.jpg" data-width="500.00"
-                data-height="281.00" alt="" title="" /> </div>
+                data-height="281.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7414.jpg" data-image-id="205"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="205"
                 src="assets/images/IMG_7414.jpg" data-src="assets/images/IMG_7414.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7416.jpg" data-image-id="206"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="206"
                 src="assets/images/IMG_7416.jpg" data-src="assets/images/IMG_7416.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7417.jpg" data-image-id="207"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="207"
                 src="assets/images/IMG_7417.jpg" data-src="assets/images/IMG_7417.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7418.jpg" data-image-id="208"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="208"
                 src="assets/images/IMG_7418.jpg" data-src="assets/images/IMG_7418.jpg" data-width="500.00"
-                data-height="281.00" alt="" title="" /> </div>
+                data-height="281.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7419.jpg" data-image-id="209"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="209"
                 src="assets/images/IMG_7419.jpg" data-src="assets/images/IMG_7419.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7420.jpg" data-image-id="210"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="210"
                 src="assets/images/IMG_7420.jpg" data-src="assets/images/IMG_7420.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7424.jpg" data-image-id="211"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="211"
                 src="assets/images/IMG_7424.jpg" data-src="assets/images/IMG_7424.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7421.jpg" data-image-id="212"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="212"
                 src="assets/images/IMG_7421.jpg" data-src="assets/images/IMG_7421.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7425.jpg" data-image-id="213"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="213"
                 src="assets/images/IMG_7425.jpg" data-src="assets/images/IMG_7425.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> <a class="bwg-a bwg_lightbox bwg_lightbox_1" href="assets/images/IMG_7432.jpg" data-image-id="214"
             data-elementor-open-lightbox="no">
             <div class="bwg_mosaic_thumb_spun_1 bwg-item0 bwg-mosaic-thumb-span "> <img decoding="async"
                 class="bwg_mosaic_thumb_1 skip-lazy bwg_img_clear bwg_img_custom " id="214"
                 src="assets/images/IMG_7432.jpg" data-src="assets/images/IMG_7432.jpg" data-width="281.00"
-                data-height="500.00" alt="" title="" /> </div>
+                data-height="500.00" alt="Ação de comunicação do projeto Prevenção Combinada" title="" /> </div>
           </a> </div>
       </div>
 
@@ -879,7 +639,7 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-col">
-        <h4>GRAB</h4>
+        <h4>GRAB Asa Branca</h4>
         <p>Grupo de Resistência Asa Branca. Defendendo os direitos LGBTI+ no Ceará desde 1989.</p>
         <div class="footer-socials">
           <a class="social-link" href="https://www.facebook.com/people/Grupo-de-Resist%C3%AAncia-Asa-Branca-GRAB/100064395951488/?locale=pt_BR" target="_blank"
@@ -900,7 +660,9 @@
       <div class="footer-col">
         <h4>Navegação</h4>
         <a href="index.html">Início</a>
-        <a href="parada-2026.html">25ª Parada pela Diversidade</a>
+        <a href="historico-paradas.html">Histórico das Paradas</a>
+        <a href="prevencao-combinada.html">Prevenção Combinada</a>
+        <a href="traves-ti.html">TRAVES-TI</a>
         <a href="index.html#contato">Entre em Contato</a>
       </div>
       <div class="footer-col">
@@ -913,11 +675,16 @@
     </div>
     <hr class="footer-divider">
     <div class="footer-bottom">
-      <p>&copy; 2026 GRAB &mdash; Todos os Direitos Reservados</p>
+      <p>&copy; 2026 GRAB Asa Branca &mdash; Todos os Direitos Reservados</p>
     </div>
   </footer>
 
-  <button class="back-to-top" aria-label="Voltar ao topo">&#8679;</button>
+  <button class="back-to-top" aria-label="Voltar ao topo">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
   <script src="main.js"></script>
   <script>

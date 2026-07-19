@@ -333,8 +333,10 @@ if (btnReadMore)     btnReadMore.addEventListener('click', () => {
 
 if (btnHistoria)     btnHistoria.addEventListener('click', openModal);
 if (modalClose)     modalClose.addEventListener('click', closeModal);
+if (modal) {
     modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+}
 
     /* === FORMULÁRIO === */
     const form = document.getElementById('contact-form');

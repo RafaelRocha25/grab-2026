@@ -15,7 +15,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GRAB – Grupo de Resistência Asa Branca | Direitos LGBTI+ no Ceará</title>
   <meta name="description"
-    content="O GRAB – Grupo de Resistência Asa Branca é uma ONG cearense que defende os direitos LGBTI+ desde 1989. Conheça nossa história, projetos e a 25ª Parada pela Diversidade Sexual do Ceará.">
+    content="O GRAB – Grupo de Resistência Asa Branca é uma ONG cearense que defende os direitos LGBTI+ desde 1989. Conheça nossa história, projetos e o histórico das Paradas pela Diversidade Sexual do Ceará.">
   <meta name="keywords"
     content="GRAB, Grupo de Resistência Asa Branca, LGBTI+, direitos LGBT, ONG Ceará, Parada Diversidade Sexual Ceará, Fortaleza, direitos humanos, diversidade, saúde LGBTI, HIV, prevenção combinada, TRAVES-TI">
   <meta name="author" content="GRAB – Grupo de Resistência Asa Branca">
@@ -27,7 +27,7 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="GRAB – Grupo de Resistência Asa Branca | Direitos LGBTI+ no Ceará">
   <meta property="og:description"
-    content="O GRAB é uma ONG cearense que defende os direitos LGBTI+ desde 1989. Conheça nossa história, projetos e a 25ª Parada pela Diversidade Sexual do Ceará.">
+    content="O GRAB é uma ONG cearense que defende os direitos LGBTI+ desde 1989. Conheça nossa história, projetos e o histórico das Paradas pela Diversidade Sexual do Ceará.">
   <meta property="og:url" content="https://www.grab.net.br/">
   <meta property="og:image" content="https://www.grab.net.br/assets/images/BANNER-GRAB-GR.png">
   <meta property="og:image:width" content="1200">
@@ -38,7 +38,7 @@
   <meta name="twitter:site" content="@grabasabranca">
   <meta name="twitter:title" content="GRAB – Grupo de Resistência Asa Branca | Direitos LGBTI+ no Ceará">
   <meta name="twitter:description"
-    content="O GRAB é uma ONG cearense que defende os direitos LGBTI+ desde 1989. Conheça nossa história, projetos e a 25ª Parada pela Diversidade Sexual do Ceará.">
+    content="O GRAB é uma ONG cearense que defende os direitos LGBTI+ desde 1989. Conheça nossa história, projetos e o histórico das Paradas pela Diversidade Sexual do Ceará.">
   <meta name="twitter:image" content="https://www.grab.net.br/assets/images/BANNER-GRAB-GR.png">
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon.png">
@@ -52,255 +52,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link rel="stylesheet" href="style.css">
-  <style>
-    .home-alusiva-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .home-alusiva-card {
-      background: #fff;
-      border: 1px solid #e8e0f0;
-      border-top: 3px solid #7B2D8B;
-      border-radius: 10px;
-      padding: 14px 16px;
-      box-shadow: 0 2px 8px rgba(123, 45, 139, 0.06);
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-
-    .home-alusiva-card:hover {
-      box-shadow: 0 6px 20px rgba(123, 45, 139, 0.13);
-      transform: translateY(-2px);
-    }
-
-    .home-alusiva-card h5 {
-      font-family: 'Syne', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #7B2D8B;
-      margin-bottom: 8px;
-      line-height: 1.3;
-    }
-
-    .home-alusiva-meta {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      font-size: 0.78rem;
-      color: #4a4a6a;
-    }
-
-    .home-alusiva-meta span {
-      display: flex;
-      align-items: flex-start;
-      gap: 6px;
-    }
-
-    .home-alusiva-meta i {
-      color: #E91E8C;
-      font-size: 0.75rem;
-      margin-top: 2px;
-      flex-shrink: 0;
-      width: 12px;
-    }
-
-    /* ---- Validação de formulário ---- */
-    .field-error {
-      border-color: #e53e3e !important;
-      box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.12) !important;
-    }
-
-    .field-error-msg {
-      display: block;
-      color: #c53030;
-      font-size: 0.78rem;
-      margin-top: 4px;
-      font-weight: 500;
-    }
-
-    /* ---- Modais de feedback do formulário ---- */
-    .feedback-modal-box {
-      background: #fff;
-      border-radius: 20px;
-      padding: 40px 36px;
-      max-width: 440px;
-      width: 90%;
-      text-align: center;
-      position: relative;
-      box-shadow: 0 24px 64px rgba(123, 45, 139, 0.22);
-    }
-
-    .feedback-modal-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 20px;
-    }
-
-    .feedback-modal-icon--success {
-      background: linear-gradient(135deg, #7B2D8B 0%, #E91E8C 100%);
-    }
-
-    .feedback-modal-icon--error {
-      background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
-    }
-
-    .feedback-modal-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 10px;
-    }
-
-    .feedback-modal-text {
-      color: #6b6b8a;
-      font-size: 0.95rem;
-      line-height: 1.65;
-      margin-bottom: 28px;
-    }
-
-    .feedback-modal-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #7B2D8B 0%, #E91E8C 100%);
-      color: #fff;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 40px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.25s;
-      box-shadow: 0 6px 20px rgba(123, 45, 139, 0.25);
-    }
-
-    .feedback-modal-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 28px rgba(123, 45, 139, 0.4);
-    }
-
-    @media (max-width: 900px) {
-      .home-alusiva-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 560px) {
-      .home-alusiva-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* ---- Evento passado ---- */
-    .home-alusiva-card--past {
-      background: #f4f4f6;
-      border-top-color: #c2c2cc;
-      border-color: rgba(0, 0, 0, 0.08);
-      box-shadow: none;
-      filter: grayscale(35%);
-      opacity: 0.72;
-    }
-
-    .home-alusiva-card--past:hover {
-      transform: none;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
-      opacity: 0.82;
-    }
-
-    .home-alusiva-card--past h5 {
-      color: #555;
-    }
-
-    .home-alusiva-card--past .home-alusiva-meta {
-      color: #777;
-    }
-
-    .home-alusiva-card--past .home-alusiva-meta i {
-      color: #999;
-    }
-
-    .alusiva-badge--past {
-      background: rgba(0, 0, 0, 0.07);
-      color: #888;
-    }
-
-    /* ---- Destaque: próximo evento ---- */
-    .home-alusiva-card--next {
-      background: linear-gradient(135deg, rgba(245, 166, 35, 0.09) 0%, rgba(245, 166, 35, 0.03) 100%);
-      border-top-color: #F5A623;
-      border-color: rgba(245, 166, 35, 0.35);
-      box-shadow: 0 3px 14px rgba(245, 166, 35, 0.18);
-    }
-
-    .home-alusiva-card--today {
-      background: linear-gradient(135deg, rgba(233, 30, 140, 0.09) 0%, rgba(123, 45, 139, 0.05) 100%);
-      border-top-color: #E91E8C;
-      border-color: rgba(233, 30, 140, 0.3);
-      box-shadow: 0 3px 14px rgba(233, 30, 140, 0.18);
-    }
-
-    .alusiva-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      border-radius: 20px;
-      padding: 2px 9px;
-      margin-bottom: 8px;
-    }
-
-    .alusiva-badge--next {
-      background: rgba(245, 166, 35, 0.15);
-      color: #9a6500;
-    }
-
-    .alusiva-badge--next i {
-      font-size: 0.65rem;
-      color: #9a6500;
-      width: auto;
-      margin-top: 0;
-    }
-
-    .alusiva-badge--today {
-      background: rgba(233, 30, 140, 0.12);
-      color: #c0186f;
-    }
-
-    .badge-dot {
-      display: inline-block;
-      width: 7px;
-      height: 7px;
-      background: #E91E8C;
-      border-radius: 50%;
-      flex-shrink: 0;
-      animation: badge-pulse 1.4s ease-in-out infinite;
-    }
-
-    @keyframes badge-pulse {
-
-      0%,
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      50% {
-        opacity: 0.45;
-        transform: scale(0.75);
-      }
-    }
-  </style>
   <!-- Dados estruturados JSON-LD -->
   <script type="application/ld+json">
   {
@@ -348,7 +99,7 @@
       <nav class="main-nav" aria-label="Navegação principal">
         <ul>
           <li><a href="index.html" class="active">Início</a></li>
-          <li><a href="parada-2026.html">25ª Parada pela Diversidade</a></li>
+          <li><a href="historico-paradas.html">Histórico das Paradas</a></li>
           <li class="has-dropdown">
             <a href="#" class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" id="dropdown-projetos-btn">
               Projetos
@@ -388,7 +139,7 @@
   <!-- MOBILE NAV -->
   <nav class="mobile-nav" id="mobile-nav" aria-label="Menu mobile">
     <a href="index.html">Início</a>
-    <a href="parada-2026.html">25ª Parada pela Diversidade Sexual do Ceará</a>
+    <a href="historico-paradas.html">Histórico das Paradas</a>
     <span class="mobile-subnav-label">Projetos</span>
     <a href="prevencao-combinada.html" class="mobile-subitem">Prevenção Combinada</a>
     <a href="traves-ti.html" class="mobile-subitem">TRAVES-TI</a>
@@ -397,6 +148,8 @@
 
   <!-- PAGE CONTENT -->
   <main class="page-content" id="content">
+
+    <h1 class="sr-only">GRAB – Grupo de Resistência Asa Branca: direitos LGBTI+ no Ceará desde 1989</h1>
 
     <!-- HERO SLIDER -->
     <section class="hero-slider" aria-label="Destaques">
@@ -511,280 +264,6 @@
             </div>
             <h3>Promoção da Saúde e Prevenção ao HIV/Aids</h3>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 25ª PARADA -->
-    <section class="section parada-home-section" id="parada" aria-labelledby="parada-heading">
-      <div class="section-inner">
-        <div class="fade-up">
-          <span class="section-label">Evento do Ano</span>
-          <h2 class="section-title" id="parada-heading">25ª Parada pela Diversidade Sexual do Ceará</h2>
-          <p class="parada-home-lead">
-            O maior evento LGBTI+ do Ceará e um dos maiores do Brasil, reunindo anualmente mais de 1,5 milhão
-            de pessoas na Avenida Beira-Mar de Fortaleza em defesa dos Direitos Humanos, cidadania e respeito.
-          </p>
-        </div>
-
-        <div class="parada-home-grid">
-
-          <!-- Texto + stats + CTA -->
-          <div class="fade-up">
-            <span class="parada-date-badge">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                <line x1="16" y1="2" x2="16" y2="6" />
-                <line x1="8" y1="2" x2="8" y2="6" />
-                <line x1="3" y1="10" x2="21" y2="10" />
-              </svg>
-              28 de Junho de 2026 · Beira-Mar, Fortaleza
-            </span>
-
-            <p style="color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:12px;">
-              Desde 1999, o GRAB organiza as Paradas pela Diversidade Sexual do Ceará, evento
-              <strong>reconhecido como patrimônio imaterial do Estado</strong> pela Lei 17.062/2019.
-              A 25ª edição é comemorativa, celebrando 25 anos de luta, visibilidade e resistência da
-              população LGBTI+ cearense.
-            </p>
-            <p style="color:var(--text-muted);font-size:15px;line-height:1.8;margin-bottom:28px;">
-              O evento conta com caminhada, trios elétricos, apresentações culturais, ala de acessibilidade
-              e diversidade, além de uma programação de seminários, feiras e debates — <em>todas as atividades
-                são gratuitas.</em>
-            </p>
-
-            <div class="history-stats parada-home-stats" role="list" aria-label="Números da Parada">
-              <div class="stat-item" role="listitem">
-                <div class="stat-number">1,5M</div>
-                <div class="stat-label">Pessoas por edição</div>
-              </div>
-              <div class="stat-item" role="listitem">
-                <div class="stat-number">25ª</div>
-                <div class="stat-label">Edição em 2026</div>
-              </div>
-              <div class="stat-item" role="listitem">
-                <div class="stat-number">1999</div>
-                <div class="stat-label">Primeira edição</div>
-              </div>
-            </div>
-
-            <a href="parada-2026.html" class="btn-parada">
-              Mais detalhes da 25ª Parada
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="9 18 15 12 9 6"></polyline>
-              </svg>
-            </a>
-            <a href="https://www.instagram.com/paradaceoficial" target="_blank" rel="noopener" class="parada-insta-cta"
-              aria-label="Siga a 25ª Parada no Instagram @paradaceoficial">
-              <span class="parada-insta-cta__icon">
-                <i class="fab fa-instagram" aria-hidden="true"></i>
-              </span>
-              <span class="parada-insta-cta__text">Siga a <strong>25ª Parada</strong> no Instagram</span>
-              <span class="parada-insta-cta__handle">@paradaceoficial</span>
-              <span class="parada-insta-cta__arrow" aria-hidden="true">↗</span>
-            </a>
-          </div>
-
-          <!-- Selo oficial da 25ª Parada -->
-          <div class="fade-up delay-1"
-            style="display:flex;justify-content:center;align-items:flex-start;align-self:flex-start;padding-top:8px;">
-            <img src="assets/images/Selo-3-25-Parada.png" alt="Selo 25ª Parada pela Diversidade Sexual do Ceará"
-              loading="lazy" style="max-width:420px;width:100%;display:block;">
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PROGRAMAÇÃO ALUSIVA 25ª PARADA -->
-    <section class="section" id="programacao-alusiva" style="background:#fff;padding-top:64px;padding-bottom:64px;">
-      <div class="section-inner">
-        <div class="fade-up" style="margin-bottom:32px;">
-          <span class="section-label">25ª Parada pela Diversidade Sexual do Ceará</span>
-          <h2 class="section-title" style="margin-bottom:12px;">Programação Alusiva</h2>
-          <p class="parada-home-lead">
-            25 anos de resistência não cabem em um único dia. A celebração começa em 10 de junho e percorre Fortaleza
-            com arte, política e memória, culminando na maior caminhada do Ceará no dia 28.
-          </p>
-        </div>
-        <div class="home-alusiva-grid fade-up">
-
-          <div class="home-alusiva-card" data-date="2026-06-10">
-            <h5>Sessão Solene Homenagem aos 25 Anos de Paradas no Ceará</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>10/06/2026 (Quarta-feira) – 17h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Assembleia Legislativa do Ceará</span>
-              <span><i class="fa fa-users"></i>Mandato Dep. Estadual Renato Roseno</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-16">
-            <h5>Sessão Solene Alusivo ao Mês do Orgulho LGBTQIA+</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>16/06/2026 (Terça-feira) – 17h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Assembleia Legislativa do Ceará</span>
-              <span><i class="fa fa-users"></i>Mandato Dep. Estadual Larissa Gaspar</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-18">
-            <h5>Exposição 25 Anos – Parada pela Diversidade Sexual do Ceará</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>18/06/2026 (Quinta-feira) – 19h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Salão Nobre da Reitoria da UFC</span>
-              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-20">
-            <h5>Pré Parada da Diversidade Sexual e Feira de Empreendedorismo LGBTQIA+ de Fortaleza</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 16h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Centro Cultural Belchior – Praia de Iracema</span>
-              <span><i class="fa fa-users"></i>Coordenadoria Especial da Diversidade de Fortaleza e Ciranda da
-                Marias</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-20">
-            <h5>Mostra FOR RAINBOW ORGULHO</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 18h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Praça do MIS – Museu da Imagem e do Som</span>
-              <span><i class="fa fa-users"></i>CENAPOP – For Rainbow</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-20">
-            <h5>Arraiá da Comadre Associação dos Surdos LGBT</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 19h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Av. Bezerra de Menezes, 549 – Fortaleza</span>
-              <span><i class="fa fa-users"></i>Associação dos Surdos LGBTs do Ceará</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-20">
-            <h5>Parada da Diversidade de Guaiuba</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>20/06/2026 (Sábado) – 20h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Em frente o Buteco de Rua, Guaiúba-CE</span>
-              <span><i class="fa fa-users"></i>APLOSG Guaiúba</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-21">
-            <h5>5º Pedal do Orgulho</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 7h30</span>
-              <span><i class="fa fa-map-marker-alt"></i>Passeio Público de Fortaleza</span>
-              <span><i class="fa fa-users"></i>AMOR / Prefeitura Municipal de Fortaleza</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-21">
-            <h5>2º Sambão do Orgulho</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>21/06/2026 (Domingo) – 12h às 19h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Ajeum de Oyá</span>
-              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-24">
-            <h5>Coletiva de Imprensa da 25ª Parada</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>24/06/2026 (Quarta-feira) – 10h</span>
-              <span><i class="fa fa-map-marker-alt"></i>ADUFC</span>
-              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-25">
-            <h5>Seminário-Ato da 25ª Parada pela Diversidade Sexual do Ceará</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 15h às 18h</span>
-              <span><i class="fa fa-map-marker-alt"></i>ADUFC</span>
-              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-25">
-            <h5>Esquenta da Parada (Ato-Show)</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>25/06/2026 (Quinta-feira) – 18h</span>
-              <span><i class="fa fa-map-marker-alt"></i>É SIM - BAR E RESTAURANTE</span>
-              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-26">
-            <h5>Projeto RetifiAção – Mutirão de Retificação de Nome Social</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>26/06/2026 (Sexta-feira) – 8h às 12h</span>
-              <span><i class="fa fa-map-marker-alt"></i>UNINASSAU PARANGADA</span>
-              <span><i class="fa fa-users"></i>Coordenadoria Especial da Diversidade / Centro de Referência LGBTQIA+
-                Janaína Dutra</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-26">
-            <h5>3º Festival da Diversidade (1ª Noite)</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>26/06/2026 (Sexta-feira) – 18h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Concha Acústica / UFC</span>
-              <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-27">
-            <h5>Treinão da Diversidade</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) – 6h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Shopping Rio Mar Fortaleza (Papicu)</span>
-              <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-27">
-            <h5>2º Encontro Cearense de Organizações de Paradas LGBTQIA+</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado)</span>
-              <span><i class="fa fa-map-marker-alt"></i>A definir</span>
-              <span><i class="fa fa-users"></i>Grupo de Resistência Asa Branca – GRAB</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-27">
-            <h5>I Encontro de Homens Gays do Ceará</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) - 13h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Centro Dragão do Mar de Arte e Cultura</span>
-              <span><i class="fa fa-users"></i>LGBTs do Bonsucesso</span>
-            </div>
-          </div>
-
-          <div class="home-alusiva-card" data-date="2026-06-27">
-            <h5>3º Festival da Diversidade (2ª Noite)</h5>
-            <div class="home-alusiva-meta">
-              <span><i class="fa fa-calendar-alt"></i>27/06/2026 (Sábado) – 18h</span>
-              <span><i class="fa fa-map-marker-alt"></i>Centro Dragão do Mar (Praça Verde)</span>
-              <span><i class="fa fa-users"></i>Secretaria da Diversidade – SEDIV</span>
-            </div>
-          </div>
-
-        </div>
-
-        <div style="text-align:center;margin-top:36px;" class="fade-up">
-          <a href="parada-2026.html#programacao-oficial" class="btn-parada">
-            Programação detalhada
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </a>
         </div>
       </div>
     </section>
@@ -987,7 +466,9 @@
       <div class="footer-col">
         <h4>Navegação</h4>
         <a href="index.html">Início</a>
-        <a href="parada-2026.html">25ª Parada pela Diversidade</a>
+        <a href="historico-paradas.html">Histórico das Paradas</a>
+        <a href="prevencao-combinada.html">Prevenção Combinada</a>
+        <a href="traves-ti.html">TRAVES-TI</a>
         <a href="#contato">Entre em Contato</a>
       </div>
       <div class="footer-col">
@@ -1167,63 +648,15 @@
       <p class="feedback-modal-title" id="form-error-modal-title">Não foi possível enviar</p>
       <p class="feedback-modal-text">
         Ocorreu um problema ao enviar sua mensagem. Tente novamente em instantes ou entre em contato
-        diretamente pelo e-mail <a href="mailto:grab.grupoasabranca@gmail.com"
-          style="color:#7B2D8B;font-weight:600;">grab.grupoasabranca@gmail.com</a>.
+        diretamente pelo e-mail <a href="mailto:grab.grupoasabranca@gmail.com">grab.grupoasabranca@gmail.com</a>.
       </p>
-      <button class="feedback-modal-btn" id="form-error-modal-close"
-        style="background:linear-gradient(135deg,#e53e3e 0%,#c53030 100%);box-shadow:0 6px 20px rgba(229,62,62,0.25);">
+      <button class="feedback-modal-btn feedback-modal-btn--error" id="form-error-modal-close">
         Tentar novamente
       </button>
     </div>
   </div>
 
   <script>
-    /* === DESTAQUE PRÓXIMO EVENTO ALUSIVO === */
-    (function () {
-      var today = new Date();
-      today.setHours(0, 0, 0, 0);
-
-      var cards = document.querySelectorAll('.home-alusiva-card[data-date]');
-      var nearestDate = null;
-
-      cards.forEach(function (card) {
-        var parts = card.dataset.date.split('-');
-        var eventDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-        if (eventDate >= today) {
-          if (nearestDate === null || eventDate < nearestDate) {
-            nearestDate = eventDate;
-          }
-        }
-      });
-
-      if (nearestDate === null) return;
-
-      var isToday = nearestDate.getTime() === today.getTime();
-
-      cards.forEach(function (card) {
-        var parts = card.dataset.date.split('-');
-        var eventDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-        var badge = document.createElement('div');
-        if (eventDate < today) {
-          card.classList.add('home-alusiva-card--past');
-          badge.className = 'alusiva-badge alusiva-badge--past';
-          badge.innerHTML = '<i class="fa fa-check"></i> Realizado';
-          card.insertBefore(badge, card.firstChild);
-        } else if (eventDate.getTime() === nearestDate.getTime()) {
-          if (isToday) {
-            card.classList.add('home-alusiva-card--today');
-            badge.className = 'alusiva-badge alusiva-badge--today';
-            badge.innerHTML = '<span class="badge-dot"></span> Acontece hoje';
-          } else {
-            card.classList.add('home-alusiva-card--next');
-            badge.className = 'alusiva-badge alusiva-badge--next';
-            badge.innerHTML = '<i class="fa fa-clock"></i> Próximo evento';
-          }
-          card.insertBefore(badge, card.firstChild);
-        }
-      });
-    }());
-
     /* === SLIDER === */
     const track = document.getElementById('slider-track');
     const dots = document.querySelectorAll('.slider-dot');
